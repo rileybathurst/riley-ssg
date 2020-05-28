@@ -1,5 +1,7 @@
+<!-- This is interesting the way they are using styles -->
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
+<!-- <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
@@ -94,6 +96,27 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default) -->
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+# Riley Bathurst Portfolio Site 
+
+Im slowly working on porting a wordpress site to a static site so this is how it's going for now.
+
+🪓 [Wordpress Site](https://github.com/rileybathurst/riley)
+
+``` gatsby develop ```
+
+``` gatsby build ```
+
+## Issues
+
+- siteDescription
+- search
+- Breadcrumbs
+- Gatsby config file needs some love to get it tidy
+- Post class and other progromatic classes
+- front page needs a more interesting way of changing the text, sonos does something like this but in a nice way
+- lozad changes
+- date in footer

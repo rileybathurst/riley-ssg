@@ -1,0 +1,336 @@
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Global...............Globally-available variables and config.
+ *
+ * TOOLS
+ * Mixins...............Useful mixins.
+ *
+ * GENERIC
+ * Normalize.css........A level playing field.
+ * Box-sizing...........Better default `box-sizing`.
+ *
+ * BASE
+ * Headings.............H1–H6 styles.
+ *
+ * OBJECTS
+ * Wrappers.............Wrapping and constraining elements.
+ *
+ * COMPONENTS
+ * Page-head............The main page header.
+ * Page-foot............The main page footer.
+ * Buttons..............Button elements.
+ *
+ * TRUMPS
+ * Text.................Text helpers.
+ */
+
+/*------------------------------------*\
+  #SECTION-TITLE
+\*------------------------------------*/
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+$print-breakpoint: large;
+$breakpoint-classes: (small medium large); // should this not include all the way to xx if I have it above?
+
+$primary-color: #c22127;
+$secondary-color: #8a0000;
+$warning-color: #ffae00;
+
+$black: #0a0a0a;
+$white: #fefefe;
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+
+$global-margin: 1rem;
+$global-padding: 1rem;
+$global-grid-gap: $global-margin;
+
+$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$header-font-family: $body-font-family;
+
+$page-width: 77rem;
+
+$global-transition: 0.5s ease;
+
+body {
+	font-family: $body-font-family;
+}
+// type scale
+html {font-size: 16px;}
+
+p {
+	margin-top: 0; // browser reset
+	margin-bottom: 1.25em;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 2.75rem 0 1rem;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052em; // 48px
+}
+
+h2 {font-size: 2.441em;} // 39px
+
+h3 {font-size: 1.953em;} // 31.2px
+
+h4 {font-size: 1.563em;} // 25px
+
+h5 {font-size: 1.25em;} // 20px
+
+small, .text_small {font-size: 0.8em;} // 12.8px
+
+li {
+	margin-bottom: $global-margin;
+}
+
+address {
+	font-style: unset; // revert from browser styles currently used in the footer
+}
+
+.text-center { // foundation style pulled over // I think wp has one of these already tho
+	text-align: center;
+}
+
+.menu {
+	list-style-type: none;
+}
+
+.mega a {
+	text-decoration: none;
+	padding: $global-padding;
+	border-right: 0.1em solid $primary-color;
+	border-bottom: 0.1em solid $primary-color;
+}
+.mega a:hover {
+	text-decoration: none;
+	background: $primary-color;
+	color: $white;
+}
+
+hr {
+	margin: 1.25rem auto;
+	border-top: 0;
+	border-bottom: 1px solid $medium-gray;
+}
+
+.is-style-mega-hr,
+.mega-hr { // this might be able to become a gutenberg style in for most places
+	border-bottom-width: 0.5em;
+	border-color: $white;
+
+	border-style: solid;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		border-bottom-width: 1em;
+	}
+}
+
+.is-style-mega-hr-primary,
+.mega-hr-primary {
+	@extend .mega-hr;
+	border-color: $primary-color;
+}
+
+.mega-hr-dirty {
+	@extend .mega-hr;
+	border-color: $light-gray;
+}
+
+.mw-18em { // this should be renamed
+	max-width: 18rem;
+	justify-self: center;
+}
+
+figcaption,
+.caption {
+	color: $dark-gray;
+	font-size: 1.5625rem;
+	font-weight: bold;
+}
+
+/* doesnt come up in search
+.footer_menu a {
+	text-decoration: none;
+}
+*/
+
+/* doesnt come up in search
+.post-categories li {
+	margin-bottom: 0;
+}
+*/
+
+.comment-form input,
+.comment-form textarea {
+	border: 0.1em solid $medium-gray;
+	font-weight: bold;
+	padding: $global-padding;
+	border-radius: 2px;
+	width: calc(100% - 3em); // feels like this should be 2.2em and is throwing errors on the post comment on a single page with a smaller width so should be more specific
+}
+
+.comment-form input {
+	width: initial; // the text boxes can get smaller but the button hides the text if it gets smaller
+}
+
+.comment-form [type="checkbox"] {
+	width: auto;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+	outline: 0.1em solid $primary-color;
+	border-radius: 2px;
+}
+
+/*
+.category-thumbnail { // this would be cool but it doesnt work with png
+	// background: $black;
+	// background: linear-gradient(53deg, rgba(2,0,36,1) 0%, rgba(194,33,39,1) 37%, rgba(0,212,255,1) #8a0000);
+}
+*/
+
+/*
+.category-thumbnail img { 
+	// height: 100%;
+}
+*/
+
+.category-thumbnail img:hover {
+	opacity: 0.8; // indication of a link
+}
+
+.wp-block-code { // this is getting overwritten by js that isnt really doing much of what I want at the moment and needs fixing in riley-webpack
+	background: $white;
+	padding: $global-padding;
+	line-height: 1.5em;
+}
+
+.flatten
+// .flatten img
+ {
+	transform: rotateX(90deg);
+}
+
+.flatten img {
+	transform-origin: bottom;
+	transition: 3s ease;
+}
+
+.base {
+	filter: drop-shadow(16px 16px 10px $dark-gray);
+	@media (prefers-color-scheme: dark) {
+		filter: drop-shadow(16px 16px 10px black);
+	}
+}
+
+.show-for-medium {
+	display: none;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		display: inherit;
+	}
+}
+
+.hide-for-medium {
+	@media (min-width: map-get($breakpoints, medium)) {
+		display: none;
+	}
+
+}
+.hide-for-large {
+	@media (min-width: map-get($breakpoints, large)) {
+		display: none;
+	}
+}
+
+iframe {
+	background: linen; // just a little fallback color incase an embed doesnt load
+}
+
+.category-overlaying-image {
+	filter: grayscale(100%);
+	mix-blend-mode: multiply;
+	@media (prefers-color-scheme: dark) {
+		mix-blend-mode: screen;
+	}
+	z-index: 14;
+	grid-row: 1;
+	grid-column: 1/4;
+}
+
+.category-color-blocking {
+	background: $primary-color;
+	mix-blend-mode: multiply;
+	z-index: 15;
+	grid-row: 1;
+	grid-column: 1/4;
+	transition: 300ms ease;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		grid-column: 2/5;
+	}
+}
+
+.category-color-blocking:hover {
+	background: $secondary-color;
+}
+
+/*
+	theres a whole very specific way of dealing with the dev category which goes back on a bunch of the regular work done by the category design page 
+*/
+
+body.category-code { // needs to be on the body tag or a single article can be different to the page
+	
+	.category-overlaying-image {
+		filter: none;
+		mix-blend-mode: initial;
+	}
+
+	.category-color-blocking {
+		display: none;
+	}
+
+	.category-color-blocking:hover {
+		display: initial;
+		opacity: 0.5;
+	}
+
+	.article-thumbnail {
+		margin-top: $global-margin*3;
+	}
+
+	.page-title a {
+		color: $primary-color;
+	}
+
+	.fp-header {
+		padding: 0;
+		grid-row: initial;
+
+		hr {
+			display: none;
+		}
+	}
+}
+
+// rebuilding this
+.spine-border {
+	background: $primary-color;
+	width: $global-grid-gap;
+	transition: 3s ease;
+	justify-self: center;
+}

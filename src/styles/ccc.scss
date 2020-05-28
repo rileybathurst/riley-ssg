@@ -1,0 +1,68 @@
+.ccc-west {
+	display: none;
+	@media (min-width: map-get($breakpoints, medium)) {
+		display: inline;
+		grid-column: 1;
+		grid-row: 1/4;
+	// 	margin-bottom: $global-margin;
+	}
+}
+
+.clicks,
+.code,
+.camera {
+	grid-column: 2;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; // this is a repeat
+
+	grid-gap: 0.5em;
+	// margin-bottom: $global-margin;
+
+	@media (min-width: map-get($breakpoints, medium)) {
+		grid-gap: 1em;
+	}
+}
+
+.ccc-east {
+	display: none;
+	@media (min-width: map-get($breakpoints, medium)) {
+		display: initial;
+		grid-column: 3;
+		grid-row: 1/4;
+	// 	margin-bottom: $global-margin;
+	}
+}
+
+.background-primary__social-icons {
+	margin-top: $global-margin;
+}
+
+.social-icons {
+	grid-column: 1/7; // this might be on the old lots of columns header
+	grid-row: 1/4; // match ccc so we can borrow classes
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr; // repeat this as well
+	grid-gap: 1em;
+}
+
+.social-icons > .fp-box > a {
+	display: inline-block;
+}
+
+.social-icons svg {
+	width: 2em;
+	padding-top: $global-padding;
+	padding-bottom: $global-padding;
+
+	@media (min-width: map-get($breakpoints, medium)) { // red text on brackets isnt a good sign does it need a prefix
+		width: 3em;
+	}
+}
+
+.social-icons svg {
+	fill: $white;
+}
+
+.social-icons svg:hover {
+	fill: $light-gray;
+}
