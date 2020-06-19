@@ -9,7 +9,7 @@ const Footer = ({ siteTitle }) => (
     <hr class="mega-hr-dirty" />
 
     <h3 class="site-footer--browse">Browse projects by category</h3>
-    <nav>
+    <nav className="menu">
       <PrimaryMenu />
     </nav>
 
@@ -18,17 +18,18 @@ const Footer = ({ siteTitle }) => (
             <div class="footer_1">{/* stay gold */}</div>
 
             <div class="footer_copyright">
-                <p>&copy; <Link to="/" rel="home">{siteTitle}</Link> 2009 - date("Y")</p>
+                <p>&copy; <Link to="/" rel="home">{siteTitle}</Link> 2009<span id="InTheYear"> - date("Y")</span></p>
+                {/* Find how to deal with the current year in js im getting its an innerHTML */}
             </div>{/* .footer_copyright */}
 
             <div class="footer_nav">
-            {/* <?php wp_nav_menu( array(
-                    'theme_location' => 'secondary',
-                    'menu_id'        => 'bottom-menu',
-                ) ); ?> */}
-                <nav>{/* this might be able to be the top level now */}
+              {/* <?php wp_nav_menu( array(
+                'theme_location' => 'secondary',
+                'menu_id'        => 'bottom-menu',
+              ) ); ?> */}
+                <nav id="bottom-menu" className="menu">{/* this might be able to be the top level now */}
                   <ul>
-                    <li><Link to='/search'>Search</Link></li>
+                    {/* <li><Link to='/search'>Search</Link></li> I need to learn a gatsby / ssg search function */}
                     <li><Link to='/contact'>Contact</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
                     {/* I can do something more interesting with this as a show whats available maybe an accordian or work in with what I already have */}

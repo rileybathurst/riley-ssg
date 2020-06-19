@@ -93,10 +93,11 @@
         // margin-bottom: $global-margin*3;
     }
 
-    p {
-        margin-top: $global-margin; // let it breathe
-        margin-bottom: 0; // grid gap does this for us
-    }
+/*     p {
+       // margin-top: $global-margin; // let it breathe // build down in a normal way of doing css
+        // margin-bottom: 0; // grid gap does this for us
+        // this had a wierd top only margin but I dont know why
+    } */
 }
 
 .article-content-specific {

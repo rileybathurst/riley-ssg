@@ -538,7 +538,8 @@ button:hover,
 	color: $white;
 }
 
-.sticky .page-title a {
+/* .sticky .page-title a {
+	// no sticky needs to be used anymore since Ive moved away from wordpress
 	text-decoration: none; // why removing the indication and then replacing it with a border-bottom
 	border-bottom: 3px solid $primary-color; // global
 	box-shadow: inset 0 -4px 0 $primary-color;
@@ -547,8 +548,9 @@ button:hover,
 .sticky .page-title a:hover {
 	border-bottom: none;
 	box-shadow: none;
-	background-color: rgba($warning-color, 0.3); // why am I using a warning color here?
-}
+	// background-color: rgba($warning-color, 0.3); // why am I using a warning color here?
+	// removed because of the $warning color
+} */
 
 // this must be able to be done better
 // back to the simple styles
@@ -723,6 +725,8 @@ button:hover,
 	// margin-top: $global-margin;
 	padding-top: $global-padding; // this has to be a padding otherwise you loose the hr on scroll between
 	margin-bottom: 0;
+
+	list-style: none; // this seems like its doubling down on .menu but wasa needed
 	@media (min-width: map-get($breakpoints, medium)) {
 		font-size: 2.25em; // type scale?
 	}
