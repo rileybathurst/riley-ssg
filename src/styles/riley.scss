@@ -717,7 +717,7 @@ button:hover,
 	@media (min-width: map-get($breakpoints, medium)) {
 		padding-left: $global-padding;
 	}
-}
+} // why am I closing these out rather than just embedding them
 
 .navigation-top ul li {
 	font-size: 1.5em; // type scale?
@@ -734,6 +734,10 @@ button:hover,
 
 .navigation-top ul li a {
 	padding: 0;
+}
+
+.single .navigation-top ul {
+	margin: 0;
 }
 
 .category-sub li {

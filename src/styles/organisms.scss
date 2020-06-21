@@ -19,7 +19,8 @@
 .single .site-header {
     @media (min-width: map-get($breakpoints, medium)) {
         grid-template-rows: initial;
-        grid-template-columns: 2em 1fr 2em;
+        // grid-template-columns: 2em 1fr 2em;
+        grid-template-columns: 2em 1fr;
     }
 }
 
@@ -117,4 +118,19 @@
             min-height: 100%;
         }
     }
+}
+
+.primary-menu a {
+    text-decoration: none;
+}
+
+.primary-menu .category {
+    
+}
+
+.primary-menu .qualifier {
+    font-family: 'Monaco', monospace;
+    font-size: 1rem;
+    color: darken($primary-color, 10%);
+    margin-left: 1rem;
 }

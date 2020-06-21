@@ -1,14 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+import Single from "../components/single"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
-  <Layout className="single">
+  <Single className="single">
     {/* <SEO title="Contact" /> */}
       <p>Image</p>
-  </Layout>
+  </Single>
 )
 
 export default IndexPage

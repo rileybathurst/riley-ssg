@@ -16,9 +16,9 @@ import "./layout.css"
 // import "../styles/app.css" // this currently is compiling its the one from wordpress
 import "../styles/app.scss" // this currently is compiling its the one from wordpress
 
-const Layout = ({ children }) => {
+const Single = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query SingleTitleQuery {
       site {
         siteMetadata {
           title
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <SingleHeader siteTitle={data.site.siteMetadata.title} />
 
         <main>{children}</main>
         {/* <footer>
@@ -42,8 +42,8 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
+/* Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+} */
 
-export default Layout
+export default Single

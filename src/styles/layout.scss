@@ -78,6 +78,11 @@ main { // im not sure if I should use main here but I am for now
     }
 }
 
+.single-site-header {
+    grid-template-columns: 1em 1fr;
+    margin-right: $global-margin;
+}
+
 .breadcrumbs {
 	grid-column: 1;
 	grid-row: 2 / 4;
@@ -86,8 +91,9 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .single .breadcrumbs {
-	grid-row: 1/3;
-	align-self: end;
+	// grid-row: 1/3;
+	grid-row: 2/4;
+	// align-self: end;
     @media (min-width: map-get($breakpoints, medium)) {
 		grid-row: 2;
 		// align-self: start;
@@ -278,6 +284,8 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .single .navigation-top {
+    grid-row: 2;
+
     @media (min-width: map-get($breakpoints, medium)) {
 
         ul {

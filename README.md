@@ -126,6 +126,7 @@ Im slowly working on porting a wordpress site to a static site so this is how it
 - front page needs a more interesting way of changing the text, sonos does something like this but in a nice way
 - lozad changes
 - date in footer
+- .site-header { is in both layout.scss and organisims.scss with a bunch of overwritting and doubles so I need to figure out what should actually be defined where
 
 ## Names
 
