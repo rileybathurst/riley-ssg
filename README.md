@@ -110,6 +110,12 @@ Im slowly working on porting a wordpress site to a static site so this is how it
 
 ``` gatsby build ```
 
+## Build
+
+- Gatsby
+- Strapi
+- Mongodb
+
 ## Issues
 
 - siteDescription
@@ -120,3 +126,12 @@ Im slowly working on porting a wordpress site to a static site so this is how it
 - front page needs a more interesting way of changing the text, sonos does something like this but in a nice way
 - lozad changes
 - date in footer
+
+## Names
+
+This should be something cooler than riley-ssg
+
+- Thomas
+- Something to do with Red
+- Something to do with fox
+- 
