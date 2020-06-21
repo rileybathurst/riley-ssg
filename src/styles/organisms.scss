@@ -24,6 +24,10 @@
     }
 }
 
+.single-site-header {
+    grid-template-rows: none !important;
+}
+
 /*------------------------------------*\
   # SITE BRANDING TEXT
 \*------------------------------------*/
@@ -125,12 +129,18 @@
 }
 
 .primary-menu .category {
-    
+    margin-bottom: 0.5em;
 }
 
 .primary-menu .qualifier {
     font-family: 'Monaco', monospace;
     font-size: 1rem;
     color: darken($primary-color, 10%);
+    font-weight: 400;
     margin-left: 1rem;
+
+    // depending on the flex direction if I need a margin or not
+    @media (min-width: map-get($breakpoints, medium)) {
+        margin-left: 0;
+    }
 }

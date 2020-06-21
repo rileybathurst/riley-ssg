@@ -127,6 +127,7 @@ Im slowly working on porting a wordpress site to a static site so this is how it
 - lozad changes
 - date in footer
 - .site-header { is in both layout.scss and organisims.scss with a bunch of overwritting and doubles so I need to figure out what should actually be defined where
+- primarymenu.js would be nice to use the qualifiers as the link titles as we have the info
 
 ## Names
 

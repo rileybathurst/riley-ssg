@@ -44,7 +44,13 @@ const SingleHeader = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+
     </div>
+
+    <hr className="site-header-hero-hr hero-hr" />
+
+    <hr className="single-site-header-color-block_1" />
+    <hr className="single-site-header-color-block_2" />
 
     {/* Im not quite sure about how to do this */}
     <div className="breadcrumbs">breadcrumbs</div>
