@@ -11,26 +11,32 @@ const IndexPage = () => (
     {/* <Image /> */}
       <div className="background-primary">
         <div className="front-page-titles">
+          <div className="fp-box">{/* stay gold */}</div>
           <div className="fp-box clicks-a"><div className="ghostly presence">C</div></div>
           <div className="fp-box clicks-b"><div className="ghostly presence">L</div></div>
           <div className="fp-box clicks-c"><div className="ghostly presence">I</div></div>
           <div className="fp-box clicks-d"><div className="ghostly presence">C</div></div>
           <div className="fp-box clicks-e"><div className="ghostly presence">K</div></div>
           <div className="fp-box clicks-f"><div className="ghostly presence">S</div></div>
+          <div className="fp-box">{/* stay gold */}</div>
 
+          <div className="fp-box">{/* stay gold */}</div>
           <div className="fp-box code-a"><div className="ghostly presence">C</div></div>
           <div className="fp-box code-b"><div className="ghostly presence">O</div></div>
           <div className="fp-box code-c"><div className="ghostly presence">D</div></div>
           <div className="fp-box code-d"><div className="ghostly presence">E</div></div>
           <div className="fp-box code-e">&nbsp;</div>
           <div className="fp-box code-f" data-text="&amp;"><div className="ghostly presence">&amp;</div></div>
+          <div className="fp-box">{/* stay gold */}</div>
 
+          <div className="fp-box">{/* stay gold */}</div>
           <div className="fp-box camera-a"><div className="ghostly presence">C</div></div>
           <div className="fp-box camera-b"><div className="ghostly presence">A</div></div>
           <div className="fp-box camera-c"><div className="ghostly presence">M</div></div>
           <div className="fp-box camera-d"><div className="ghostly presence">E</div></div>
           <div className="fp-box camera-e"><div className="ghostly presence">R</div></div>
           <div className="fp-box camera-f"><div className="ghostly presence">A</div></div>
+          <div className="fp-box">{/* stay gold */}</div>
         </div>
       </div>
 

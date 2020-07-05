@@ -74,6 +74,11 @@ $page-width: 77rem; // this needs some good documentation about when and especia
 
 // the question then comes do I allow things to keep going wider to get a nice length
 
+$reading-width: 48rem; // 16*48 is a default ipad and a nice way to read
+$measure-width: 40rem; // reference the elements of typographic style
+
+$global-grid: 2rem 1fr 1fr 1fr 2rem; // can I put a repeat on this?
+$global-grid__double: 2rem 1fr 1fr 1fr 1fr 1fr 1fr 2rem;
 
 $global-transition: 0.5s ease; // used for hover states I think I can remove this from being a "global"
 

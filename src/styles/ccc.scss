@@ -38,10 +38,10 @@
 }
 
 .social-icons {
-	grid-column: 1/7; // this might be on the old lots of columns header
-	grid-row: 1/4; // match ccc so we can borrow classes
+	max-width: $reading-width;
+	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr; // repeat this as well
+	grid-template-columns: $global-grid;
 	grid-gap: 1em;
 }
 

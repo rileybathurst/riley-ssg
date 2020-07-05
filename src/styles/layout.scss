@@ -32,7 +32,8 @@
 
 .site-main,
 main { // im not sure if I should use main here but I am for now
-    max-width: 71rem;
+    // max-width: 71rem;
+    max-width: $reading-width;
     margin: 0 auto;
 }
 
@@ -66,7 +67,8 @@ main { // im not sure if I should use main here but I am for now
 
 .site-header {
     width: 100%;
-    max-width: $page-width;
+    // max-width: $page-width;
+    max-width: $reading-width;
     margin: 0 auto $global-margin*2 auto;
     display: grid;
     grid-gap: $global-grid-gap;
@@ -336,11 +338,12 @@ main { // im not sure if I should use main here but I am for now
 
 .front-page-titles { 
     width: 100%;
-    max-width: 71rem;
+    // max-width: 71rem;
+    max-width: $reading-width;
     margin: 0 auto;
     display: grid; // I am using this for the grid gap it could probably be done better
-    grid-gap: $global-grid-gap/2; // double the grip half the gap
     grid-template-columns: repeat(6, 1fr);
+    grid-gap: $global-grid-gap/2; // double the grid (6 columns) half the gap
     background: $white;
     @media (prefers-color-scheme: dark) {
         background: $black;
@@ -350,10 +353,13 @@ main { // im not sure if I should use main here but I am for now
     // this needs a couple of media queries to match the header grid
     @media (min-width: map-get($breakpoints, medium)) {
         grid-gap: $global-grid-gap;
-        width: calc(100% - 6rem);
-        padding-left: 1rem;
-        padding-right: 1rem;
+        // width: calc(100% - 4rem); // the 2rem margins on each side to keep the background white
+        width: 100%;
+        // grid-template-columns: 2em 1fr 1fr 1fr 2em; // test as 3
+        grid-template-columns: 2em 1fr 1fr 1fr 1fr 1fr 1fr 2em; // just play by the normal grid its way easier
     }
+    /*         padding-left: 1rem;
+            padding-right: 1rem; */
 
     @media (min-width: 77rem) {
 
@@ -1095,7 +1101,8 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .site-footer--browse {
-    max-width: calc(77rem - 6rem);
+    // max-width: calc(77rem - 6rem);
+    max-width: $reading-width;
     margin: 0 auto;
 }
 
@@ -1127,7 +1134,8 @@ main { // im not sure if I should use main here but I am for now
     display: grid;
     grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
     grid-gap: $global-grid-gap;
-    max-width: $page-width;
+    // max-width: $page-width;
+    max-width: $reading-width;
     
     // margin: $global-margin; // allows the grid gap to sit inside the colored background
     margin: $global-margin auto; // still working on this
@@ -1344,4 +1352,9 @@ main { // im not sure if I should use main here but I am for now
     width: 100%;
     height: 4px;
     margin: 0;
+}
+
+.reading-width {
+    width: $reading-width;
+    margin: 0 auto;
 }

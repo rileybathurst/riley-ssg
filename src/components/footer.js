@@ -6,7 +6,8 @@ import PrimaryMenu from "./primarymenu"
 
 const Footer = ({ siteTitle }) => (
   <footer className="site-footer">
-    <hr className="mega-hr-dirty" />
+
+    <hr className="mega-hr-dirty reading-width" />
 
     <h3 className="site-footer--browse">Browse projects by category</h3>
     <nav className="menu">
@@ -27,7 +28,7 @@ const Footer = ({ siteTitle }) => (
                 'theme_location' => 'secondary',
                 'menu_id'        => 'bottom-menu',
               ) ); ?> */}
-                <nav id="bottom-menu" className="menu">{/* this might be able to be the top level now */}
+                <nav id="bottom-menu" className="menu reading-width">{/* this might be able to be the top level now */}
                   <ul>
                     {/* <li><Link to='/search'>Search</Link></li> I need to learn a gatsby / ssg search function */}
                     <li><Link to='/contact'>Contact</Link></li>
@@ -50,7 +51,6 @@ const Footer = ({ siteTitle }) => (
         </div>{/* .background-dirty footer-background__step */}
 
         <div className="background-primary background-primary__social-icons">
-          <div className="front-page-titles"> {/* this should be renamed to something more generic if its being used in multiplaces */}
             {/* <div className="fp-box ccc-west"></div> I had this removed in wp? */}
 
             <div className="social-icons">
@@ -78,7 +78,7 @@ const Footer = ({ siteTitle }) => (
             </div> {/* .social-icons */}
 
           {/* <div className="fp-box ccc-east"></div> this had been removed in wp */}
-        </div> {/* .front-page-titles */}
+        
       </div> {/* .background-primary background-primary__social-icons */}
 
     {/* I dont think I need to close the html and body tags as I dont open them */}

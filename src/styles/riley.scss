@@ -736,7 +736,7 @@ button:hover,
     padding: 0;
 }
 
-.single .navigation-top ul li a {
+.navigation-top ul li a { // this might not be for all but it is for now
     display: flex;
 
     @media (min-width: map-get($breakpoints, medium)) {

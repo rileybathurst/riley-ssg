@@ -132,8 +132,34 @@ Im slowly working on porting a wordpress site to a static site so this is how it
 ## Names
 
 This should be something cooler than riley-ssg
+- Thomas, the second name.
+- Something to do with Red.
+- Something to do with fox.
+- International? Swiss inspired an old artist etc?
+- Something to do with static as thats the real change for this, but will that date way too quick? and it should be the point number and I need something more boring.
+- my home then it can be point numbered or dated or anything and it updates
 
-- Thomas
-- Something to do with Red
-- Something to do with fox
-- 
+- Anchorage
+- abode
+- domain - this makes sense for the web.
+
+
+### The Three Headers
+
+#### header_complex 
+
+the front page, top of a category, contact page etc which have the fancy header
+
+#### header_orthodox (not loving the word real quickly) ✡ I can find and replace it pretty easy tho as it shouldnt be used in other places?
+#### header_stated 🤔
+
+anything singular with a full width image
+
+
+#### header_isolated 
+
+A 100vw width page for a specific image or video
+
+#### Others
+Not needed yet but it might happen.
+I think featured can mean all three so stay away from that
