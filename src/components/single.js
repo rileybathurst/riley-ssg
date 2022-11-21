@@ -12,10 +12,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import SingleHeader from "./singleheader"
 import Footer from "./footer"
 
-import "./layout.css"
-// import "../styles/app.css" // this currently is compiling its the one from wordpress
-import "../styles/app.scss" // this currently is compiling its the one from wordpress
-
 const Single = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SingleTitleQuery {
@@ -31,8 +27,8 @@ const Single = ({ children }) => {
     <>
       <SingleHeader siteTitle={data.site.siteMetadata.title} />
 
-        <main>{children}</main>
-        {/* <footer>
+      <main>{children}</main>
+      {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>

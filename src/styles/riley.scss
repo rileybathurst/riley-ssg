@@ -36,8 +36,9 @@
 Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
 --------------------------------------------------------------*/
 
-svg:not(:root) { // thats a pretty strange selector is it right?
-    overflow: hidden;
+svg:not(:root) {
+  // thats a pretty strange selector is it right?
+  overflow: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -46,34 +47,34 @@ svg:not(:root) { // thats a pretty strange selector is it right?
 
 /* Text meant only for screen readers. These are the wordpress twentyseventeen option for the default places its needed */
 .screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px;
-    overflow: hidden;
-    position: absolute !important;
-    width: 1px;
-    word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
 .screen-reader-text:focus {
-    background-color: #f1f1f1; // would I just prefer to leave screen readers to do whatever they want and not mess with them?
-    -webkit-border-radius: 3px; // do I need this in scss?
-    border-radius: 3px;
-    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6); // do I need this in scss?
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    clip: auto !important;
-    color: #21759b; // this should be changed to something like the theme
-    display: block;
-    font-size: 14px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000; /* Above WP toolbar. */
+  background-color: #f1f1f1; // would I just prefer to leave screen readers to do whatever they want and not mess with them?
+  -webkit-border-radius: 3px; // do I need this in scss?
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6); // do I need this in scss?
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b; // this should be changed to something like the theme
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar. */
 }
 
 /*--------------------------------------------------------------
@@ -81,35 +82,37 @@ svg:not(:root) { // thats a pretty strange selector is it right?
 --------------------------------------------------------------*/
 
 .alignleft {
-    text-align: left;
-    margin-right: $global-margin;
+  text-align: left;
+  margin-right: $global-margin;
 }
 
 .alignright {
-    text-align: right;
-    margin-left: $global-margin;
+  text-align: right;
+  margin-left: $global-margin;
 }
 
 .aligncenter {
-    text-align: center;
+  text-align: center;
 }
 
 .alignleft {
-    float: left;
+  float: left;
 }
 
-img.alignleft, .alignleft img {
-    margin-right: $global-margin !important; // what is the !important over writting?
-    margin-left: 0 !important; // what is the !important over writting?
+img.alignleft,
+.alignleft img {
+  margin-right: $global-margin !important; // what is the !important over writting?
+  margin-left: 0 !important; // what is the !important over writting?
 }
 
 .alignright {
-    float: right;
+  float: right;
 }
 
-img.alignright, .alignright img {
-    margin-left: $global-margin;
-    margin-right: 0 !important; // what is the !important over writting?
+img.alignright,
+.alignright img {
+  margin-left: $global-margin;
+  margin-right: 0 !important; // what is the !important over writting?
 }
 
 /*--------------------------------------------------------------
@@ -120,9 +123,9 @@ img.alignright, .alignright img {
 5.0 Typography
 --------------------------------------------------------------*/
 p {
-    @media (min-width: map-get($breakpoints, large)) {
-        text-align: justify;
-    }
+  @media (min-width: map-get($breakpoints, large)) {
+    text-align: justify;
+  }
 }
 
 /*
@@ -138,77 +141,80 @@ p {
 }
 
 a::selection {
-    color: $white;
+  color: $white;
 }
 
 blockquote {
-    margin: 0;
-    color: $black;
-    @media (prefers-color-scheme: dark) {
-        color: $white;
-    }
+  margin: 0;
+  color: $black;
+  @media (prefers-color-scheme: dark) {
+    color: $white;
+  }
 
-    font-size: 2em; // type scale?
-    font-weight: bold;
-    border-left: none; // I think this is a browser override?
+  font-size: 2em; // type scale?
+  font-weight: bold;
+  border-left: none; // I think this is a browser override?
 }
 
 blockquote:before {
-    content: "\201C "; // quotation mark?
-    font-family: $header-font-family;
-    font-weight: bold;
-    font-size: 32px; // hack this should be an em on the type scale
-    margin-right: $global-margin*0.5; // why so small?
+  content: "\201C "; // quotation mark?
+  font-family: $header-font-family;
+  font-weight: bold;
+  font-size: 32px; // hack this should be an em on the type scale
+  margin-right: $global-margin * 0.5; // why so small?
 }
 
 blockquote p {
-    // display: inline; this was to have the quotes inline but it looses the margins so for now it's removed
-    font-size: 1.125em; // type scale?
+  // display: inline; this was to have the quotes inline but it looses the margins so for now it's removed
+  font-size: 1.125em; // type scale?
 }
 
 cite {
-    color: $dark-gray;
-    margin-left: $global-margin;
-    margin-bottom: $global-margin*1.5;
-    word-break: break-all; // I was having problems on small screens citing urls
+  color: $dark-gray;
+  margin-left: $global-margin;
+  margin-bottom: $global-margin * 1.5;
+  word-break: break-all; // I was having problems on small screens citing urls
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        word-break: normal; // revert back when the small problem doesnt exsist
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    word-break: normal; // revert back when the small problem doesnt exsist
+  }
 }
 
 .article-content .wp-block-code {
-    white-space: break-spaces; // stay at 100%
+  white-space: break-spaces; // stay at 100%
 }
 
 .spine {
-    color: #575757; // darker than dark gray to pass contrast checks seems like something I should think about doing this everywhere
+  color: #575757; // darker than dark gray to pass contrast checks seems like something I should think about doing this everywhere
 }
 
 .is-style-box-title,
-.box-title, .box-title a {
-    border: .25em solid $black;
-    padding: $global-padding;
+.box-title,
+.box-title a {
+  border: 0.25em solid $black;
+  padding: $global-padding;
 }
 
 .box-title a:hover {
-    text-decoration: line-through; // is this different to a regular hover?
+  text-decoration: line-through; // is this different to a regular hover?
 }
 
-.pagination .prev, .pagination .next {
-    font-weight: bold;
+.pagination .prev,
+.pagination .next {
+  font-weight: bold;
 }
 
-.nav-previous, .nav-next {
-    font-weight: bold;
+.nav-previous,
+.nav-next {
+  font-weight: bold;
 }
 
 .post-navigation h2 {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
- .speechbubble {
-    /* display: block; // needed for the padding to be effective on a grid
+.speechbubble {
+  /* display: block; // needed for the padding to be effective on a grid
     color: $primary-color;
     padding: $global-padding;
     margin-top: -$global-grid-gap;
@@ -216,27 +222,26 @@ cite {
     border-right: 2px solid $primary-color;
     border-bottom-right-radius: 3px; */
 
-
-    font-weight: bold;
-    @media (min-width: map-get($breakpoints, medium)) {
-        writing-mode: vertical-rl;
-        margin-top: $global-margin;
-    }
-} 
+  font-weight: bold;
+  @media (min-width: map-get($breakpoints, medium)) {
+    writing-mode: vertical-rl;
+    margin-top: $global-margin;
+  }
+}
 
 .page-title {
-    // margin: 0;
-    font-size: 2em; // type scale?
-    // border: .2em solid $primary-color;
-    justify-self: start;
-    // padding: 0.5em; // why half size?
-    // color: $primary-color;
-    word-wrap: break-word;
-    // text-align: center;
+  // margin: 0;
+  font-size: 2em; // type scale?
+  // border: .2em solid $primary-color;
+  justify-self: start;
+  // padding: 0.5em; // why half size?
+  // color: $primary-color;
+  word-wrap: break-word;
+  // text-align: center;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        font-size: 3em;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    font-size: 3em;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -352,53 +357,54 @@ cite {
 7.0 Formatting
 --------------------------------------------------------------*/
 
-body { // I think I can do this better just having everything sit inside a little
-    border: 0.25em solid $white;
+body {
+  // I think I can do this better just having everything sit inside a little
+  border: 0.25em solid $white;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        border: 0.5em solid $white;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    border: 0.5em solid $white;
+  }
 
-    @media (min-width: map-get($breakpoints, large)) {
-        border: 1em solid $white;
-    }
+  @media (min-width: map-get($breakpoints, large)) {
+    border: 1em solid $white;
+  }
 
-    @media (prefers-color-scheme: dark) {
-        background: $black;
-        color: $white;
-        border-color: $black;
-        margin: 0;
-    }
+  @media (prefers-color-scheme: dark) {
+    background: $black;
+    color: $white;
+    border-color: $black;
+    margin: 0;
+  }
 }
 
 .background-clean {
-    background: $white;
-    @media (prefers-color-scheme: dark) {
-        background: $black;
-    }
+  background: $white;
+  @media (prefers-color-scheme: dark) {
+    background: $black;
+  }
 }
 
 .background-primary {
-    background: $primary-color;
+  background: $primary-color;
 }
 
 .background-dirty {
-    background: $light-gray;
+  background: $light-gray;
 
-    @media (prefers-color-scheme: dark) {
-        background: #2C2C2C;
-    }
+  @media (prefers-color-scheme: dark) {
+    background: #2c2c2c;
+  }
 }
 
 .background-double--dark {
-    background: #4A4A4A;
-    border-bottom: 2px solid $black;
-    color: $white;
+  background: #4a4a4a;
+  border-bottom: 2px solid $black;
+  color: $white;
 }
 
 .single-code {
-    @extend .background-double--dark;
-    padding: $global-padding;
+  @extend .background-double--dark;
+  padding: $global-padding;
 }
 
 /* .site, .site-footer {
@@ -406,33 +412,36 @@ body { // I think I can do this better just having everything sit inside a littl
     // color: black; // why not variables?
 } */
 
-table { // do I have any tables?
-    width: 100%;
+table {
+  // do I have any tables?
+  width: 100%;
 }
 
-.overlay { // hack where is this?
-    background: $primary-color;
-    z-index: 1;
-    grid-column: 11 / span 3; // this could be better
+.overlay {
+  // hack where is this?
+  background: $primary-color;
+  z-index: 1;
+  grid-column: 11 / span 3; // this could be better
+  grid-row: 1 / span 4;
+
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 11 / span 3;
     grid-row: 1 / span 4;
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 11 / span 3;
-        grid-row: 1 / span 4;
-    }
+  }
 }
 
-.page-title-2 { // naming needs work
-    display: none;
+.page-title-2 {
+  // naming needs work
+  display: none;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        display: block;
-        color: $white;
-        writing-mode: vertical-rl;
-        grid-column: 11 / span 2;
-        grid-row: 1 / span 4;
-        z-index: 99 !important; // what is this?
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    display: block;
+    color: $white;
+    writing-mode: vertical-rl;
+    grid-column: 11 / span 2;
+    grid-row: 1 / span 4;
+    z-index: 99 !important; // what is this?
+  }
 }
 
 /*--------------------------------------------------------------
@@ -440,11 +449,11 @@ table { // do I have any tables?
 --------------------------------------------------------------*/
 
 .menu li {
-    margin-right: $global-margin;
+  margin-right: $global-margin;
 }
 
 .menu li:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 /*--------------------------------------------------------------
@@ -456,66 +465,69 @@ table { // do I have any tables?
 --------------------------------------------------------------*/
 
 a {
-    color: $primary-color;
+  color: $primary-color;
 }
 
 a:hover {
-    text-decoration: line-through;
-    color: $secondary-color;
+  text-decoration: line-through;
+  color: $secondary-color;
 
-    @media (prefers-color-scheme: dark) {
-        color: lighten($primary-color, 10%);
-    }
+  @media (prefers-color-scheme: dark) {
+    color: lighten($primary-color, 10%);
+  }
 }
 
 .form-submit {
-    text-align: left !important; // why important?
+  text-align: left !important; // why important?
 }
 
 button,
-.button { // [type="submit"] removed for material
-    // margin: 0; /* bring the element back inline */
-    margin-bottom: $global-margin;
-    // background: none !important; // why important?
-    background: $primary-color;
-/* 	border-top: none !important;
+.button {
+  // [type="submit"] removed for material
+  // margin: 0; /* bring the element back inline */
+  margin-bottom: $global-margin;
+  // background: none !important; // why important?
+  background: $primary-color;
+  /* 	border-top: none !important;
     border-left: none !important; */
-    border: none;
-    // color: $primary-color;
-    color: $white;
-    // border-color: $primary-color !important;
-    font-weight: bold;
-    font-size: 1.5em; // type scale?
-    /* padding-right: $global-padding; this was causing issues with hover looking strange but maybe I had done it or a reason?
+  border: none;
+  // color: $primary-color;
+  color: $white;
+  // border-color: $primary-color !important;
+  font-weight: bold;
+  font-size: 1.5em; // type scale?
+  /* padding-right: $global-padding; this was causing issues with hover looking strange but maybe I had done it or a reason?
     padding-bottom: $global-padding;
-    */ 
-    transition: $global-transition;
-    // padding: $global-padding/2; // front page on 0 doesnt work
-    padding: $global-padding/2 $global-padding; // front page on 0 doesnt work
+    */
+  transition: $global-transition;
+  // // TODO padding: $global-padding/2; // front page on 0 doesnt work
+  // TODO padding: $global-padding/2 $global-padding; // front page on 0 doesnt work
 
-    display: inline-block;
+  display: inline-block;
 
-    -webkit-appearance: none; // browser reset
+  -webkit-appearance: none; // browser reset
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        font-size: 2em; // type scale?
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    font-size: 2em; // type scale?
+  }
 }
 
-a.button { // I dont love links as button they should be seperate things but for now
-    text-decoration: none;
+a.button {
+  // I dont love links as button they should be seperate things but for now
+  text-decoration: none;
 }
 
 button:hover,
-.button:hover { // [type="submit"] removed for material
-    // background: $primary-color !important; // why important?
-    background: $secondary-color;
-    // color: $white !important; // why important?
-    @media (prefers-color-scheme: dark) {
-        background: lighten($primary-color, 10%);
-    }
+.button:hover {
+  // [type="submit"] removed for material
+  // background: $primary-color !important; // why important?
+  background: $secondary-color;
+  // color: $white !important; // why important?
+  @media (prefers-color-scheme: dark) {
+    background: lighten($primary-color, 10%);
+  }
 
-    // padding: $global-padding; // this is on a transition so its interesting when just on the hover
+  // padding: $global-padding; // this is on a transition so its interesting when just on the hover
 }
 
 /*
@@ -526,16 +538,16 @@ button:hover,
 */
 
 .navigation-top a:hover {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .site-title {
-    color: $white;
+  color: $white;
 }
 
 .page-title a {
-    // color: $primary-color;
-    color: $white;
+  // color: $primary-color;
+  color: $white;
 }
 
 /* .sticky .page-title a {
@@ -572,14 +584,14 @@ button:hover,
 .article-footer a,
 .quote-content p a,
 .quote-footer a {
-    text-decoration: none; //why removing the indication of a link?
-    color: $primary-color;
+  text-decoration: none; //why removing the indication of a link?
+  color: $primary-color;
 }
 
 .article-footer a:hover,
 .quote-content p a:hover,
 .quote-footer a:hover {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 /* .article-content .button,
@@ -600,63 +612,63 @@ button:hover,
 } */
 
 .breacdcrumbs {
-    color: $dark-gray;
+  color: $dark-gray;
 }
 
 .breadcrumbs a {
-    color: #575757; // dark-gray doesn't pass contrast checks but I didn't want to go all the way to black
-    text-decoration: line-through;
+  color: #575757; // dark-gray doesn't pass contrast checks but I didn't want to go all the way to black
+  text-decoration: line-through;
 
-    @media (prefers-color-scheme: dark) {
-        color: $light-gray;
-    }
+  @media (prefers-color-scheme: dark) {
+    color: $light-gray;
+  }
 }
 
 .breadcrumbs a:hover {
-    color: $primary-color;
-    text-decoration: underline;
+  color: $primary-color;
+  text-decoration: underline;
 }
 
 .pagination a {
-    color: $primary-color;
-    text-decoration: underline;
+  color: $primary-color;
+  text-decoration: underline;
 }
 
 .pagination a:hover,
 .pagination .current {
-    text-decoration: line-through;
-    color: $primary-color;
-    background: none;
+  text-decoration: line-through;
+  color: $primary-color;
+  background: none;
 }
 
 .pagination .nav-links .next,
 .pagination .nav-links .prev {
-    border-bottom: none;
-    box-shadow: none; // would this have a box shadow?
-    color: $black;
-    @media (prefers-color-scheme: dark) {
-        color: $white;
-    }
+  border-bottom: none;
+  box-shadow: none; // would this have a box shadow?
+  color: $black;
+  @media (prefers-color-scheme: dark) {
+    color: $white;
+  }
 }
 
 .pagination .nav-links .next,
 .pagination .nav-links .prev {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .pagination .nav-links .next:hover,
 .pagination .nav-links .prev:hover {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .footer_copyright a,
 .footer_nav a,
 .footer_contact a {
-    /* text-decoration: none;
+  /* text-decoration: none;
     color: $black;
     box-shadow: inset 0 -4px 0 $primary-color; // this is alternative underline that rises up on hover
     transition: 300ms; */
-    font-weight: bold;
+  font-weight: bold;
 }
 /* 
 .footer_copyright a:hover,
@@ -694,12 +706,12 @@ button:hover,
 } */
 
 .article-tags a {
-    @extend button;
-    margin-bottom: 0;
+  @extend button;
+  margin-bottom: 0;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        text-align: right;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    text-align: right;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -710,86 +722,87 @@ button:hover,
 12.0 Navigation
 --------------------------------------------------------------*/
 
-.navigation-top ul { // does this need to be told to be a flex?
-    // flex-direction: column;
-    padding-left: 0;
+.navigation-top ul {
+  // does this need to be told to be a flex?
+  // flex-direction: column;
+  padding-left: 0;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        padding-left: $global-padding;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    padding-left: $global-padding;
+  }
 } // why am I closing these out rather than just embedding them
 
 .navigation-top ul li {
-    font-size: 1.5em; // type scale?
-    font-weight: bold;
-    // margin-top: $global-margin;
-    padding-top: $global-padding; // this has to be a padding otherwise you loose the hr on scroll between
-    margin-bottom: 0;
+  font-size: 1.5em; // type scale?
+  font-weight: bold;
+  // margin-top: $global-margin;
+  padding-top: $global-padding; // this has to be a padding otherwise you loose the hr on scroll between
+  margin-bottom: 0;
 
-    list-style: none; // this seems like its doubling down on .menu but wasa needed
-    @media (min-width: map-get($breakpoints, medium)) {
-        font-size: 2.25em; // type scale?
-    }
+  list-style: none; // this seems like its doubling down on .menu but wasa needed
+  @media (min-width: map-get($breakpoints, medium)) {
+    font-size: 2.25em; // type scale?
+  }
 }
 
 .navigation-top ul li a {
-    padding: 0;
+  padding: 0;
 }
 
-.navigation-top ul li a { // this might not be for all but it is for now
-    display: flex;
+.navigation-top ul li a {
+  // this might not be for all but it is for now
+  display: flex;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        flex-direction: column;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    flex-direction: column;
+  }
 }
 
 .single .navigation-top ul {
-    margin: 0;
+  margin: 0;
 }
 
 .category-sub li {
-    text-align: center;
+  text-align: center;
 }
 
 // .footer_menu li,
 .category-sub li {
-    // border: .25em solid $primary-color; // global?
-    
-    a {
-        font-weight: bold;
-        background: $primary-color;
-        color: $white;
-        padding: $global-padding;
-        display: block;
-        text-decoration: none;
-    }
+  // border: .25em solid $primary-color; // global?
 
-    a:hover {
-        background: $secondary-color;
-        text-decoration: line-through;
-    }
+  a {
+    font-weight: bold;
+    background: $primary-color;
+    color: $white;
+    padding: $global-padding;
+    display: block;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background: $secondary-color;
+    text-decoration: line-through;
+  }
 }
 
 .footer_menu li {
-    
-    a {
-        background: $primary-color;
-        color: $white;
-        padding: $global-padding;
-        text-decoration: none;
-        display: block; // fill the box
-        transition: $global-transition;
-        font-weight: bold;
-    }
+  a {
+    background: $primary-color;
+    color: $white;
+    padding: $global-padding;
+    text-decoration: none;
+    display: block; // fill the box
+    transition: $global-transition;
+    font-weight: bold;
+  }
 
-    a:hover {
-        text-decoration: line-through;
-        background: $secondary-color;
-        @media (prefers-color-scheme: dark) {
-            background: lighten($primary-color, 10%);
-        }
+  a:hover {
+    text-decoration: line-through;
+    background: $secondary-color;
+    @media (prefers-color-scheme: dark) {
+      background: lighten($primary-color, 10%);
     }
+  }
 }
 
 /*--------------------------------------------------------------
@@ -797,22 +810,26 @@ button:hover,
 --------------------------------------------------------------*/
 
 body {
-    min-height: 100vh; // make sure the page is always filled
+  min-height: 100vh; // make sure the page is always filled
 }
 
-img, video, figure {
-    height: auto;
-    max-width: 100%;
+img,
+video,
+figure {
+  height: auto;
+  max-width: 100%;
 }
 
-.img-100, .img-100 img {
-    width: 100%;
+.img-100,
+.img-100 img {
+  width: 100%;
 }
 
-.box { // I really want to get rid of this what is it and where is it used?
-    overflow: hidden;
-    z-index: 10;
-    width: 100%;
+.box {
+  // I really want to get rid of this what is it and where is it used?
+  overflow: hidden;
+  z-index: 10;
+  width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -820,56 +837,57 @@ img, video, figure {
 --------------------------------------------------------------*/
 
 .header-logo {
-    fill: $primary-color;
+  fill: $primary-color;
 }
 
 .header-logo:hover {
-    fill: $secondary-color;
+  fill: $secondary-color;
 }
 
 .subheader {
-    font-size: 2em; // type scale?
-    color: $dark-gray;
-    margin: 0.1em 0; // why so slender? or just be a zero
+  font-size: 2em; // type scale?
+  color: $dark-gray;
+  margin: 0.1em 0; // why so slender? or just be a zero
 }
 
 .site-branding-text {
-    writing-mode: vertical-rl;
-    justify-self: center;
-    background: black; // adding this incase we dont have images the text is still visible // true black not $black for the screen blend to not show anything
+  writing-mode: vertical-rl;
+  justify-self: center;
+  background: black; // adding this incase we dont have images the text is still visible // true black not $black for the screen blend to not show anything
 
-    a {
-        color: $white;
-        padding: $global-padding;
-        display: inline-block; // am I sure this is neccessary
-    }
+  a {
+    color: $white;
+    padding: $global-padding;
+    display: inline-block; // am I sure this is neccessary
+  }
 }
 
-.single .site-branding-text { // no longer over the image
-    writing-mode: initial;
+.single .site-branding-text {
+  // no longer over the image
+  writing-mode: initial;
 
-    a {
-        padding: initial;
-        color: $black;
-        text-decoration: none; // I have the hero underneath which is kinda taking care of this
-        @media (prefers-color-scheme: dark) {
-            color: $white;
-        }
+  a {
+    padding: initial;
+    color: $black;
+    text-decoration: none; // I have the hero underneath which is kinda taking care of this
+    @media (prefers-color-scheme: dark) {
+      color: $white;
     }
+  }
 }
 
 .overlaying-image {
-    filter: grayscale(100%); // does this need a 100% or is this a default?
-    mix-blend-mode: multiply;
-    @media (prefers-color-scheme: dark) {
-        mix-blend-mode: screen;
-    }
-    z-index: 14; // why this number?
+  filter: grayscale(100%); // does this need a 100% or is this a default?
+  mix-blend-mode: multiply;
+  @media (prefers-color-scheme: dark) {
+    mix-blend-mode: screen;
+  }
+  z-index: 14; // why this number?
 }
 
 .custom-header-media img,
 .custom-header-media picture {
-    width: 100%;
+  width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -877,16 +895,16 @@ img, video, figure {
 --------------------------------------------------------------*/
 
 .front-page-titles {
-
-    // background: $white;
-    text-align: center;
-    font-weight: bold;
+  // background: $white;
+  text-align: center;
+  font-weight: bold;
 }
 
-.fp-box { // front page box these are the red areas behind clicks code and camera on the split levels
-    background: $primary-color;
-    color: $white;
-/* 	padding: 0.5em;
+.fp-box {
+  // front page box these are the red areas behind clicks code and camera on the split levels
+  background: $primary-color;
+  color: $white;
+  /* 	padding: 0.5em;
 
     @media (min-width: map-get($breakpoints, medium)) {
         padding: $global-padding;
@@ -897,20 +915,21 @@ img, video, figure {
 --------------------------------------------------------------*/
 
 .single .site-title {
-    color: $black;
+  color: $black;
 }
 
 #comments {
-    padding: 0 !important; // why important?
+  padding: 0 !important; // why important?
 }
 
-.cat-title { // wrong place
-    margin-top: $global-margin*2;
-    font-size: 2em; // type scale?
+.cat-title {
+  // wrong place
+  margin-top: $global-margin * 2;
+  font-size: 2em; // type scale?
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        font-size: 3em; // type scale?
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    font-size: 3em; // type scale?
+  }
 }
 
 /*--------------------------------------------------------------
@@ -918,39 +937,39 @@ img, video, figure {
 --------------------------------------------------------------*/
 
 .featured-subheader a {
-    color: $dark-gray;
+  color: $dark-gray;
 }
 
 .featured-category-title {
-    margin: 0.5em auto; // why is this and padding compressed?
-    font-size: 2em; // type scale?
-    border: 0.2em solid $primary-color; // global?
-    padding: 0.5em;
-    word-wrap: break-word;
-    text-align: center;
+  margin: 0.5em auto; // why is this and padding compressed?
+  font-size: 2em; // type scale?
+  border: 0.2em solid $primary-color; // global?
+  padding: 0.5em;
+  word-wrap: break-word;
+  text-align: center;
 
-     @media (min-width: map-get($breakpoints, medium)) {
-         font-size: 6em; // this is really large?
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    font-size: 6em; // this is really large?
+  }
 }
 
 .featured-category-title a:hover {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .category-titles a {
-    color: $primary-color;
+  color: $primary-color;
 }
 
 .category-titles a:hover {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .comment-body {
-    display: block !important; // this was getting stuck on a grid display from what?
-    grid-auto-columns: auto !important; // its a display these shouldnt work now?
-    grid-template-columns: auto; // its a display these shouldnt work now?
-    grid-auto-rows: auto !important; // its a display these shouldnt work now?
+  display: block !important; // this was getting stuck on a grid display from what?
+  grid-auto-columns: auto !important; // its a display these shouldnt work now?
+  grid-template-columns: auto; // its a display these shouldnt work now?
+  grid-auto-rows: auto !important; // its a display these shouldnt work now?
 }
 
 /*--------------------------------------------------------------
@@ -960,70 +979,70 @@ img, video, figure {
 /* currently taken from twentyseventeen as comments take time and are boring if i dont use them alot but should look at this */
 
 #comments {
-    clear: both;
-    padding: 2em 0 0.5em; // I need to do this in the way I work
+  clear: both;
+  padding: 2em 0 0.5em; // I need to do this in the way I work
 }
 
 .comments-title {
-    font-size: 20px; // type scale?
-    font-size: 1.25rem; // why twice?
-    margin-bottom: 1.5em;
+  font-size: 20px; // type scale?
+  font-size: 1.25rem; // why twice?
+  margin-bottom: 1.5em;
 }
 
 .comment-list,
 .comment-list .children {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .comment-list li:before {
-    display: none;
+  display: none;
 }
 
 .comment-body {
-    margin-left: 65px; // deal with this?
+  margin-left: 65px; // deal with this?
 }
 
 .comment-author {
-    font-size: 16px; // type scale?
-    font-size: 1rem;
-    margin-bottom: 0.4em;
-    position: relative;
-    z-index: 2;
+  font-size: 16px; // type scale?
+  font-size: 1rem;
+  margin-bottom: 0.4em;
+  position: relative;
+  z-index: 2;
 }
 
 .comment-author .avatar {
-    height: 50px;
-    left: -65px;
-    position: absolute;
-    width: 50px;
+  height: 50px;
+  left: -65px;
+  position: absolute;
+  width: 50px;
 }
 
 .comment-author .says {
-    display: none;
+  display: none;
 }
 
 .comment-meta {
-    margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .comment-metadata {
-    color: #767676;
-    font-size: 10px;
-    font-size: 0.625rem;
-    font-weight: 800;
-    letter-spacing: 0.1818em;
-    text-transform: uppercase;
+  color: #767676;
+  font-size: 10px;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.1818em;
+  text-transform: uppercase;
 }
 
 .comment-metadata a {
-    color: #767676;
+  color: #767676;
 }
 
 .comment-metadata a.comment-edit-link {
-    color: #222;
-    margin-left: 1em;
+  color: #222;
+  margin-left: 1em;
 }
 
 /* .comment-body {
@@ -1034,45 +1053,44 @@ img, video, figure {
 }
  */
 .comment-reply-link {
-    font-weight: 800;
-    position: relative;
+  font-weight: 800;
+  position: relative;
 }
 
 .comment-reply-link .icon {
-    color: #222;
-    left: -2em;
-    height: 1em;
-    position: absolute;
-    top: 0;
-    width: 1em;
+  color: #222;
+  left: -2em;
+  height: 1em;
+  position: absolute;
+  top: 0;
+  width: 1em;
 }
 
 .children .comment-author .avatar {
-    height: 30px;
-    left: -45px;
-    width: 30px;
+  height: 30px;
+  left: -45px;
+  width: 30px;
 }
 
 .bypostauthor > .comment-body > .comment-meta > .comment-author .avatar {
-    border: 1px solid #333; // why not a $variable
-    padding: 2px;
+  border: 1px solid #333; // why not a $variable
+  padding: 2px;
 }
 
 .no-comments,
 .comment-awaiting-moderation {
-    color: #767676;
-    font-size: 14px; // this is wrong
-    font-style: italic; // this is wrong
+  color: #767676;
+  font-size: 14px; // this is wrong
+  font-style: italic; // this is wrong
 }
 
 .comments-pagination {
-    margin: 2em 0 3em;
+  margin: 2em 0 3em;
 }
 
 .form-submit {
-    text-align: right;
+  text-align: right;
 }
-
 
 /*--------------------------------------------------------------
 15.0 Widgets
@@ -1083,54 +1101,55 @@ img, video, figure {
 --------------------------------------------------------------*/
 
 figure {
-    margin: 0;
+  margin: 0;
 }
 
 /* SVG Icons base styles */
 
 svg {
-    fill: currentColor;
-    width: 1em; // thats pretty small?
+  fill: currentColor;
+  width: 1em; // thats pretty small?
 }
 
 .icon {
-    display: inline-block;
-    fill: currentColor;
-    height: 1em;
-    position: relative; /* Align more nicely with capital letters */ // what was it before?
-    top: -0.0625em;
-    vertical-align: middle; // doesnt this negate what comes before?
-    width: 1em;
+  display: inline-block;
+  fill: currentColor;
+  height: 1em;
+  position: relative; /* Align more nicely with capital letters */ // what was it before?
+  top: -0.0625em;
+  vertical-align: middle; // doesnt this negate what comes before?
+  width: 1em;
 }
 
 .wp-caption,
 .gallery-caption {
-    color: $dark-gray;
-    font-style: italic;
-    margin-bottom: 1.5em;
+  color: $dark-gray;
+  font-style: italic;
+  margin-bottom: 1.5em;
 }
 
-.wp-caption img[class*="wp-image-"] { // clarify this selector?
-    display: block;
-    margin-left: auto; // can this be done in one line?
-    margin-right: auto;
+.wp-caption img[class*="wp-image-"] {
+  // clarify this selector?
+  display: block;
+  margin-left: auto; // can this be done in one line?
+  margin-right: auto;
 }
 
 .wp-caption .wp-caption-text {
-    margin: $global-margin 0;
+  margin: $global-margin 0;
 }
 
 .cfimg {
-    display: grid;
+  display: grid;
 }
 .cfimg picture {
-    grid-column: 1;
-    grid-row: 1;
-    animation-name: FadeInOut;
-    animation-duration: 20s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    z-index: 1;
+  grid-column: 1;
+  grid-row: 1;
+  animation-name: FadeInOut;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  z-index: 1;
 }
 
 // http://css3.bradshawenterprises.com/cfimg/
@@ -1154,62 +1173,63 @@ css slidesshow in Rileys google drive can do all the math
 
 */
 @keyframes FadeInOut {
-    0% {
-        opacity:1;
-    }
-    15% {
-        opacity:1;
-    }
-    20% {
-        opacity:0;
-    }
-    95% {
-        opacity:0;
-    }
-    100% {
-        opacity:1;
-    }
+  0% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .cfimg picture:nth-of-type(1) {
-    animation-delay: 16s;
+  animation-delay: 16s;
 }
 .cfimg picture:nth-of-type(2) {
-    animation-delay: 12s;
+  animation-delay: 12s;
 }
 .cfimg picture:nth-of-type(3) {
-    animation-delay: 8s;
+  animation-delay: 8s;
 }
 .cfimg picture:nth-of-type(4) {
-    animation-delay: 4s;
+  animation-delay: 4s;
 }
 .cfimg picture:nth-of-type(5) {
-    animation-delay: 0;
+  animation-delay: 0;
 }
 
 /*--------------------------------------------------------------
 16.1 Galleries
 --------------------------------------------------------------*/
 
-.gallery-item { // am I using any galleries and I presume these have changed with gutenberg?
-    display: inline-block;
-    text-align: left;
-    vertical-align: top;
-    margin: 0 0 1.5em;
-    padding: 0 1em 0 0;
-    width: 50%;
+.gallery-item {
+  // am I using any galleries and I presume these have changed with gutenberg?
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  margin: 0 0 1.5em;
+  padding: 0 1em 0 0;
+  width: 50%;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-            max-width: 25%;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    max-width: 25%;
+  }
 }
 
 .gallery-columns-1 .gallery-item {
-    width: 100%;
+  width: 100%;
 }
 
 .gallery-columns-2 .gallery-item {
-    max-width: 50%;
+  max-width: 50%;
 }
 
 .gallery-item a,
@@ -1218,62 +1238,62 @@ css slidesshow in Rileys google drive can do all the math
 .widget-area .gallery-item a,
 .widget-area .gallery-item a:hover,
 .widget-area .gallery-item a:focus {
-    -webkit-box-shadow: none; // will sass do this for me?
-    box-shadow: none;
-    background: none; // whats this overwritting?
-    display: inline-block;
-    max-width: 100%;
+  -webkit-box-shadow: none; // will sass do this for me?
+  box-shadow: none;
+  background: none; // whats this overwritting?
+  display: inline-block;
+  max-width: 100%;
 }
 
 .gallery-item a img {
-    display: block;
-    -webkit-transition: -webkit-filter 0.2s ease-in;
-    transition: -webkit-filter 0.2s ease-in;
-    transition: filter 0.2s ease-in;
-    transition: filter 0.2s ease-in, -webkit-filter 0.2s ease-in;
-    -webkit-backface-visibility: hidden; // what is this and will sass deal with the pre name?
-    backface-visibility: hidden;
+  display: block;
+  -webkit-transition: -webkit-filter 0.2s ease-in;
+  transition: -webkit-filter 0.2s ease-in;
+  transition: filter 0.2s ease-in;
+  transition: filter 0.2s ease-in, -webkit-filter 0.2s ease-in;
+  -webkit-backface-visibility: hidden; // what is this and will sass deal with the pre name?
+  backface-visibility: hidden;
 }
 
 .gallery-item a:hover img,
 .gallery-item a:focus img {
-    -webkit-filter: opacity(60%); // will sass do this for me?
-    filter: opacity(60%);
+  -webkit-filter: opacity(60%); // will sass do this for me?
+  filter: opacity(60%);
 }
 
 .gallery-caption {
-    display: block;
-    text-align: left;
-    padding: 0 $global-padding 0 0;
-    margin-bottom: 0;
+  display: block;
+  text-align: left;
+  padding: 0 $global-padding 0 0;
+  margin-bottom: 0;
 }
 
 .gallery-columns-1 .gallery-item {
-        @media (min-width: map-get($breakpoints, medium)) {
-            max-width: 100%;
-        }
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    max-width: 100%;
+  }
+}
 
-    .gallery-columns-2 .gallery-item {
-        @media (min-width: map-get($breakpoints, medium)) {
-            max-width: 50%;
-        }
-    }
+.gallery-columns-2 .gallery-item {
+  @media (min-width: map-get($breakpoints, medium)) {
+    max-width: 50%;
+  }
+}
 
-    .gallery-columns-3 .gallery-item {
-        @media (min-width: map-get($breakpoints, medium)) {
-            max-width: 33.33%;
-        }
-    }
+.gallery-columns-3 .gallery-item {
+  @media (min-width: map-get($breakpoints, medium)) {
+    max-width: 33.33%;
+  }
+}
 
-    .gallery-columns-4 .gallery-item {
-        @media (min-width: map-get($breakpoints, medium)) {
-            max-width: 25%;
-        }
-    }
+.gallery-columns-4 .gallery-item {
+  @media (min-width: map-get($breakpoints, medium)) {
+    max-width: 25%;
+  }
+}
 
 .gallery-caption {
-    color: $dark-gray;
+  color: $dark-gray;
 }
 
 /*--------------------------------------------------------------
@@ -1284,48 +1304,49 @@ css slidesshow in Rileys google drive can do all the math
 18.0 SVGs Fallbacks
 --------------------------------------------------------------*/
 
-.svg-fallback { // clarify this? seems like its taken from something?
-    display: none;
+.svg-fallback {
+  // clarify this? seems like its taken from something?
+  display: none;
 }
 
 .no-svg .svg-fallback {
-    display: inline-block;
+  display: inline-block;
 }
 
 .no-svg .dropdown-toggle {
-    padding: 0.5em 0 0;
-    right: 0;
-    text-align: center;
-    width: 2em;
+  padding: 0.5em 0 0;
+  right: 0;
+  text-align: center;
+  width: 2em;
 }
 
 .no-svg .dropdown-toggle .svg-fallback.icon-angle-down {
-    font-size: 20px;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-    -ms-transform: rotate(180deg); /* IE 9 */
-    transform: rotate(180deg);
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  -ms-transform: rotate(180deg); /* IE 9 */
+  transform: rotate(180deg);
 }
 
 .no-svg .dropdown-toggle.toggled-on .svg-fallback.icon-angle-down {
-    -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
-    -ms-transform: rotate(0); /* IE 9 */
-    transform: rotate(0);
+  -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
+  -ms-transform: rotate(0); /* IE 9 */
+  transform: rotate(0);
 }
 
 .no-svg .dropdown-toggle .svg-fallback.icon-angle-down:before {
-    content: "\005E";
+  content: "\005E";
 }
 
 /* Social Menu fallbacks */
 
 .no-svg .social-navigation a {
-    background: transparent;
-    color: #222;
-    height: auto;
-    width: auto;
+  background: transparent;
+  color: #222;
+  height: auto;
+  width: auto;
 }
 
 /* Show screen reader text in some cases */
@@ -1334,13 +1355,13 @@ css slidesshow in Rileys google drive can do all the math
 .no-svg .prev.page-numbers .screen-reader-text,
 .no-svg .social-navigation li a .screen-reader-text,
 .no-svg .search-submit .screen-reader-text {
-    clip: auto;
-    font-size: 16px;
-    font-size: 1rem;
-    font-weight: 400;
-    height: auto;
-    position: relative !important; /* overrides previous !important styles */
-    width: auto;
+  clip: auto;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  height: auto;
+  position: relative !important; /* overrides previous !important styles */
+  width: auto;
 }
 
 /*--------------------------------------------------------------
@@ -1351,8 +1372,8 @@ css slidesshow in Rileys google drive can do all the math
 20.0 Print
 --------------------------------------------------------------*/
 
-@media print { // why have I got an empty selector?
+@media print {
+  // why have I got an empty selector?
 
-    /* Hide elements */
-
+  /* Hide elements */
 }

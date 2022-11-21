@@ -1,15 +1,21 @@
-@import 'atoms';
-@import 'molecules';
-@import 'organisms';
-@import 'layout';
-@import 'pages';
-@import 'typography';
-@import 'ccc';
+/*------------------*/
+//  #RILEY BATHURST
+/*------------------*/
 
-@import 'menu'; // fancy menu coming from webpackbuild so it wont be needed long term
+// TODO: testing this by turning things off
 
-@import 'riley';
+@import "atoms";
+// @import "molecules";
+// @import "organisms";
+// @import "layout";
+// @import "pages";
+// @import "typography";
+// @import "ccc";
 
-@import 'bundle'; // riley-webpack manually updated
+// @import "menu"; // fancy menu coming from webpackbuild so it wont be needed long term
 
-@import 'tryptych'; // this might end up overwriting some webpack so its after
+// @import "riley";
+
+// @import "bundle"; // riley-webpack manually updated
+
+// @import "tryptych"; // this might end up overwriting some webpack so its after

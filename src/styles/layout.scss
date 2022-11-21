@@ -30,35 +30,35 @@
 }
 */
 
-.site-main,
+/* .site-main,
 main { // im not sure if I should use main here but I am for now
     // max-width: 71rem;
     max-width: $reading-width;
     margin: 0 auto;
-}
+} */
 
 .spine-border {
+  grid-row: 1/3;
+  grid-column: 1;
+  z-index: 15; // over the top of categories on single
+  justify-self: end;
+
+  @media (min-width: map-get($breakpoints, medium)) {
     grid-row: 1/3;
-    grid-column: 1;
-    z-index: 15; // over the top of categories on single
-    justify-self: end;
-    
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1/3;
-        justify-self: start; // categories takes up that space as well
-    }
+    justify-self: start; // categories takes up that space as well
+  }
 }
 
 .single .spine-border, // even tho these are the same the names help keep them seperate
 .category .spine-border {
-    grid-row: 1/5; // image : header : date : content
-    grid-column: 1;
-    justify-self: start; // I think this is a browser default
+  grid-row: 1/5; // image : header : date : content
+  grid-column: 1;
+  justify-self: start; // I think this is a browser default
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1/4; // what are the 6: header : date : content
-        justify-self: start; // categories takes up that space as well
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1/4; // what are the 6: header : date : content
+    justify-self: start; // categories takes up that space as well
+  }
 }
 
 /*--------------------------------------------------------------
@@ -66,133 +66,131 @@ main { // im not sure if I should use main here but I am for now
 --------------------------------------------------------------*/
 
 .site-header {
-    width: 100%;
-    // max-width: $page-width;
-    max-width: $reading-width;
-    margin: 0 auto $global-margin*2 auto;
-    display: grid;
-    grid-gap: $global-grid-gap;
-    grid-template-columns: 2em 1fr 2em;
+  width: 100%;
+  // max-width: $page-width;
+  max-width: $reading-width;
+  margin: 0 auto $global-margin * 2 auto;
+  display: grid;
+  grid-gap: $global-grid-gap;
+  grid-template-columns: 2em 1fr 2em;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-template-columns: 2em 1fr 1fr 1fr 2em;
-        grid-template-rows: 2em 1fr 2em; // keep it tight up top with the header-logo
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-template-columns: 2em 1fr 1fr 1fr 2em;
+    grid-template-rows: 2em 1fr 2em; // keep it tight up top with the header-logo
+  }
 }
 
 .single-site-header {
-    margin-right: $global-margin;
-    grid-template-columns: 1em 1fr;
+  margin-right: $global-margin;
+  grid-template-columns: 1em 1fr;
 }
 
 .breadcrumbs {
-    grid-column: 1;
-    grid-row: 2 / 4;
-    writing-mode: vertical-rl;
-    justify-self: center;
+  grid-column: 1;
+  grid-row: 2 / 4;
+  writing-mode: vertical-rl;
+  justify-self: center;
 }
 
 .single .breadcrumbs {
-    // grid-row: 1/3;
-    grid-row: 3;
-    // align-self: end;
-    @media (min-width: map-get($breakpoints, medium)) {
-        // grid-row: 2;
-        // align-self: start;
-        grid-row: 3/5;
-    }
+  // grid-row: 1/3;
+  grid-row: 3;
+  // align-self: end;
+  @media (min-width: map-get($breakpoints, medium)) {
+    // grid-row: 2;
+    // align-self: start;
+    grid-row: 3/5;
+  }
 }
 
 .header-logo {
-    grid-row: 1;
-    grid-column: 3;
-    justify-self: center; // macth the spine
+  grid-row: 1;
+  grid-column: 3;
+  justify-self: center; // macth the spine
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        align-self: end; // this is for when the menu is horizontal on single pages
-        grid-column: 5; //category
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    align-self: end; // this is for when the menu is horizontal on single pages
+    grid-column: 5; //category
+  }
 }
 
 .home .header-logo {
-    justify-self: center;
-    align-self: start;
+  justify-self: center;
+  align-self: start;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 5;
-    }
-    
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 5;
+  }
 }
 
 .single .header-logo {
-    grid-column: 3;
+  grid-column: 3;
 }
 
 .home .header-logo svg {
-    padding: $global-padding/2; // guess and check to fit into the grid
-    transition: $global-transition;
+  // TODO padding: $global-padding/2; // guess and check to fit into the grid
+  transition: $global-transition;
 }
 .home .header-logo svg:hover {
-    background: $light-gray;
+  background: $light-gray;
 }
 
 .color-blocking {
-    mix-blend-mode: multiply;
-    background: $primary-color;
-    z-index: 15; //same as .spine border? should it be above or below
+  mix-blend-mode: multiply;
+  background: $primary-color;
+  z-index: 15; //same as .spine border? should it be above or below
 }
 
 .header-color-blocking {
-    @extend .color-blocking;
-    grid-row: 2;
-    grid-column: 2;
+  @extend .color-blocking;
+  grid-row: 2;
+  grid-column: 2;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1 / 4;
-        grid-column: 3;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1 / 4;
+    grid-column: 3;
+  }
 }
-
 
 /*--------------------------------------------------------------
 2.1 Site Branding Text
 --------------------------------------------------------------*/
 
 .site-branding-text {
-    grid-row: 2;
-    grid-column: 2;
-    z-index: 20;
+  grid-row: 2;
+  grid-column: 2;
+  z-index: 20;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        writing-mode: vertical-rl;
-        grid-row: 1/4;
-        grid-column: 3;
-        place-self: center;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    writing-mode: vertical-rl;
+    grid-row: 1/4;
+    grid-column: 3;
+    place-self: center;
+  }
 }
 
 // .category .site-branding-text,
 .single .site-branding-text {
-    grid-row: 1;
-    justify-self: start; // fix problems caused by the home page
-    padding-bottom: 0;
-    // align-self: start;
+  grid-row: 1;
+  justify-self: start; // fix problems caused by the home page
+  padding-bottom: 0;
+  // align-self: start;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        writing-mode: horizontal-tb;
-        padding: 0;
-        grid-column: 2;
-        margin-top: 0; // ! single needs the margin but we dont here
-        margin-bottom: 0; // this was -.25em but I think I've fixed that hack to pull it to the baseline
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    writing-mode: horizontal-tb;
+    padding: 0;
+    grid-column: 2;
+    margin-top: 0; // ! single needs the margin but we dont here
+    margin-bottom: 0; // this was -.25em but I think I've fixed that hack to pull it to the baseline
+  }
 }
 
 .home .site-branding-text {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1 / 3;
-        margin-top: $global-margin*3;
-        margin-bottom: $global-margin; // can this be written as a single line?
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1 / 3;
+    margin-top: $global-margin * 3;
+    margin-bottom: $global-margin; // can this be written as a single line?
+  }
 }
 
 /* 
@@ -203,73 +201,73 @@ main { // im not sure if I should use main here but I am for now
 */
 
 .spine {
-    grid-column: 3;
-    grid-row: 2/4;
-    writing-mode: vertical-rl;
-    justify-self: center; // match header-logo
-    // place-self: end; might need only bigger
+  grid-column: 3;
+  grid-row: 2/4;
+  writing-mode: vertical-rl;
+  justify-self: center; // match header-logo
+  // place-self: end; might need only bigger
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 2;
-        grid-column: 5;
-        align-self: end;
-        // margin-bottom: $global-margin*2; // match the base of the image
-
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 2;
+    grid-column: 5;
+    align-self: end;
+    // margin-bottom: $global-margin*2; // match the base of the image
+  }
 }
 
 .single .spine {
-    grid-row: 1/3;
-    align-self: end;
+  grid-row: 1/3;
+  align-self: end;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 3;
-        // align-self: start;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 3;
+    // align-self: start;
+  }
 }
 
 .custom-header-media,
 .custom-header-photo,
 .custom-header-featured-video {
-    z-index: 10;
-    grid-row: 1 / 3;
-    grid-column: 2;
+  z-index: 10;
+  grid-row: 1 / 3;
+  grid-column: 2;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 2;
-        grid-column: 2 / 4;
-    }
-    
-    img, picture {
-        width: 100%; // small images still fill the box
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 2;
+    grid-column: 2 / 4;
+  }
+
+  img,
+  picture {
+    width: 100%; // small images still fill the box
+  }
 }
 
 .custom-header-featured-video {
-    // https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
-    position: relative;
-    padding-bottom: 56.25%; // 16:9
-    height: 0;
+  // https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+  position: relative;
+  padding-bottom: 56.25%; // 16:9
+  height: 0;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2 / 4;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2 / 4;
+  }
 }
 
 .custom-header-featured-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .single #top-menu {
-    margin: 0;
-    @media (min-width: map-get($breakpoints, medium)) {
-        display: flex;
-        flex-direction: row;
-    }
+  margin: 0;
+  @media (min-width: map-get($breakpoints, medium)) {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 /*------------------------------------*\
@@ -277,42 +275,42 @@ main { // im not sure if I should use main here but I am for now
 \*------------------------------------*/
 
 .navigation-top {
-    grid-column: 2;
-    grid-row: 3;
+  grid-column: 2;
+  grid-row: 3;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 4;
-        grid-row: 2 / 4;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 4;
+    grid-row: 2 / 4;
+  }
 }
 
 .single .navigation-top {
-    grid-row: 3;
+  grid-row: 3;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2;
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2;
 
-        ul {
-            // display: flex;
-            // I think the grid is going to be easier to keep the spacing perfect with other parts of the page
-            margin-top: 0; // browser reset
-            padding: 0;
+    ul {
+      // display: flex;
+      // I think the grid is going to be easier to keep the spacing perfect with other parts of the page
+      margin-top: 0; // browser reset
+      padding: 0;
 
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: $global-grid-gap;
-        }
-
-        li {
-            margin-bottom: 0;
-            // margin-right: $global-margin;
-            padding-right: $global-padding; // does making this padding solve my js finding the width problems?
-        }
-        
-        li:last-child() {
-            margin-right: 0;
-        }
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: $global-grid-gap;
     }
+
+    li {
+      margin-bottom: 0;
+      // margin-right: $global-margin;
+      padding-right: $global-padding; // does making this padding solve my js finding the width problems?
+    }
+
+    li:last-child() {
+      margin-right: 0;
+    }
+  }
 }
 /* Im not sure if this is needed anymore pattern lab doesnt think so
 .home .navigation-top {
@@ -336,34 +334,32 @@ main { // im not sure if I should use main here but I am for now
 13.2 Front Page
 --------------------------------------------------------------*/
 
-.front-page-titles { 
-    width: 100%;
-    // max-width: 71rem;
-    max-width: $reading-width;
-    margin: 0 auto;
-    display: grid; // I am using this for the grid gap it could probably be done better
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: $global-grid-gap/2; // double the grid (6 columns) half the gap
-    background: $white;
-    @media (prefers-color-scheme: dark) {
-        background: $black;
-    }
+.front-page-titles {
+  width: 100%;
+  // max-width: 71rem;
+  max-width: $reading-width;
+  margin: 0 auto;
+  display: grid; // I am using this for the grid gap it could probably be done better
+  grid-template-columns: repeat(6, 1fr);
+  // TODO grid-gap: $global-grid-gap/2; // double the grid (6 columns) half the gap
+  background: $white;
+  @media (prefers-color-scheme: dark) {
+    background: $black;
+  }
 
-    
-    // this needs a couple of media queries to match the header grid
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-gap: $global-grid-gap;
-        // width: calc(100% - 4rem); // the 2rem margins on each side to keep the background white
-        width: 100%;
-        // grid-template-columns: 2em 1fr 1fr 1fr 2em; // test as 3
-        grid-template-columns: 2em 1fr 1fr 1fr 1fr 1fr 1fr 2em; // just play by the normal grid its way easier
-    }
-    /*         padding-left: 1rem;
+  // this needs a couple of media queries to match the header grid
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-gap: $global-grid-gap;
+    // width: calc(100% - 4rem); // the 2rem margins on each side to keep the background white
+    width: 100%;
+    // grid-template-columns: 2em 1fr 1fr 1fr 2em; // test as 3
+    grid-template-columns: 2em 1fr 1fr 1fr 1fr 1fr 1fr 2em; // just play by the normal grid its way easier
+  }
+  /*         padding-left: 1rem;
             padding-right: 1rem; */
 
-    @media (min-width: 77rem) {
-
-    }
+  @media (min-width: 77rem) {
+  }
 }
 
 /*--------------------------------------------------------------
@@ -371,29 +367,29 @@ main { // im not sure if I should use main here but I am for now
 --------------------------------------------------------------*/
 
 .category-header {
-    max-width: 77rem; // inside the margins
-    margin: 0 auto;
-    display: grid;
-    // grid-template-columns: 2em 1fr 8fr 1fr 2em;
-    grid-template-columns: 2em 1fr 1fr 1fr 2em;
-    grid-gap: $global-grid-gap;
+  max-width: 77rem; // inside the margins
+  margin: 0 auto;
+  display: grid;
+  // grid-template-columns: 2em 1fr 8fr 1fr 2em;
+  grid-template-columns: 2em 1fr 1fr 1fr 2em;
+  grid-gap: $global-grid-gap;
 }
 
 .cat-head {
-    grid-column: 2 / 5;
-    padding-bottom: $global-padding*2;
-    @media (min-width: map-get($breakpoints, medium)) {
-        // grid-column: 3;
-    }
+  grid-column: 2 / 5;
+  padding-bottom: $global-padding * 2;
+  @media (min-width: map-get($breakpoints, medium)) {
+    // grid-column: 3;
+  }
 }
 
 .category-thumbnail {
-    grid-column: 2 / 5;
-    grid-row: 1 / 2;
+  grid-column: 2 / 5;
+  grid-row: 1 / 2;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1;
+  }
 }
 
 /* this doesnt appear to be anywhere
@@ -459,26 +455,29 @@ main { // im not sure if I should use main here but I am for now
 */
 
 .category-sub {
-    // width: calc(100% - 6rem);
-    width: 100%;
-    max-width: 72rem; // always stay inside the widest columns on the category pages
-    margin: 0 auto;
-    margin-bottom: $global-margin;
+  // width: calc(100% - 6rem);
+  width: 100%;
+  max-width: 72rem; // always stay inside the widest columns on the category pages
+  margin: 0 auto;
+  margin-bottom: $global-margin;
 }
 
 .category-sub ul {
-    padding-left: 0;
+  padding-left: 0;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); // this is probably far too simple and should be a flex
-        grid-gap: $global-grid-gap;
-    }
-    
-    li {
-        list-style: none;
-        text-align: center;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    display: grid;
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); // this is probably far too simple and should be a flex
+    grid-gap: $global-grid-gap;
+  }
+
+  li {
+    list-style: none;
+    text-align: center;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -516,19 +515,19 @@ main { // im not sure if I should use main here but I am for now
 /*--------------------------------------------------------------
 3.4 Article
 --------------------------------------------------------------*/
-.site-main article { /* running wordpress post class prevents using a straight class */
-    // this can now be named
-    // @extend .site-header; // Im not sure this is currently working
+.site-main article {
+  /* running wordpress post class prevents using a straight class */
+  // this can now be named
+  // @extend .site-header; // Im not sure this is currently working
 
+  max-width: 77rem;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: $global-grid-gap;
 
-    max-width: 77rem;
-    margin: 0 auto;
-    display: grid;
-    grid-gap: $global-grid-gap;
-
-    padding: $global-padding*2 0;
-    padding-bottom: 0; // the spine needs to get to the base of the area
-/*
+  padding: $global-padding * 2 0;
+  padding-bottom: 0; // the spine needs to get to the base of the area
+  /*
     // grid-template-columns: 4px 1fr 4fr 4fr 1fr 4px; // why 4px?
     grid-template-columns: 1rem 1fr 1rem; // why 4px?
     // maybe this should be to match the header and footer grid atleast at large sizes 2em 1fr 2fr 2fr 1fr 2em
@@ -540,29 +539,30 @@ main { // im not sure if I should use main here but I am for now
         grid-template-columns: 2em 1fr 1fr 1fr 2em;
     } */
 
-    grid-template-columns: 2em 1fr 2em;
+  grid-template-columns: 2em 1fr 2em;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        // width: calc(100% - 2rem); // slightly different so the sid bar fits
-        grid-template-columns: 2em 1fr 1fr 1fr 2em;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    // width: calc(100% - 2rem); // slightly different so the sid bar fits
+    grid-template-columns: 2em 1fr 1fr 1fr 2em;
+  }
 }
 
 .article-thumbnail {
-    grid-row: 1;
-    grid-column: 1/4;
-    // max-height: 100vh; // this causes issues on wide short screens but I get the idea of something tall can be very large
-    // maybe it can be fixed with an overflow and then go even less than 100 to make it obvious and be able to scroll around it
+  grid-row: 1;
+  grid-column: 1/4;
+  // max-height: 100vh; // this causes issues on wide short screens but I get the idea of something tall can be very large
+  // maybe it can be fixed with an overflow and then go even less than 100 to make it obvious and be able to scroll around it
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2 / 5;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2 / 5;
+  }
 }
 
-.article-thumbnail a, .category-thumbnail a {
-    width: 100%;
-    // display: grid; // is this just for a place-items
-    display: block; // seems more suitable
+.article-thumbnail a,
+.category-thumbnail a {
+  width: 100%;
+  // display: grid; // is this just for a place-items
+  display: block; // seems more suitable
 }
 
 /*
@@ -575,219 +575,222 @@ main { // im not sure if I should use main here but I am for now
 .category-thumbnail > a > img,
 .article-thumbnail > a > picture,
 .category-thumbnail > a > picture {
-    width: 100%;
+  width: 100%;
 }
 
-.article-thumbnail img { // specifically needed for the front page
-    display: inline-block;
-    width: 100%;
+.article-thumbnail img {
+  // specifically needed for the front page
+  display: inline-block;
+  width: 100%;
 }
 
 .featured-header {
-    max-width: calc(77rem - 6rem);
-    margin: $global-margin auto;
-    padding-top: $global-padding;
+  max-width: calc(77rem - 6rem);
+  margin: $global-margin auto;
+  padding-top: $global-padding;
 }
 
 .article-header {
-    width: 100%;
-    grid-column: 2;
-    // align-self: end; // I think its it own row it cant go anywhere
-    grid-row: 2;
+  width: 100%;
+  grid-column: 2;
+  // align-self: end; // I think its it own row it cant go anywhere
+  grid-row: 2;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2 / 6;
-        grid-row: 2; // this is a repeat of above
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2 / 6;
+    grid-row: 2; // this is a repeat of above
+  }
 }
 
 .article-speechbubble {
-    grid-column: 2;
-    // justify-self: end;
+  grid-column: 2;
+  // justify-self: end;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1;
-        grid-column: 5;
-        align-self: start;
-        justify-self: center;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1;
+    grid-column: 5;
+    align-self: start;
+    justify-self: center;
+  }
 }
 
 .article-speechbubble > .speeechbubble {
-    margin-bottom: $global-margin;
+  margin-bottom: $global-margin;
 }
 
 .article-content {
-    grid-column: 2;
-    // margin-bottom: $global-margin;
+  grid-column: 2;
+  // margin-bottom: $global-margin;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        // grid-column: 2 / 6;
-        grid-column: 2/5;
-        // margin-bottom: $global-margin*3;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    // grid-column: 2 / 6;
+    grid-column: 2/5;
+    // margin-bottom: $global-margin*3;
+  }
 }
 
-.article-content-specific { // single posts have more content in this block which is then held in by a foundation grid
-    @media (min-width: map-get($breakpoints, medium)) {
-        // grid-column: 1 / 7;
-        // grid-column: 1 / 4;
-        grid-column: 1/6; // full width
-    }
+.article-content-specific {
+  // single posts have more content in this block which is then held in by a foundation grid
+  @media (min-width: map-get($breakpoints, medium)) {
+    // grid-column: 1 / 7;
+    // grid-column: 1 / 4;
+    grid-column: 1/6; // full width
+  }
 }
 
 .article-content-specific img {
-    width: 100%;
+  width: 100%;
 }
 
 .article-content-specific hr {
-    @media (min-width: map-get($breakpoints, medium)) {
-        margin-left: $global-margin*3; // 2 for the page margins 1 for the grid gap
-        margin-right: $global-margin*3;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    margin-left: $global-margin * 3; // 2 for the page margins 1 for the grid gap
+    margin-right: $global-margin * 3;
+  }
 }
 
 .article-category {
-    grid-column: 2;
-    // grid-row: 4;
-    font-weight: bold;
+  grid-column: 2;
+  // grid-row: 4;
+  font-weight: bold;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        text-align: right;
-        grid-row: 1 / 3;
-        grid-column: 1;
-        writing-mode: vertical-rl;
-        align-self: start;
-        justify-self: center;
-        overflow-x: scroll;
-        max-height: 45em; // incase of a long category name it will truncate
-        margin-top: $global-margin;
+  @media (min-width: map-get($breakpoints, medium)) {
+    text-align: right;
+    grid-row: 1 / 3;
+    grid-column: 1;
+    writing-mode: vertical-rl;
+    align-self: start;
+    justify-self: center;
+    overflow-x: scroll;
+    max-height: 45em; // incase of a long category name it will truncate
+    margin-top: $global-margin;
 
-        p, ul {
-            margin: 0; // vertical text removes margins
-        }
-
-        ul {
-            padding-left: 0; // browser reset
-            padding-top: $global-padding; // browser alter
-        }
+    p,
+    ul {
+      margin: 0; // vertical text removes margins
     }
-    
-    /* .category-container {
+
+    ul {
+      padding-left: 0; // browser reset
+      padding-top: $global-padding; // browser alter
+    }
+  }
+
+  /* .category-container {
         // display: flex;
     } */
 
-    p {
-        display: inline-block;
-    }
-    
-    ul {
-        padding-left: $global-padding;
-        // display: flex;
-        // flex-wrap: wrap;
-        display: inline;
-    }
-    
-    li {
-        list-style: none;
-        margin-right: $global-margin;
-        display: inline;
-    }
+  p {
+    display: inline-block;
+  }
 
-    /* a {
+  ul {
+    padding-left: $global-padding;
+    // display: flex;
+    // flex-wrap: wrap;
+    display: inline;
+  }
+
+  li {
+    list-style: none;
+    margin-right: $global-margin;
+    display: inline;
+  }
+
+  /* a {
         color: $dark-gray; // purposly not as strong as a regular link
     } */
 }
 
 .single .article-category {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1 / 4; // header : date : content
-        align-self: start;
-        grid-column: 1;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1 / 4; // header : date : content
+    align-self: start;
+    grid-column: 1;
+  }
 
-    h3 {
-        margin: 0;
-        grid-column: 1;
-    }
+  h3 {
+    margin: 0;
+    grid-column: 1;
+  }
 }
 
 .article-base {
-    //min-height: 3em; // this is a breaker in categories
-    max-width: $page-width;
-    margin-top: $global-margin*3; // rewrite this as a single
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
+  //min-height: 3em; // this is a breaker in categories
+  max-width: $page-width;
+  margin-top: $global-margin * 3; // rewrite this as a single
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        display: grid;
-        grid-template-columns: 2em 1fr 1fr 1fr 2em;
-        grid-gap: $global-grid-gap;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    display: grid;
+    grid-template-columns: 2em 1fr 1fr 1fr 2em;
+    grid-gap: $global-grid-gap;
+  }
 }
 
 .base-explore {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 1;
-        writing-mode: vertical-rl;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 1;
+    writing-mode: vertical-rl;
+  }
 }
 
 .base-tags {
-    grid-column: 1;
-    grid-row: 3;
-    writing-mode: vertical-rl;
+  grid-column: 1;
+  grid-row: 3;
+  writing-mode: vertical-rl;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 5;
-        grid-row: 1;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 5;
+    grid-row: 1;
+  }
 }
 
 .article-category .subheading {
-    @media (min-width: map-get($breakpoints, medium)) {
-        margin-bottom: 0;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    margin-bottom: 0;
+  }
 }
 
 .article-category h3 ul,
 .featured-category h3 ul {
-    list-style-type: none;
-    margin-left: 0;
-    padding: 0;
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        margin-bottom: 0;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    margin-bottom: 0;
+  }
 }
 
 .article-explore {
-    grid-column: 2;
-    margin-bottom: $global-margin;
-    // border-top: 2px solid $primary-color;
-    // text-align: center;
-    // padding: $global-padding; // fix the hack with the a class button below
+  grid-column: 2;
+  margin-bottom: $global-margin;
+  // border-top: 2px solid $primary-color;
+  // text-align: center;
+  // padding: $global-padding; // fix the hack with the a class button below
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2/5;
-    }
-    
-    a {
-        background: $primary-color;
-        padding: $global-padding;
-        display: inline-block;
-        color: $white;
-        font-weight: bold;
-        text-decoration: none;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2/5;
+  }
 
-    a:hover {
-        background: $secondary-color;
-        color: $white; // otherwise this gets overwritten to the default a
-    }
+  a {
+    background: $primary-color;
+    padding: $global-padding;
+    display: inline-block;
+    color: $white;
+    font-weight: bold;
+    text-decoration: none;
+  }
 
-    // I dont like the hover here but need to do actual work on it
+  a:hover {
+    background: $secondary-color;
+    color: $white; // otherwise this gets overwritten to the default a
+  }
+
+  // I dont like the hover here but need to do actual work on it
 }
 
 /* doesnt show in search
@@ -827,87 +830,87 @@ main { // im not sure if I should use main here but I am for now
 
 // can the next few items be written nicer?
 .post-navigation {
-    grid-column: 2 / 5;
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2;
-    }
+  grid-column: 2 / 5;
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2;
+  }
 }
 
-
 .article-comments {
-    grid-column: 2 / 5;
+  grid-column: 2 / 5;
 
-    padding: $global-padding;
-    @extend .background-dirty;
-    
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 3;
-    }
+  padding: $global-padding;
+  @extend .background-dirty;
+
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 3;
+  }
 }
 
 .article-tags {
+  grid-column: 2 / 5;
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 4;
+  }
+
+  h3 {
+    @media (min-width: map-get($breakpoints, medium)) {
+      writing-mode: vertical-rl;
+    }
+  }
+}
+
+.fp-header {
+  // front page header but I think this should be renamed to an atom
+  grid-row: 1;
+  grid-column: 2;
+  z-index: 20; // document why this is here
+  align-self: end;
+
+  @media (min-width: map-get($breakpoints, medium)) {
     grid-column: 2 / 5;
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 4;
-    }
-    
-    h3 {
-        @media (min-width: map-get($breakpoints, medium)) {
-            writing-mode: vertical-rl;
-        }
-    }
+    // padding: $global-padding;
+  }
 }
 
-.fp-header { // front page header but I think this should be renamed to an atom
-    grid-row: 1;
-    grid-column: 2;
-    z-index: 20; // document why this is here
-    align-self: end;
+.category-post--header {
+  // very similar to the .fp-header but a new more useful name and the padding without the image background
+  grid-row: 1;
+  grid-column: 2;
+  // align-self: end;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2 / 5;
-        // padding: $global-padding;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2 / 5;
+  }
 }
-
-.category-post--header { // very similar to the .fp-header but a new more useful name and the padding without the image background
-    grid-row: 1;
-    grid-column: 2;
-    // align-self: end;
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2 / 5;
-    }
-}
-
 
 /*--------------------------------------------------------------
 2.7 Featured Category
 --------------------------------------------------------------*/
 
 .featured-thumbnail {
-    grid-column: 2 / 6;
-    grid-row: 1;
-    mix-blend-mode: multiply;
-    filter: grayscale(100%);
+  grid-column: 2 / 6;
+  grid-row: 1;
+  mix-blend-mode: multiply;
+  filter: grayscale(100%);
 }
 
 .featured-header {
-    grid-column: 3 / 5;
-    align-self: center;
-    grid-row: 1;
+  grid-column: 3 / 5;
+  align-self: center;
+  grid-row: 1;
 }
 
 .featured-category {
-    grid-column: 3 / 5;
+  grid-column: 3 / 5;
 }
 
 .featured--excerpt {
-    grid-column: 2;
+  grid-column: 2;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2/5;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2/5;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -915,43 +918,47 @@ main { // im not sure if I should use main here but I am for now
 --------------------------------------------------------------*/
 
 .pagination {
-    margin: 3rem auto;
-    max-width: $page-width;
-    display: grid;
-    grid-gap: $global-grid-gap;
-    grid-template-columns: 2em 1fr 4fr 1fr 2em; // fix
+  margin: 3rem auto;
+  max-width: $page-width;
+  display: grid;
+  grid-gap: $global-grid-gap;
+  grid-template-columns: 2em 1fr 4fr 1fr 2em; // fix
 }
 
-.pagination h2 { /* as wordpress controls this we are using elements for the grid */
-    grid-column: 1 / 3;
+.pagination h2 {
+  /* as wordpress controls this we are using elements for the grid */
+  grid-column: 1 / 3;
 
-    @media (min-width: map-get($breakpoints, large)) {
-        grid-column: 3 / span 4;
-    }
+  @media (min-width: map-get($breakpoints, large)) {
+    grid-column: 3 / span 4;
+  }
 }
 
 .pagination .nav-links {
-    grid-column: 2 / 5;
+  grid-column: 2 / 5;
 
-    display: flex;
-    flex-direction: row;
-    justify-items: flex-start; // is there a place-items for flex?
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start; // is there a place-items for flex?
+  align-items: flex-start;
 
-    @media (min-width: map-get($breakpoints, large)) {
-        grid-column: 3;
-    }
+  @media (min-width: map-get($breakpoints, large)) {
+    grid-column: 3;
+  }
 }
 
-.pagination .nav-links .next, .pagination .nav-links .prev { // what is this overwritting?
-    width: auto;
-    writing-mode: vertical-rl;
-    border-bottom: none;
-    box-shadow: none;
+.pagination .nav-links .next,
+.pagination .nav-links .prev {
+  // what is this overwritting?
+  width: auto;
+  writing-mode: vertical-rl;
+  border-bottom: none;
+  box-shadow: none;
 }
 
-.pagination span, .pagination a {
-    margin-right: $global-margin;
+.pagination span,
+.pagination a {
+  margin-right: $global-margin;
 }
 
 /*--------------------------------------------------------------
@@ -962,18 +969,18 @@ main { // im not sure if I should use main here but I am for now
 .single .custom-header-media,
 .single .custom-header-photo,
 .single .custom-header-featured-video {
-    grid-row: 2;
-    align-self: end;
+  grid-row: 2;
+  align-self: end;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2;
+  }
 }
 
 .single .article-header,
 .page .article-header,
 .cat-404 .article-header {
-    grid-row: 1; // re-organize with the featured image in the header
+  grid-row: 1; // re-organize with the featured image in the header
 }
 
 /* these dont appear to exisit
@@ -984,104 +991,104 @@ main { // im not sure if I should use main here but I am for now
 
 .single .article-category h3,
 .single .article-category .post-categories {
-    margin: 0; // these are vertical text hence not having a margin below
+  margin: 0; // these are vertical text hence not having a margin below
 }
 
 .post-categories > li {
-    @media (min-width: map-get($breakpoints, medium)) {
-        margin-bottom: 0; // vertical text doesnt need a margin below
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    margin-bottom: 0; // vertical text doesnt need a margin below
+  }
 }
 
-.comment-reply-title { // Im sure this is in comments but it needs documentation
-    display: none;
+.comment-reply-title {
+  // Im sure this is in comments but it needs documentation
+  display: none;
 }
 
 .post-navigation {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2;
+  }
 }
 
 .specific-grid {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
+  @media (min-width: map-get($breakpoints, medium)) {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
+    grid-gap: $global-grid-gap;
+  }
+
+  h3 {
     @media (min-width: map-get($breakpoints, medium)) {
-        display: grid;
-        grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
-        grid-gap: $global-grid-gap;
+      grid-column: 2/5;
     }
-
-    h3 {
-        @media (min-width: map-get($breakpoints, medium)) {
-            grid-column: 2/5;
-        }
-    }
+  }
 }
 
 .subtitle {
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 1;
-        grid-row: 1;
-        writing-mode: vertical-rl;
-        text-decoration: line-through;
-        margin: 0; // vertical text doesnt have regular margins
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 1;
+    grid-row: 1;
+    writing-mode: vertical-rl;
+    text-decoration: line-through;
+    margin: 0; // vertical text doesnt have regular margins
+  }
 }
 
 .specific-grid__main-width {
-    grid-column: 2/5;
+  grid-column: 2/5;
 }
 
 .continental {
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2/5;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2/5;
+  }
 }
 
 .continental-2 {
-    grid-column: 2;
+  grid-column: 2;
 }
 
 .continental-3 {
-    grid-column: 3;
+  grid-column: 3;
 }
 
 .continental-4 {
-    grid-column: 4;
+  grid-column: 4;
 }
 
 .west-medium {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 2;
+  }
 }
 
 .east-medium {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 3;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 3;
+  }
 }
 
 .west-large {
-    @media (min-width: map-get($breakpoints, large)) {
-        grid-column: 2;
-    }
+  @media (min-width: map-get($breakpoints, large)) {
+    grid-column: 2;
+  }
 }
 
 .east-large {
-    @media (min-width: map-get($breakpoints, large)) {
-        grid-column: 3;
-    }
+  @media (min-width: map-get($breakpoints, large)) {
+    grid-column: 3;
+  }
 }
 
-.gr-1-m { // this is really different from other classes?
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1;
-    }
+.gr-1-m {
+  // this is really different from other classes?
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1089,154 +1096,152 @@ main { // im not sure if I should use main here but I am for now
 --------------------------------------------------------------*/
 
 .site-footer {
-    width: 100%;
-    // max-width: 71rem; // keeps inside of the margins 77 - 2 on each side
-    margin: 0 auto 2rem auto;
-    padding-bottom: $global-padding;
+  width: 100%;
+  // max-width: 71rem; // keeps inside of the margins 77 - 2 on each side
+  margin: 0 auto 2rem auto;
+  padding-bottom: $global-padding;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        margin-top: $global-margin*5; // guess and check
-    }
-
+  @media (min-width: map-get($breakpoints, medium)) {
+    margin-top: $global-margin * 5; // guess and check
+  }
 }
 
 .site-footer--browse {
-    // max-width: calc(77rem - 6rem);
-    max-width: $reading-width;
-    margin: 0 auto;
+  // max-width: calc(77rem - 6rem);
+  max-width: $reading-width;
+  margin: 0 auto;
 }
 
 .footer-background__step {
-    padding: $global-padding; // this allows the grid gap to sit inside as a ruler and not break the edges
+  padding: $global-padding; // this allows the grid gap to sit inside as a ruler and not break the edges
 }
 
 .footer_menu {
-    display: grid;
-    grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
-    grid-gap: $global-grid-gap;
-    padding-top: $global-padding;
-    // margin-left: 0;
-    padding-left: 0;
-    max-width: $page-width;
+  display: grid;
+  grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
+  grid-gap: $global-grid-gap;
+  padding-top: $global-padding;
+  // margin-left: 0;
+  padding-left: 0;
+  max-width: $page-width;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-template-columns: repeat(3, 1fr);
-        margin: 0 3rem; 
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 3rem;
+  }
 
-    @media (min-width: map-get($breakpoints, large)) {
-        max-width: calc(77rem - 6rem);
-        margin: 0 auto;
-    }
+  @media (min-width: map-get($breakpoints, large)) {
+    max-width: calc(77rem - 6rem);
+    margin: 0 auto;
+  }
 }
 
 .footer_info {
-    display: grid;
-    grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
-    grid-gap: $global-grid-gap;
-    // max-width: $page-width;
-    max-width: $reading-width;
-    
-    // margin: $global-margin; // allows the grid gap to sit inside the colored background
+  display: grid;
+  grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
+  grid-gap: $global-grid-gap;
+  // max-width: $page-width;
+  max-width: $reading-width;
+
+  // margin: $global-margin; // allows the grid gap to sit inside the colored background
+  margin: $global-margin auto; // still working on this
+
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
+
     margin: $global-margin auto; // still working on this
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
-
-        margin: $global-margin auto; // still working on this
-    }
+  }
 }
 
 .footer_info div,
 .footer_info address {
-    background: $light-gray; // step back with the grid gap fill
-    @media (prefers-color-scheme: dark) {
-        background: #2C2C2C; // this should be made a variable
-    }
+  background: $light-gray; // step back with the grid gap fill
+  @media (prefers-color-scheme: dark) {
+    background: #2c2c2c; // this should be made a variable
+  }
 }
 
 .footer_menu li {
-    list-style: none;
+  list-style: none;
 }
 
 .footer_nav a {
-    padding: 0;
+  padding: 0;
 }
 
 .footer_info {
-    background: $white; // this is a way of filling the grip gap as a different color
-    @media (prefers-color-scheme: dark) {
-        background: $black;
-    }
+  background: $white; // this is a way of filling the grip gap as a different color
+  @media (prefers-color-scheme: dark) {
+    background: $black;
+  }
 }
 
 .footer_copyright,
 .footer_nav,
 .footer_contact {
-    padding: $global-padding;
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1;
-        z-index: 10;
-    }
+  padding: $global-padding;
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1;
+    z-index: 10;
+  }
 }
 
 .footer_copyright {
-    @media (min-width: map-get($breakpoints, medium)) {
-        // grid-row: 1;
-        grid-column: 2;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    // grid-row: 1;
+    grid-column: 2;
+  }
 }
 
 .footer_nav {
-    @media (min-width: map-get($breakpoints, medium)) {
-        // grid-row: 1;
-        grid-column: 3;
-        // text-align: center;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    // grid-row: 1;
+    grid-column: 3;
+    // text-align: center;
+  }
 }
 
 .footer_nav ul {
-    margin: 0;
-    padding: 0; // browser reset
+  margin: 0;
+  padding: 0; // browser reset
 }
 
 .footer_nav li {
-    display: inline-block;
+  display: inline-block;
 }
 
 .footer_contact {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 4;
-        text-align: right;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-column: 4;
+    text-align: right;
+  }
 }
 
 .footer_1,
 .footer_5 {
+  // Im not super happy with the far edges being white but its getting closer to right
 
-    // Im not super happy with the far edges being white but its getting closer to right
+  display: none;
 
-    display: none;
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        display: initial;
-        grid-row: 1;
-        // z-index: -1;
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    display: initial;
+    grid-row: 1;
+    // z-index: -1;
+  }
 }
 
 .footer_1 {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1;
-        grid-column: 1/3; // hide a grid-gap that is otherwise white
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1;
+    grid-column: 1/3; // hide a grid-gap that is otherwise white
+  }
 }
 
 .footer_5 {
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-row: 1;
-        grid-column: 4/6; // hide a grid-gap that is otherwise white
-    }
+  @media (min-width: map-get($breakpoints, medium)) {
+    grid-row: 1;
+    grid-column: 4/6; // hide a grid-gap that is otherwise white
+  }
 }
 
 /*------------------------------------*\
@@ -1245,116 +1250,114 @@ main { // im not sure if I should use main here but I am for now
 \*------------------------------------*/
 
 [style*="--aspect-ratio"] > :first-child {
-    width: 100%;
+  width: 100%;
+}
+[style*="--aspect-ratio"] > img {
+  height: auto;
+}
+@supports (--custom: property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
   }
-  [style*="--aspect-ratio"] > img {  
-    height: auto;
-  } 
-  @supports (--custom:property) {
-    [style*="--aspect-ratio"] {
-      position: relative;
-    }
-    [style*="--aspect-ratio"]::before {
-      content: "";
-      display: block;
-      padding-bottom: calc(100% / (var(--aspect-ratio)));
-    }  
-    [style*="--aspect-ratio"] > :first-child {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-    }  
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
   }
-  
+  [style*="--aspect-ratio"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
 
 .continental-gallery {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    section {
-        // flex: 1 1 33%;
-        flex: 1 1 29%; // guess and check number to fit 3
-        padding: $global-padding;
-        
-    }
+  section {
+    // flex: 1 1 33%;
+    flex: 1 1 29%; // guess and check number to fit 3
+    padding: $global-padding;
+  }
 }
 
 .specific-full-picture img {
-    background: $white;
-    padding: $global-padding;
-    width: calc(100% - 2rem);
+  background: $white;
+  padding: $global-padding;
+  width: calc(100% - 2rem);
 }
 
 .specific-overlaying__image-grid {
-    display: grid;
+  display: grid;
 
-    picture,
-    .overlaying-image {
-        grid-row: 1;
-        grid-column: 1;
-    }
+  picture,
+  .overlaying-image {
+    grid-row: 1;
+    grid-column: 1;
+  }
 }
 
 .specific-grid__col-2 {
-    grid-column: 2;
+  grid-column: 2;
 }
 
 .specific-grid__col-3 {
-    grid-column: 3;
+  grid-column: 3;
 }
 
 .specific-grid__col-4 {
-    grid-column: 4;
+  grid-column: 4;
 }
 
 .base-next__grid {
-    display: grid;
+  display: grid;
 
-    a, // the image
+  a, // the image
     h4, // the title
     .color-blocking {
-        grid-row: 1;
-        grid-column: 1;
-    }
+    grid-row: 1;
+    grid-column: 1;
+  }
 
-    h4 {
-        place-self: center;
-    }
-    
-    h4 a {
-        color: $white;
-        z-index: 16;
-        position: relative;
-    }
+  h4 {
+    place-self: center;
+  }
+
+  h4 a {
+    color: $white;
+    z-index: 16;
+    position: relative;
+  }
 }
 
 .site-header-hero-hr {
-    grid-row: 2;
-    grid-column: 2;
+  grid-row: 2;
+  grid-column: 2;
 }
 
 // these are a couple little design blocks
 .single-site-header-color-block_1 {
-    grid-row: 1;
-    grid-column: 1;
-    background: $primary-color;
-    width: 100%;
-    height: 4px;
-    margin: 0;
-    margin-top: 1rem; // guess and check to line up with the top of the Text
+  grid-row: 1;
+  grid-column: 1;
+  background: $primary-color;
+  width: 100%;
+  height: 4px;
+  margin: 0;
+  margin-top: 1rem; // guess and check to line up with the top of the Text
 }
 
 .single-site-header-color-block_2 {
-    grid-row: 2;
-    grid-column: 1;
-    background: $primary-color;
-    width: 100%;
-    height: 4px;
-    margin: 0;
+  grid-row: 2;
+  grid-column: 1;
+  background: $primary-color;
+  width: 100%;
+  height: 4px;
+  margin: 0;
 }
 
 .reading-width {
-    width: $reading-width;
-    margin: 0 auto;
+  width: $reading-width;
+  margin: 0 auto;
 }
