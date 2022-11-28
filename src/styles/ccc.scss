@@ -1,68 +1,67 @@
 .ccc-west {
-	display: none;
-	@media (min-width: map-get($breakpoints, medium)) {
-		display: inline;
-		grid-column: 1;
-		grid-row: 1/4;
-	// 	margin-bottom: $global-margin;
-	}
+  display: none;
+  @media (min-width: $stork) {
+    display: inline;
+    grid-column: 1;
+    grid-row: 1/4;
+    // 	margin-bottom: 1rem;
+  }
 }
 
 .clicks,
 .code,
 .camera {
-	grid-column: 2;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; // this is a repeat
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0.5em; // TODO
 
-	grid-gap: 0.5em;
-	// margin-bottom: $global-margin;
-
-	@media (min-width: map-get($breakpoints, medium)) {
-		grid-gap: 1em;
-	}
+  @media (min-width: $stork) {
+    grid-gap: 1em;
+  }
 }
 
 .ccc-east {
-	display: none;
-	@media (min-width: map-get($breakpoints, medium)) {
-		display: initial;
-		grid-column: 3;
-		grid-row: 1/4;
-	// 	margin-bottom: $global-margin;
-	}
+  display: none;
+  @media (min-width: $stork) {
+    display: initial;
+    grid-column: 3;
+    grid-row: 1/4;
+    // 	margin-bottom: 1rem;
+  }
 }
 
 .background-primary__social-icons {
-	margin-top: $global-margin;
+  margin-top: 1rem;
 }
 
 .social-icons {
-	max-width: $reading-width;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: $global-grid;
-	grid-gap: 1em;
+  max-width: var(--condor);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
+  grid-gap: 1em;
 }
 
 .social-icons > .fp-box > a {
-	display: inline-block;
+  display: inline-block;
 }
 
 .social-icons svg {
-	width: 2em;
-	padding-top: $global-padding;
-	padding-bottom: $global-padding;
+  width: 2em;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
-	@media (min-width: map-get($breakpoints, medium)) { // red text on brackets isnt a good sign does it need a prefix
-		width: 3em;
-	}
+  @media (min-width: $stork) {
+    // red text on brackets isnt a good sign does it need a prefix
+    width: 3em;
+  }
 }
 
 .social-icons svg {
-	fill: $white;
+  fill: var(--brilliance);
 }
 
 .social-icons svg:hover {
-	fill: $light-gray;
+  fill: var(--kingly-cloud);
 }

@@ -26,77 +26,27 @@
  * Text.................Text helpers.
  */
 
-/*------------------------------------*\
-  #SECTION-TITLE
-\*------------------------------------*/
-
-$breakpoints: (
-  small: 0,
-  medium: 640px, // I should document around some key devices
-  large: 1024px,
-//   xlarge: 1200px,
-//   xxlarge: 1440px,
-);
-$print-breakpoint: large; // other than hide for print how much am I doing around print styles
-$breakpoint-classes: (small medium large); // should this not include all the way to xx if I have it above?
-
-$primary-color: #c22127;
-$secondary-color: #8a0000; // is this a direct darking of
-// $warning-color: #ffae00; // This isnt used
-// Id like to add something else I can work with in here
-
-// default foundation from a long time ago it's a nice starting point
-// I should have some documentation about how these are used in dark mode
-$black: #0a0a0a;
-$white: #fefefe;
-$light-gray: #e6e6e6;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-
-// I think having the bottom to run at 1.5 for a line height would make a lot of sense
-$global-margin: 1rem;
-$global-padding: 1rem;
-$global-grid-gap: $global-margin;
-
-$extra-line: 1.5rem;
-
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-$header-font-family: $body-font-family;
-
-$page-width: 77rem; // this needs some good documentation about when and especially when its not used
-// 1232 pixels // this seems wider? than maybe it should be
-// 2em 1fr 1fr 1fr 2em
-// 32px 1168px 32px // this doesnt relate much to the small medium large
-// 389.333px each column
-// each column is 24em which is really too skinny for a singular column
-// a double column is 48em / 778px which is a nice writing length
-// the full width main colum is 73em which is too wide
-
-// the question then comes do I allow things to keep going wider to get a nice length
-
-$reading-width: 48rem; // 16*48 is a default ipad and a nice way to read
-$measure-width: 40rem; // reference the elements of typographic style
-
-$global-grid: 2rem 1fr 1fr 1fr 2rem; // can I put a repeat on this?
-$global-grid__double: 2rem 1fr 1fr 1fr 1fr 1fr 1fr 2rem;
-
-$global-transition: 0.5s ease; // used for hover states I think I can remove this from being a "global"
-
+html {
+  font-size: 16px;
+}
 
 body {
-    font-family: $body-font-family;
+  font-family: var(--body-font-family);
 }
 // type scale
-html {font-size: 16px;}
 
 p {
-    margin-top: 0; // browser reset
-    margin-bottom: 1.25em;
+  margin-top: 0; // browser reset
+  margin-bottom: var(--baseline);
 }
 
-h1, h2, h3, h4, h5 {
-  margin: 2.75rem 0 1rem;
-  line-height: 1.15;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2.75rem 0 1rem; // TODO
+  line-height: 1.15; // TODO
 }
 
 h1 {
@@ -104,85 +54,99 @@ h1 {
   font-size: 3.052em; // 48px
 }
 
-h2 {font-size: 2.441em;} // 39px
+h2 {
+  font-size: 2.441em;
+} // 39px
 
-h3 {font-size: 1.953em;} // 31.2px
+h3 {
+  font-size: 1.953em;
+} // 31.2px
 
-h4 {font-size: 1.563em;} // 25px
+h4 {
+  font-size: 1.563em;
+} // 25px
 
-h5 {font-size: 1.25em;} // 20px
+h5 {
+  font-size: 1.25em;
+} // 20px
 
-small, .text_small {font-size: 0.8em;} // 12.8px
+small,
+.text_small {
+  font-size: 0.8em;
+} // 12.8px
 
 li {
-    margin-bottom: $global-margin;
+  margin-bottom: 1rem;
 }
 
 address {
-    font-style: unset; // revert from browser styles currently used in the footer
+  font-style: unset; // revert from browser styles currently used in the footer
 }
 
-.text-center { // foundation style pulled over // I think wp has one of these already tho
-    text-align: center;
+.text-center {
+  // foundation style pulled over // I think wp has one of these already tho
+  text-align: center;
 }
 
 .menu,
 .menu > ul,
 .menu > ul > li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .mega a {
-    text-decoration: none;
-    padding: $global-padding;
-    border-right: 0.1em solid $primary-color;
-    border-bottom: 0.1em solid $primary-color;
+  text-decoration: none;
+  padding: 1rem;
+  border-right: 0.1em solid var(--cherry);
+  border-bottom: 0.1em solid var(--cherry);
 }
 .mega a:hover {
-    text-decoration: none;
-    background: $primary-color;
-    color: $white;
+  text-decoration: none;
+  background: var(--cherry);
+  color: var(--brilliance);
 }
 
 hr {
-    margin: 1.25rem auto;
-    border-top: 0;
-    border-bottom: 1px solid $medium-gray;
+  margin: 1.25rem auto;
+  border-top: 0;
+  border-bottom: 1px solid var(--tin-soldier);
 }
 
 .is-style-mega-hr,
-.mega-hr { // this might be able to become a gutenberg style in for most places
-    border-bottom-width: 0.5em;
-    border-color: $white;
+.mega-hr {
+  // this might be able to become a gutenberg style in for most places
+  border-bottom-width: 0.5em;
+  border-color: var(--brilliance);
 
-    border-style: solid;
+  border-style: solid;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        border-bottom-width: 1em;
-    }
+  @media (min-width: $stork) {
+    border-bottom-width: 1em;
+  }
 }
 
 .is-style-mega-hr-primary,
 .mega-hr-primary {
-    @extend .mega-hr;
-    border-color: $primary-color;
+  @extend .mega-hr;
+  border-color: var(--cherry);
 }
 
 .mega-hr-dirty {
-    @extend .mega-hr;
-    border-color: $light-gray;
+  @extend .mega-hr;
+  border-color: var(--kingly-cloud);
 }
 
-.mw-18em { // this should be renamed
-    max-width: 18rem;
-    justify-self: center;
+.mw-18em {
+  // this should be renamed
+  max-width: 18rem;
+  justify-self: center;
 }
 
 figcaption,
 .caption {
-    color: $dark-gray;
-    font-size: 1.5625rem;
-    font-weight: bold;
+  color: gray;
+  font-size: 1.5625rem;
+  font-weight: bold;
 }
 
 /* doesnt come up in search
@@ -199,169 +163,159 @@ figcaption,
 
 .comment-form input,
 .comment-form textarea {
-    border: 0.1em solid $medium-gray;
-    font-weight: bold;
-    padding: $global-padding;
-    border-radius: 2px;
-    width: calc(100% - 3em); // feels like this should be 2.2em and is throwing errors on the post comment on a single page with a smaller width so should be more specific
+  border: 0.1em solid var(--tin-soldier);
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 2px;
+  width: calc(
+    100% - 3em
+  ); // feels like this should be 2.2em and is throwing errors on the post comment on a single page with a smaller width so should be more specific
 }
 
 .comment-form input {
-    width: initial; // the text boxes can get smaller but the button hides the text if it gets smaller
+  width: initial; // the text boxes can get smaller but the button hides the text if it gets smaller
 }
 
 .comment-form [type="checkbox"] {
-    width: auto;
+  width: auto;
 }
 
 .comment-form input:focus,
 .comment-form textarea:focus {
-    outline: 0.1em solid $primary-color;
-    border-radius: 2px;
+  outline: 0.1em solid var(--cherry);
+  border-radius: 2px;
 }
-
-/*
-.category-thumbnail { // this would be cool but it doesnt work with png
-    // background: $black;
-    // background: linear-gradient(53deg, rgba(2,0,36,1) 0%, rgba(194,33,39,1) 37%, rgba(0,212,255,1) #8a0000);
-}
-*/
-
-/*
-.category-thumbnail img { 
-    // height: 100%;
-}
-*/
 
 .category-thumbnail img:hover {
-    opacity: 0.8; // indication of a link
+  opacity: 0.8; // indication of a link
 }
 
-.wp-block-code { // this is getting overwritten by js that isnt really doing much of what I want at the moment and needs fixing in riley-webpack
-    background: $white;
-    padding: $global-padding;
-    line-height: 1.5em;
+.wp-block-code {
+  // this is getting overwritten by js that isnt really doing much of what I want at the moment and needs fixing in riley-webpack
+  background: var(--brilliance);
+  padding: 1rem;
+  line-height: 1.5em;
 }
 
 .flatten
 // .flatten img
- {
-    transform: rotateX(90deg);
+{
+  transform: rotateX(90deg);
 }
 
 .flatten img {
-    transform-origin: bottom;
-    transition: 3s ease;
+  transform-origin: bottom;
+  transition: 3s ease;
 }
 
 .base {
-    filter: drop-shadow(16px 16px 10px $dark-gray);
-    @media (prefers-color-scheme: dark) {
-        filter: drop-shadow(16px 16px 10px black);
-    }
+  filter: drop-shadow(16px 16px 10px gray);
+  @media (prefers-color-scheme: dark) {
+    filter: drop-shadow(16px 16px 10px black);
+  }
 }
 
 .show-for-medium {
-    display: none;
+  display: none;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        display: inherit;
-    }
+  @media (min-width: $stork) {
+    display: inherit;
+  }
 }
 
 .hide-for-medium {
-    @media (min-width: map-get($breakpoints, medium)) {
-        display: none;
-    }
-
+  @media (min-width: $stork) {
+    display: none;
+  }
 }
 .hide-for-large {
-    @media (min-width: map-get($breakpoints, large)) {
-        display: none;
-    }
+  @media (min-width: $pelican) {
+    display: none;
+  }
 }
 
 iframe {
-    background: linen; // just a little fallback color incase an embed doesnt load
+  background: linen; // just a little fallback color incase an embed doesnt load
 }
 
 .category-overlaying-image {
-    filter: grayscale(100%);
-    mix-blend-mode: multiply;
-    @media (prefers-color-scheme: dark) {
-        mix-blend-mode: screen;
-    }
-    z-index: 14;
-    grid-row: 1;
-    grid-column: 1/4;
+  filter: grayscale(100%);
+  mix-blend-mode: multiply;
+  @media (prefers-color-scheme: dark) {
+    mix-blend-mode: screen;
+  }
+  z-index: 14;
+  grid-row: 1;
+  grid-column: 1/4;
 }
 
 .category-color-blocking {
-    background: $primary-color;
-    mix-blend-mode: multiply;
-    z-index: 15;
-    grid-row: 1;
-    grid-column: 1/4;
-    transition: 300ms ease;
+  background: var(--cherry);
+  mix-blend-mode: multiply;
+  z-index: 15;
+  grid-row: 1;
+  grid-column: 1/4;
+  transition: 300ms ease;
 
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 2/5;
-    }
+  @media (min-width: $stork) {
+    grid-column: 2/5;
+  }
 }
 
 .category-color-blocking:hover {
-    background: $secondary-color;
+  background: hsl(var(--cherry__base), var(--dull));
 }
 
 /*
     theres a whole very specific way of dealing with the dev category which goes back on a bunch of the regular work done by the category design page 
 */
 
-body.category-code { // needs to be on the body tag or a single article can be different to the page
-    
-    .category-overlaying-image {
-        filter: none;
-        mix-blend-mode: initial;
-    }
+body.category-code {
+  // needs to be on the body tag or a single article can be different to the page
 
-    .category-color-blocking {
-        display: none;
-    }
+  .category-overlaying-image {
+    filter: none;
+    mix-blend-mode: initial;
+  }
 
-    .category-color-blocking:hover {
-        display: initial;
-        opacity: 0.5;
-    }
+  .category-color-blocking {
+    display: none;
+  }
 
-    .article-thumbnail {
-        margin-top: $global-margin*3;
-    }
+  .category-color-blocking:hover {
+    display: initial;
+    opacity: 0.5;
+  }
 
-    .page-title a {
-        color: $primary-color;
-    }
+  .article-thumbnail {
+    margin-top: 1rem * 3;
+  }
 
-    .fp-header {
-        padding: 0;
-        grid-row: initial;
+  .page-title a {
+    color: var(--cherry);
+  }
 
-        hr {
-            display: none;
-        }
+  .fp-header {
+    padding: 0;
+    grid-row: initial;
+
+    hr {
+      display: none;
     }
+  }
 }
 
 // rebuilding this
 .spine-border {
-    background: $primary-color;
-    width: $global-grid-gap;
-    transition: 3s ease;
-    justify-self: center;
+  background: var(--cherry);
+  width: 1rem;
+  transition: 3s ease;
+  justify-self: center;
 }
 
 .hero-hr {
-    width: 100%;
-    border-bottom: 4px solid $primary-color;
-    // I'll try this as a gradient soon
-    margin: 0; // Im using the grid gaps to push this where it needs to be
+  width: 100%;
+  border-bottom: 4px solid var(--cherry);
+  // I'll try this as a gradient soon
+  margin: 0; // Im using the grid gaps to push this where it needs to be
 }

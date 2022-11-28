@@ -8,34 +8,8 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-0.1 Variables
---------------------------------------------------------------*/
-
-// I think I can add these to specific things to stop the tag chain getting out of control
-
-/*
-.global-padding-bottom {
-    padding-bottom: $global-padding;
-}
-*/
-
-/*--------------------------------------------------------------
 1.0 Base
 --------------------------------------------------------------*/
-
-/*
-.page-width { doesnt turn up in search
-    max-width: $page-width; // I think this should be from the wordpress setting // twenty nineteen is doing %20 + 60px above a certain size
-    margin: 0 auto;
-}
-*/
-
-/* .site-main,
-main { // im not sure if I should use main here but I am for now
-    // max-width: 71rem;
-    max-width: $reading-width;
-    margin: 0 auto;
-} */
 
 .spine-border {
   grid-row: 1/3;
@@ -43,7 +17,7 @@ main { // im not sure if I should use main here but I am for now
   z-index: 15; // over the top of categories on single
   justify-self: end;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1/3;
     justify-self: start; // categories takes up that space as well
   }
@@ -55,7 +29,7 @@ main { // im not sure if I should use main here but I am for now
   grid-column: 1;
   justify-self: start; // I think this is a browser default
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1/4; // what are the 6: header : date : content
     justify-self: start; // categories takes up that space as well
   }
@@ -67,21 +41,20 @@ main { // im not sure if I should use main here but I am for now
 
 .site-header {
   width: 100%;
-  // max-width: $page-width;
-  max-width: $reading-width;
-  margin: 0 auto $global-margin * 2 auto;
+  max-width: var(--pelican);
+  margin: 0 auto 1rem * 2 auto;
   display: grid;
-  grid-gap: $global-grid-gap;
+  grid-gap: 1rem;
   grid-template-columns: 2em 1fr 2em;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-template-columns: 2em 1fr 1fr 1fr 2em;
     grid-template-rows: 2em 1fr 2em; // keep it tight up top with the header-logo
   }
 }
 
 .single-site-header {
-  margin-right: $global-margin;
+  margin-right: 1rem;
   grid-template-columns: 1em 1fr;
 }
 
@@ -96,7 +69,7 @@ main { // im not sure if I should use main here but I am for now
   // grid-row: 1/3;
   grid-row: 3;
   // align-self: end;
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     // grid-row: 2;
     // align-self: start;
     grid-row: 3/5;
@@ -108,7 +81,7 @@ main { // im not sure if I should use main here but I am for now
   grid-column: 3;
   justify-self: center; // macth the spine
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     align-self: end; // this is for when the menu is horizontal on single pages
     grid-column: 5; //category
   }
@@ -118,7 +91,7 @@ main { // im not sure if I should use main here but I am for now
   justify-self: center;
   align-self: start;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 5;
   }
 }
@@ -128,16 +101,16 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .home .header-logo svg {
-  // TODO padding: $global-padding/2; // guess and check to fit into the grid
-  transition: $global-transition;
+  // TODO padding: 1rem/2; // guess and check to fit into the grid
+  transition: var(--global-transition);
 }
 .home .header-logo svg:hover {
-  background: $light-gray;
+  background: var(--kingly-cloud);
 }
 
 .color-blocking {
   mix-blend-mode: multiply;
-  background: $primary-color;
+  background: var(--cherry);
   z-index: 15; //same as .spine border? should it be above or below
 }
 
@@ -146,7 +119,7 @@ main { // im not sure if I should use main here but I am for now
   grid-row: 2;
   grid-column: 2;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1 / 4;
     grid-column: 3;
   }
@@ -161,7 +134,7 @@ main { // im not sure if I should use main here but I am for now
   grid-column: 2;
   z-index: 20;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     writing-mode: vertical-rl;
     grid-row: 1/4;
     grid-column: 3;
@@ -176,7 +149,7 @@ main { // im not sure if I should use main here but I am for now
   padding-bottom: 0;
   // align-self: start;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     writing-mode: horizontal-tb;
     padding: 0;
     grid-column: 2;
@@ -186,10 +159,10 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .home .site-branding-text {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1 / 3;
-    margin-top: $global-margin * 3;
-    margin-bottom: $global-margin; // can this be written as a single line?
+    margin-top: 1rem * 3;
+    margin-bottom: 1rem; // can this be written as a single line?
   }
 }
 
@@ -207,11 +180,11 @@ main { // im not sure if I should use main here but I am for now
   justify-self: center; // match header-logo
   // place-self: end; might need only bigger
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 2;
     grid-column: 5;
     align-self: end;
-    // margin-bottom: $global-margin*2; // match the base of the image
+    // margin-bottom: 1rem*2; // match the base of the image
   }
 }
 
@@ -219,7 +192,7 @@ main { // im not sure if I should use main here but I am for now
   grid-row: 1/3;
   align-self: end;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 3;
     // align-self: start;
   }
@@ -232,7 +205,7 @@ main { // im not sure if I should use main here but I am for now
   grid-row: 1 / 3;
   grid-column: 2;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 2;
     grid-column: 2 / 4;
   }
@@ -249,7 +222,7 @@ main { // im not sure if I should use main here but I am for now
   padding-bottom: 56.25%; // 16:9
   height: 0;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2 / 4;
   }
 }
@@ -264,7 +237,7 @@ main { // im not sure if I should use main here but I am for now
 
 .single #top-menu {
   margin: 0;
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     display: flex;
     flex-direction: row;
   }
@@ -278,7 +251,7 @@ main { // im not sure if I should use main here but I am for now
   grid-column: 2;
   grid-row: 3;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 4;
     grid-row: 2 / 4;
   }
@@ -287,7 +260,7 @@ main { // im not sure if I should use main here but I am for now
 .single .navigation-top {
   grid-row: 3;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2;
 
     ul {
@@ -298,13 +271,13 @@ main { // im not sure if I should use main here but I am for now
 
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: $global-grid-gap;
+      grid-gap: 1rem;
     }
 
     li {
       margin-bottom: 0;
-      // margin-right: $global-margin;
-      padding-right: $global-padding; // does making this padding solve my js finding the width problems?
+      // margin-right: 1rem;
+      padding-right: 1rem; // does making this padding solve my js finding the width problems?
     }
 
     li:last-child() {
@@ -316,12 +289,12 @@ main { // im not sure if I should use main here but I am for now
 .home .navigation-top {
     grid-row: 3;
     align-self: start;
-    margin-bottom: $global-margin;
+    margin-bottom: 1rem;
 
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
         grid-row: 1;
         grid-column: 4;
-        margin-bottom: $global-margin*3;
+        margin-bottom: 1rem*3;
         align-self: center;
     }
 } */
@@ -337,19 +310,19 @@ main { // im not sure if I should use main here but I am for now
 .front-page-titles {
   width: 100%;
   // max-width: 71rem;
-  max-width: $reading-width;
+  max-width: var(--condor);
   margin: 0 auto;
   display: grid; // I am using this for the grid gap it could probably be done better
   grid-template-columns: repeat(6, 1fr);
-  // TODO grid-gap: $global-grid-gap/2; // double the grid (6 columns) half the gap
-  background: $white;
+  // TODO grid-gap: 1rem/2; // double the grid (6 columns) half the gap
+  background: var(--brilliance);
   @media (prefers-color-scheme: dark) {
-    background: $black;
+    background: var(--black-metal);
   }
 
   // this needs a couple of media queries to match the header grid
-  @media (min-width: map-get($breakpoints, medium)) {
-    grid-gap: $global-grid-gap;
+  @media (min-width: $stork) {
+    grid-gap: 1rem;
     // width: calc(100% - 4rem); // the 2rem margins on each side to keep the background white
     width: 100%;
     // grid-template-columns: 2em 1fr 1fr 1fr 2em; // test as 3
@@ -372,13 +345,13 @@ main { // im not sure if I should use main here but I am for now
   display: grid;
   // grid-template-columns: 2em 1fr 8fr 1fr 2em;
   grid-template-columns: 2em 1fr 1fr 1fr 2em;
-  grid-gap: $global-grid-gap;
+  grid-gap: 1rem;
 }
 
 .cat-head {
   grid-column: 2 / 5;
-  padding-bottom: $global-padding * 2;
-  @media (min-width: map-get($breakpoints, medium)) {
+  padding-bottom: 1rem * 2;
+  @media (min-width: $stork) {
     // grid-column: 3;
   }
 }
@@ -387,7 +360,7 @@ main { // im not sure if I should use main here but I am for now
   grid-column: 2 / 5;
   grid-row: 1 / 2;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1;
   }
 }
@@ -396,7 +369,7 @@ main { // im not sure if I should use main here but I am for now
 .article-search {
     grid-column: 2 / 12; // really?
 
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
         grid-column: 4 / span 1;
     }
 }
@@ -408,12 +381,12 @@ main { // im not sure if I should use main here but I am for now
     grid-row: 4 / span 2;
     align-self: center;
 
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
         grid-column: 4 / span 6; // really?
         grid-row: 3;
         align-self: start;
     }
-    @media (min-width: map-get($breakpoints, large)) {
+    @media (min-width: $pelican) {
         grid-column: 4 / span 9; // really?
         grid-row: 3;
         // this cant span multiple rows but it needs to be the largest so the next row sits tight against it,
@@ -427,11 +400,11 @@ main { // im not sure if I should use main here but I am for now
     grid-column: 2 / span 10; // really?
     grid-row: 9; // really?
 
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
         grid-column: 4 / span 3;
         grid-row: 6;
     }
-    @media (min-width: map-get($breakpoints, large)) {
+    @media (min-width: $pelican) {
         grid-column: 4 / span 3;
         grid-row: 4;
     }
@@ -446,7 +419,7 @@ main { // im not sure if I should use main here but I am for now
     z-index: 99; // why?
     mix-blend-mode: multiply;
 
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
         grid-column: 3;
         grid-row: 3;
         justify-self: center;
@@ -459,19 +432,19 @@ main { // im not sure if I should use main here but I am for now
   width: 100%;
   max-width: 72rem; // always stay inside the widest columns on the category pages
   margin: 0 auto;
-  margin-bottom: $global-margin;
+  margin-bottom: 1rem;
 }
 
 .category-sub ul {
   padding-left: 0;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     display: grid;
     grid-template-columns: repeat(
       3,
       1fr
     ); // this is probably far too simple and should be a flex
-    grid-gap: $global-grid-gap;
+    grid-gap: 1rem;
   }
 
   li {
@@ -505,7 +478,7 @@ main { // im not sure if I should use main here but I am for now
 .featured-excerpt {
     grid-column: 2 / 5;
     grid-row: 3;
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
         grid-column: 3;
         grid-row: 2;
     }
@@ -523,16 +496,16 @@ main { // im not sure if I should use main here but I am for now
   max-width: 77rem;
   margin: 0 auto;
   display: grid;
-  grid-gap: $global-grid-gap;
+  grid-gap: 1rem;
 
-  padding: $global-padding * 2 0;
+  padding: 1rem * 2 0;
   padding-bottom: 0; // the spine needs to get to the base of the area
   /*
     // grid-template-columns: 4px 1fr 4fr 4fr 1fr 4px; // why 4px?
     grid-template-columns: 1rem 1fr 1rem; // why 4px?
     // maybe this should be to match the header and footer grid atleast at large sizes 2em 1fr 2fr 2fr 1fr 2em
 
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
         width: calc(100% - 2rem); // slightly different so the side bar fits
         // grid-template-columns: 2em 1fr 4fr 4fr 1fr 2em;
         // grid-template-columns: repeat(6, 1fr); // slightly more complex to fit with the rest of the page grid
@@ -541,7 +514,7 @@ main { // im not sure if I should use main here but I am for now
 
   grid-template-columns: 2em 1fr 2em;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     // width: calc(100% - 2rem); // slightly different so the sid bar fits
     grid-template-columns: 2em 1fr 1fr 1fr 2em;
   }
@@ -553,7 +526,7 @@ main { // im not sure if I should use main here but I am for now
   // max-height: 100vh; // this causes issues on wide short screens but I get the idea of something tall can be very large
   // maybe it can be fixed with an overflow and then go even less than 100 to make it obvious and be able to scroll around it
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2 / 5;
   }
 }
@@ -586,8 +559,8 @@ main { // im not sure if I should use main here but I am for now
 
 .featured-header {
   max-width: calc(77rem - 6rem);
-  margin: $global-margin auto;
-  padding-top: $global-padding;
+  margin: 1rem auto;
+  padding-top: 1rem;
 }
 
 .article-header {
@@ -596,7 +569,7 @@ main { // im not sure if I should use main here but I am for now
   // align-self: end; // I think its it own row it cant go anywhere
   grid-row: 2;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2 / 6;
     grid-row: 2; // this is a repeat of above
   }
@@ -606,7 +579,7 @@ main { // im not sure if I should use main here but I am for now
   grid-column: 2;
   // justify-self: end;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1;
     grid-column: 5;
     align-self: start;
@@ -615,23 +588,23 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .article-speechbubble > .speeechbubble {
-  margin-bottom: $global-margin;
+  margin-bottom: 1rem;
 }
 
 .article-content {
   grid-column: 2;
-  // margin-bottom: $global-margin;
+  // margin-bottom: 1rem;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     // grid-column: 2 / 6;
     grid-column: 2/5;
-    // margin-bottom: $global-margin*3;
+    // margin-bottom: 1rem*3;
   }
 }
 
 .article-content-specific {
   // single posts have more content in this block which is then held in by a foundation grid
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     // grid-column: 1 / 7;
     // grid-column: 1 / 4;
     grid-column: 1/6; // full width
@@ -643,9 +616,9 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .article-content-specific hr {
-  @media (min-width: map-get($breakpoints, medium)) {
-    margin-left: $global-margin * 3; // 2 for the page margins 1 for the grid gap
-    margin-right: $global-margin * 3;
+  @media (min-width: $stork) {
+    margin-left: 1rem * 3; // 2 for the page margins 1 for the grid gap
+    margin-right: 1rem * 3;
   }
 }
 
@@ -654,7 +627,7 @@ main { // im not sure if I should use main here but I am for now
   // grid-row: 4;
   font-weight: bold;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     text-align: right;
     grid-row: 1 / 3;
     grid-column: 1;
@@ -663,7 +636,7 @@ main { // im not sure if I should use main here but I am for now
     justify-self: center;
     overflow-x: scroll;
     max-height: 45em; // incase of a long category name it will truncate
-    margin-top: $global-margin;
+    margin-top: 1rem;
 
     p,
     ul {
@@ -672,7 +645,7 @@ main { // im not sure if I should use main here but I am for now
 
     ul {
       padding-left: 0; // browser reset
-      padding-top: $global-padding; // browser alter
+      padding-top: 1rem; // browser alter
     }
   }
 
@@ -685,7 +658,7 @@ main { // im not sure if I should use main here but I am for now
   }
 
   ul {
-    padding-left: $global-padding;
+    padding-left: 1rem;
     // display: flex;
     // flex-wrap: wrap;
     display: inline;
@@ -693,17 +666,13 @@ main { // im not sure if I should use main here but I am for now
 
   li {
     list-style: none;
-    margin-right: $global-margin;
+    margin-right: 1rem;
     display: inline;
   }
-
-  /* a {
-        color: $dark-gray; // purposly not as strong as a regular link
-    } */
 }
 
 .single .article-category {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1 / 4; // header : date : content
     align-self: start;
     grid-column: 1;
@@ -717,21 +686,21 @@ main { // im not sure if I should use main here but I am for now
 
 .article-base {
   //min-height: 3em; // this is a breaker in categories
-  max-width: $page-width;
-  margin-top: $global-margin * 3; // rewrite this as a single
+  max-width: var(--albatross);
+  margin-top: 1rem * 3; // rewrite this as a single
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     display: grid;
     grid-template-columns: 2em 1fr 1fr 1fr 2em;
-    grid-gap: $global-grid-gap;
+    grid-gap: 1rem;
   }
 }
 
 .base-explore {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 1;
     writing-mode: vertical-rl;
   }
@@ -742,14 +711,14 @@ main { // im not sure if I should use main here but I am for now
   grid-row: 3;
   writing-mode: vertical-rl;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 5;
     grid-row: 1;
   }
 }
 
 .article-category .subheading {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     margin-bottom: 0;
   }
 }
@@ -760,78 +729,45 @@ main { // im not sure if I should use main here but I am for now
   margin-left: 0;
   padding: 0;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     margin-bottom: 0;
   }
 }
 
 .article-explore {
   grid-column: 2;
-  margin-bottom: $global-margin;
-  // border-top: 2px solid $primary-color;
+  margin-bottom: 1rem;
+  // border-top: 2px solid var(--cherry);
   // text-align: center;
-  // padding: $global-padding; // fix the hack with the a class button below
+  // padding: 1rem; // fix the hack with the a class button below
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2/5;
   }
 
   a {
-    background: $primary-color;
-    padding: $global-padding;
+    background: var(--cherry);
+    padding: 1rem;
     display: inline-block;
-    color: $white;
+    color: var(--brilliance);
     font-weight: bold;
     text-decoration: none;
   }
 
   a:hover {
-    background: $secondary-color;
-    color: $white; // otherwise this gets overwritten to the default a
+    background: hsl(var(--cherry__base), var(--dull));
+    color: var(
+      --brilliance
+    ); // otherwise this gets overwritten to the default a
   }
 
   // I dont like the hover here but need to do actual work on it
 }
 
-/* doesnt show in search
-.article-navigation-title {
-        grid-column: 2 / span 12; // really?
-        grid-row: 9;
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 13 / span 2; // this isnt written very well
-        grid-row: 4;
-        margin: 0;
-        writing-mode: vertical-rl;
-    }
-}
-
-.article-navigation-title a {
-    color: $dark-gray;
-}
-*/
-
-/* doesnt show in search
-.post-thumbnail {
-    grid-column: 5 / span 8; // some of these are plain ugly
-    grid-row: 1 / span 2;
-    z-index: 5;
-
-    @media (min-width: map-get($breakpoints, medium)) {
-        grid-column: 5 / span 8;
-        grid-row: 1 / span 2; // start with full height
-    }
-}
-
-.post-thumbnail img {
-    width: 100%;
-}
-*/
-
 // can the next few items be written nicer?
 .post-navigation {
   grid-column: 2 / 5;
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2;
   }
 }
@@ -839,22 +775,22 @@ main { // im not sure if I should use main here but I am for now
 .article-comments {
   grid-column: 2 / 5;
 
-  padding: $global-padding;
+  padding: 1rem;
   @extend .background-dirty;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 3;
   }
 }
 
 .article-tags {
   grid-column: 2 / 5;
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 4;
   }
 
   h3 {
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
       writing-mode: vertical-rl;
     }
   }
@@ -867,9 +803,9 @@ main { // im not sure if I should use main here but I am for now
   z-index: 20; // document why this is here
   align-self: end;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2 / 5;
-    // padding: $global-padding;
+    // padding: 1rem;
   }
 }
 
@@ -879,7 +815,7 @@ main { // im not sure if I should use main here but I am for now
   grid-column: 2;
   // align-self: end;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2 / 5;
   }
 }
@@ -908,7 +844,7 @@ main { // im not sure if I should use main here but I am for now
 .featured--excerpt {
   grid-column: 2;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2/5;
   }
 }
@@ -919,9 +855,9 @@ main { // im not sure if I should use main here but I am for now
 
 .pagination {
   margin: 3rem auto;
-  max-width: $page-width;
+  max-width: var(--albatross);
   display: grid;
-  grid-gap: $global-grid-gap;
+  grid-gap: 1rem;
   grid-template-columns: 2em 1fr 4fr 1fr 2em; // fix
 }
 
@@ -929,7 +865,7 @@ main { // im not sure if I should use main here but I am for now
   /* as wordpress controls this we are using elements for the grid */
   grid-column: 1 / 3;
 
-  @media (min-width: map-get($breakpoints, large)) {
+  @media (min-width: $pelican) {
     grid-column: 3 / span 4;
   }
 }
@@ -942,7 +878,7 @@ main { // im not sure if I should use main here but I am for now
   justify-items: flex-start; // is there a place-items for flex?
   align-items: flex-start;
 
-  @media (min-width: map-get($breakpoints, large)) {
+  @media (min-width: $pelican) {
     grid-column: 3;
   }
 }
@@ -958,7 +894,7 @@ main { // im not sure if I should use main here but I am for now
 
 .pagination span,
 .pagination a {
-  margin-right: $global-margin;
+  margin-right: 1rem;
 }
 
 /*--------------------------------------------------------------
@@ -972,7 +908,7 @@ main { // im not sure if I should use main here but I am for now
   grid-row: 2;
   align-self: end;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2;
   }
 }
@@ -995,7 +931,7 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .post-categories > li {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     margin-bottom: 0; // vertical text doesnt need a margin below
   }
 }
@@ -1006,7 +942,7 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .post-navigation {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2;
   }
 }
@@ -1015,21 +951,21 @@ main { // im not sure if I should use main here but I am for now
   display: flex;
   flex-direction: column;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     display: grid;
     grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
-    grid-gap: $global-grid-gap;
+    grid-gap: 1rem;
   }
 
   h3 {
-    @media (min-width: map-get($breakpoints, medium)) {
+    @media (min-width: $stork) {
       grid-column: 2/5;
     }
   }
 }
 
 .subtitle {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 1;
     grid-row: 1;
     writing-mode: vertical-rl;
@@ -1043,7 +979,7 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .continental {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2/5;
   }
 }
@@ -1061,32 +997,32 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .west-medium {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 2;
   }
 }
 
 .east-medium {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 3;
   }
 }
 
 .west-large {
-  @media (min-width: map-get($breakpoints, large)) {
+  @media (min-width: $pelican) {
     grid-column: 2;
   }
 }
 
 .east-large {
-  @media (min-width: map-get($breakpoints, large)) {
+  @media (min-width: $pelican) {
     grid-column: 3;
   }
 }
 
 .gr-1-m {
   // this is really different from other classes?
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1;
   }
 }
@@ -1099,38 +1035,38 @@ main { // im not sure if I should use main here but I am for now
   width: 100%;
   // max-width: 71rem; // keeps inside of the margins 77 - 2 on each side
   margin: 0 auto 2rem auto;
-  padding-bottom: $global-padding;
+  padding-bottom: 1rem;
 
-  @media (min-width: map-get($breakpoints, medium)) {
-    margin-top: $global-margin * 5; // guess and check
+  @media (min-width: $stork) {
+    margin-top: 1rem * 5; // guess and check
   }
 }
 
 .site-footer--browse {
   // max-width: calc(77rem - 6rem);
-  max-width: $reading-width;
+  max-width: var(--condor);
   margin: 0 auto;
 }
 
 .footer-background__step {
-  padding: $global-padding; // this allows the grid gap to sit inside as a ruler and not break the edges
+  padding: 1rem; // this allows the grid gap to sit inside as a ruler and not break the edges
 }
 
 .footer_menu {
   display: grid;
   grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
-  grid-gap: $global-grid-gap;
-  padding-top: $global-padding;
+  grid-gap: 1rem;
+  padding-top: 1rem;
   // margin-left: 0;
   padding-left: 0;
-  max-width: $page-width;
+  max-width: var(--albatross);
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-template-columns: repeat(3, 1fr);
     margin: 0 3rem;
   }
 
-  @media (min-width: map-get($breakpoints, large)) {
+  @media (min-width: $pelican) {
     max-width: calc(77rem - 6rem);
     margin: 0 auto;
   }
@@ -1139,23 +1075,23 @@ main { // im not sure if I should use main here but I am for now
 .footer_info {
   display: grid;
   grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
-  grid-gap: $global-grid-gap;
-  // max-width: $page-width;
-  max-width: $reading-width;
+  grid-gap: 1rem;
+  // max-width: var(--albatross);
+  max-width: var(--condor);
 
-  // margin: $global-margin; // allows the grid gap to sit inside the colored background
-  margin: $global-margin auto; // still working on this
+  // margin: 1rem; // allows the grid gap to sit inside the colored background
+  margin: 1rem auto; // still working on this
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
 
-    margin: $global-margin auto; // still working on this
+    margin: 1rem auto; // still working on this
   }
 }
 
 .footer_info div,
 .footer_info address {
-  background: $light-gray; // step back with the grid gap fill
+  background: var(--kingly-cloud); // step back with the grid gap fill
   @media (prefers-color-scheme: dark) {
     background: #2c2c2c; // this should be made a variable
   }
@@ -1170,31 +1106,33 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .footer_info {
-  background: $white; // this is a way of filling the grip gap as a different color
+  background: var(
+    --brilliance
+  ); // this is a way of filling the grip gap as a different color
   @media (prefers-color-scheme: dark) {
-    background: $black;
+    background: var(--black-metal);
   }
 }
 
 .footer_copyright,
 .footer_nav,
 .footer_contact {
-  padding: $global-padding;
-  @media (min-width: map-get($breakpoints, medium)) {
+  padding: 1rem;
+  @media (min-width: $stork) {
     grid-row: 1;
     z-index: 10;
   }
 }
 
 .footer_copyright {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     // grid-row: 1;
     grid-column: 2;
   }
 }
 
 .footer_nav {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     // grid-row: 1;
     grid-column: 3;
     // text-align: center;
@@ -1211,7 +1149,7 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .footer_contact {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-column: 4;
     text-align: right;
   }
@@ -1223,7 +1161,7 @@ main { // im not sure if I should use main here but I am for now
 
   display: none;
 
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     display: initial;
     grid-row: 1;
     // z-index: -1;
@@ -1231,14 +1169,14 @@ main { // im not sure if I should use main here but I am for now
 }
 
 .footer_1 {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1;
     grid-column: 1/3; // hide a grid-gap that is otherwise white
   }
 }
 
 .footer_5 {
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     grid-row: 1;
     grid-column: 4/6; // hide a grid-gap that is otherwise white
   }
@@ -1279,13 +1217,13 @@ main { // im not sure if I should use main here but I am for now
   section {
     // flex: 1 1 33%;
     flex: 1 1 29%; // guess and check number to fit 3
-    padding: $global-padding;
+    padding: 1rem;
   }
 }
 
 .specific-full-picture img {
-  background: $white;
-  padding: $global-padding;
+  background: var(--brilliance);
+  padding: 1rem;
   width: calc(100% - 2rem);
 }
 
@@ -1326,7 +1264,7 @@ main { // im not sure if I should use main here but I am for now
   }
 
   h4 a {
-    color: $white;
+    color: var(--brilliance);
     z-index: 16;
     position: relative;
   }
@@ -1341,7 +1279,7 @@ main { // im not sure if I should use main here but I am for now
 .single-site-header-color-block_1 {
   grid-row: 1;
   grid-column: 1;
-  background: $primary-color;
+  background: var(--cherry);
   width: 100%;
   height: 4px;
   margin: 0;
@@ -1351,13 +1289,13 @@ main { // im not sure if I should use main here but I am for now
 .single-site-header-color-block_2 {
   grid-row: 2;
   grid-column: 1;
-  background: $primary-color;
+  background: var(--cherry);
   width: 100%;
   height: 4px;
   margin: 0;
 }
 
 .reading-width {
-  width: $reading-width;
+  width: var(--condor);
   margin: 0 auto;
 }

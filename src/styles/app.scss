@@ -2,20 +2,20 @@
 //  #RILEY BATHURST
 /*------------------*/
 
-// TODO: testing this by turning things off
-
+@import "variables";
 @import "atoms";
-// @import "molecules";
-// @import "organisms";
-// @import "layout";
-// @import "pages";
-// @import "typography";
-// @import "ccc";
+@import "molecules";
+@import "organisms";
+@import "layout";
+@import "pages";
+@import "typography";
+@import "ccc";
 
-// @import "menu"; // fancy menu coming from webpackbuild so it wont be needed long term
+@import "menu"; // fancy menu coming from webpackbuild so it wont be needed long term
 
-// @import "riley";
+@import "riley";
 
-// @import "bundle"; // riley-webpack manually updated
+@import "bundle"; // riley-webpack manually updated
+// did I ever need this its google material
 
-// @import "tryptych"; // this might end up overwriting some webpack so its after
+@import "tryptych"; // this might end up overwriting some webpack so its after

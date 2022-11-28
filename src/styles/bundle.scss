@@ -1,0 +1,91 @@
+.mdc-text-field {
+  margin-bottom: 1em;
+}
+
+.mdc-text-field--textarea {
+  padding-top: 0.1em; // hack to fix an overlap but breaks other things
+}
+
+.article-form label {
+  // hack to fix foundation
+  clip: auto;
+  height: initial;
+  position: relative !important;
+  width: initial;
+}
+
+#snap-scroll-container-coordinates {
+  width: 100%;
+  // width: 20%; // just as a test
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+
+  -webkit-scroll-snap-type: mandatory;
+  scroll-snap-type: x mandatory;
+
+  -scroll-snap-destination: 50% 50%;
+  -webkit-scroll-snap-destination: 50% 50%;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.child {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  background-color: #f0f0f0; // TODO
+  display: inline-block;
+
+  scroll-snap-align: center;
+  scroll-snap-coordinate: 50% 50%;
+  -webkit-scroll-snap-coordinate: 50% 50%;
+}
+
+.child img {
+  width: 100%;
+  vertical-align: middle; // maybe I should do something better for images of a different height but for now this works
+}
+
+#thumbnails img {
+  width: 33%;
+}
+
+#gallery {
+  display: grid;
+
+  #snap-scroll-container-coordinates,
+  #left,
+  #right {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+
+#left,
+#right {
+  z-index: 1;
+  align-self: center;
+  font-size: 6rem;
+}
+
+#left {
+  justify-self: left; // make these as small as possible as if your over the the scroll behind doesnt work
+  padding-left: 1rem;
+}
+
+#right {
+  justify-self: right;
+  padding-right: 1rem;
+}
+
+#left a,
+#right a {
+  text-decoration: none;
+  color: yellow; // TODO
+}
+
+html {
+  scroll-behavior: smooth; // im not 100% sure this is doing what I want with the sideways but its helping for the vertical
+}

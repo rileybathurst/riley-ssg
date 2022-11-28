@@ -2,39 +2,23 @@
 
 .searchform [type="text"] {
   // .post-password-form [type="password"]
-  border: 0.1em solid $medium-gray;
+  border: 0.1em solid var(--tin-soldier);
   border-right: none;
   font-size: 2em; // type scale
   font-weight: bold;
-  // TODO padding: $global-padding/2; // fit to the button
+  // TODO padding: 1rem/2; // fit to the button
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
 
   width: 100%; // max-width wasn't fixing the problem
-  @media (min-width: map-get($breakpoints, medium)) {
+  @media (min-width: $stork) {
     width: auto;
   }
 }
 
 .searchform [type="text"]:focus {
-  outline: 0.1em solid $primary-color;
+  outline: 0.1em solid var(--cherry);
 }
-
-/* 
-reducing some parts to get back to a style guide before building up again
-.searchform [type="submit"],
-#commentform [type="submit"] {
-	background: none;
-	border: 0.1em solid $primary-color;
-	border-top: none;
-	border-left: none;
-	color: $primary-color;
-	font-size: 2em;
-	font-weight: bold;
-	padding: $global-padding;
-	border-top-right-radius: 2px;
-	border-bottom-right-radius: 2px;
-} */
 
 .searchform [type="submit"],
 #commentform [type="submit"] {
@@ -43,10 +27,10 @@ reducing some parts to get back to a style guide before building up again
 
 // front page
 .ghostly {
-  //	// TODO padding: $global-padding/2 0;
+  // TODO padding: 1rem/2 0;
 
-  // @media (min-width: map-get($breakpoints, medium)) {
-  padding: $global-padding 0;
+  // @media (min-width: $stork) {
+  padding: 1rem 0;
   // }
 }
 
@@ -58,7 +42,7 @@ reducing some parts to get back to a style guide before building up again
   }
 
   .ghostly:hover {
-    transition: $global-transition;
+    transition: var(--global-transition);
     opacity: 1;
   }
 

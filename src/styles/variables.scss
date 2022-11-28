@@ -1,0 +1,100 @@
+/*------------------------------------*\
+  #VARIABLES
+\*------------------------------------*/
+
+:root {
+  /*------------------*/
+  //  #COLORS
+  /*------------------*/
+
+  // louie change
+  --pitch: 2.5%;
+  --dark: 12.5%;
+  --dull: 25%;
+  --dim: 37.5%;
+  --mid: 50%;
+  --glow: 62.5%;
+  --light: 75%;
+  --bright: 87.5%;
+  --brilliant: 97.5%;
+
+  --black-metal: hsl(0, 0%, 2.5%);
+  --black-out: hsl(0, 0%, 12.5%);
+  --raven-black: hsl(0, 0%, 25%);
+  --industrial-revolution: hsl(0, 0%, 37.5%);
+  // gray
+  --cold-grey: hsl(0, 0%, 62.5%);
+  --tin-soldier: hsl(0, 0%, 75%);
+  --kingly-cloud: hsl(0, 0%, 87.5%);
+  --brilliance: hsl(0, 0%, 97.5%);
+
+  // kinda was primary color
+  --cherry: hsl(0, 75%, 50%);
+  --cherry__base: 0, 75%;
+
+  /*------------------*/
+  //  #SHADOWS
+  /*------------------*/
+
+  --mesosphere: 0 5px 12px hsla(0, 0%, 0%, 0.4),
+    0 18px 32px hsla(0, 0%, 0%, 0.16);
+  --stratosphere: 0 2px 3px hsla(0, 0%, 0%, 0.12),
+    0 3px 6px hsla(0, 0%, 0%, 0.14);
+  --troposphere: 0 2px 3px hsla(0, 0%, 0%, 0.12),
+    0 3px 6px hsla(0, 0%, 0%, 0.14);
+
+  /*------------------*/
+  //  #WIDTHS
+  /*------------------*/
+
+  --swan: 20rem;
+  --vulture: 30rem;
+  --stork: 40rem;
+  --condor: 50rem;
+  --pelican: 60rem;
+  --albatross: 80rem;
+
+  // $page-width: 77rem; // this needs some good documentation about when and especially when its not used
+  // 1232 pixels // this seems wider? than maybe it should be
+  // 2em 1fr 1fr 1fr 2em
+  // 32px 1168px 32px // this doesnt relate much to the small medium large
+  // 389.333px each column
+  // each column is 24em which is really too skinny for a singular column
+  // a double column is 48em / 778px which is a nice writing length
+  // the full width main colum is 73em which is too wide
+
+  // the question then comes do I allow things to keep going wider to get a nice length
+
+  // $reading-width: 48rem; // 16*48 is a default ipad and a nice way to read
+
+  /*------------------*/
+  //  #TYPOGHRAPY
+  /*------------------*/
+
+  --baseline: 1.5rem; // 24px
+
+  /* 🏔 Mountain Names as Font Sizing Defaults */
+  /* (Highest by Continent) */
+  --everest: 3rem; /* 29,035ft Asia */
+  --aconcagua: 2.5rem; /* 22,840ft South America */
+  --denali: 2rem; /* 20,320ft North America */
+  --kilimanjaro: 1.5rem; /* 19,340ft Africa */
+  --elbrus: 1.25rem; /* 18,510ft Europe / Russia */
+  --vinson_massif: 1rem; /* 16,050ft Antartica */
+  --kosciuszko: 0.75rem; /* 7,310ft Australia */
+
+  --body-font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; // TODO check the quotes
+
+  /*------------------*/
+  //  #TIMING
+  /*------------------*/
+
+  --global-transition: 0.5s ease; // used for hover states I think I can remove this from being a "global"
+}
+
+/*------------------*/
+//  #WIDTHS FOR MEDIA QUERIES
+/*------------------*/
+
+$stork: 40rem;
+$pelican: 60rem;
