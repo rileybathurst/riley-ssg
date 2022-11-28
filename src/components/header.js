@@ -16,8 +16,8 @@ const Header = ({ siteTitle }) => (
         </h1>
       </div>
 
-      {/* Im not quite sure about how to do this */}
-      <div className="breadcrumbs">breadcrumbs</div>
+      {/* // TODO Im not quite sure about how to do this */}
+      <div className="breadcrumbs">Riley Bathurst</div>
 
       <div className="header-logo">
         {/* I should probably add a default width */}
@@ -33,29 +33,15 @@ const Header = ({ siteTitle }) => (
         </div> {/* .hero .gp-top */}
       </div> {/* .custom-header-media overlaying image */}
 
-      <nav className="navigation-top">
-        {/* <?php wp_nav_menu( array(
-          'theme_location' => 'primary',
-          'menu_id'        => 'top-menu',
-        ) ); ?> */}
+      {/*       <nav className="navigation-top">
         <PrimaryMenu />
-      </nav>
+      </nav> */}
 
-      {/* this isnt working currently */}
-      <div className="spine">{/* {SiteDescription} */}</div>
+      {/* // TODO I need a new slogan */}
+      <div className="spine">Pushing Pixels Since 2009</div>
 
     </header>
   </>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-  // SiteDescription: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-  // SiteDescription: ``,
-}
 
 export default Header

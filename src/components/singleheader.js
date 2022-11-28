@@ -6,9 +6,9 @@ import PrimaryMenu from "./primarymenu"
 
 const SingleHeader = ({ siteTitle }) => (
   <>
-  {/* I can get rid of this soon I'm just using it as reference */}
+    {/* I can get rid of this soon I'm just using it as reference */}
 
-  {/* <header
+    {/* <header
     style={{
       background: `rebeccapurple`,
       marginBottom: `1.45rem`,
@@ -35,27 +35,27 @@ const SingleHeader = ({ siteTitle }) => (
     </div>
   </header> */}
 
-  <header className='site-header single single-site-header'>
-  {/* this multi class thing is pretty horrible but I have some really messy classes I need to tidy up */}
+    <header className='site-header single single-site-header'>
+      {/* this multi class thing is pretty horrible but I have some really messy classes I need to tidy up */}
 
-    <div className="site-branding-text">
-      <h1>
-        <Link to="/" rel="home" className="site-title">
-          {siteTitle}
-        </Link>
-      </h1>
+      <div className="site-branding-text">
+        <h1>
+          <Link to="/" rel="home" className="site-title">
+            {siteTitle}
+          </Link>
+        </h1>
 
-    </div>
+      </div>
 
-    <hr className="site-header-hero-hr hero-hr" />
+      <hr className="site-header-hero-hr hero-hr" />
 
-    <hr className="single-site-header-color-block_1" />
-    <hr className="single-site-header-color-block_2" />
+      <hr className="single-site-header-color-block_1" />
+      <hr className="single-site-header-color-block_2" />
 
-    {/* Im not quite sure about how to do this */}
-    <div className="breadcrumbs">breadcrumbs</div>
+      {/* Im not quite sure about how to do this */}
+      <div className="breadcrumbs">breadcrumbs</div>
 
-{/*
+      {/*
     Currently not using the icon in single pages as were going with the open button for the menu in a similar spot
     <div className="header-logo">
       <Link to="/" rel="home" aria-label="riley bathurst design home">
@@ -64,14 +64,14 @@ const SingleHeader = ({ siteTitle }) => (
     </div>
 */}
 
-    <nav className="navigation-top">
+      {/*     <nav className="navigation-top">
       <PrimaryMenu />
-    </nav>
+    </nav> */}
 
-    {/* this is going to be a little more complex as the breadcrumbs is going to flow over the main content */}
-    {/* <div className="spine">{SiteDescription}</div> */}
+      {/* this is going to be a little more complex as the breadcrumbs is going to flow over the main content */}
+      {/* <div className="spine">{SiteDescription}</div> */}
 
-  </header>
+    </header>
   </>
 )
 

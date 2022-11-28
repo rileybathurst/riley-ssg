@@ -1,15 +1,10 @@
-import { Link } from "gatsby"
 import React from "react"
+
+import { Link } from "gatsby"
 
 const PrimaryMenu = () => {
   return (
     <ul className="primary-menu">
-{/*   keep the old stuff as who knows if this will be messy between different tops
-      <li><Link to="/clicks">clicks</Link></li>
-      <li><Link to="/code">Code</Link></li>
-      <li><Link to="/camera">Camera</Link></li>
-      <li><hr /></li> does this work? */}
-
 
       <li>
         <Link to="/clicks">
@@ -21,12 +16,12 @@ const PrimaryMenu = () => {
 
       <li>
         <Link to="/code">
-          <span className="category">CODE</span> 
+          <span className="category">CODE</span>
           <span className="screen-reader-text"> - </span>
           <span className="qualifier">Development</span>
         </Link>
       </li>
-      
+
       <li>
         <Link to="/camera">
           <span className="category">CAMERA</span>
@@ -34,7 +29,7 @@ const PrimaryMenu = () => {
           <span className="qualifier">Photo &amp; Video</span>
         </Link>
       </li>
-      
+
       <li><hr /></li> {/* I think this is the most symantic way of doing this */}
     </ul>
   )
