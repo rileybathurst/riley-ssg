@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Rileybathurst <riley@rileybathurst.com>",
   "dependencies": {
-    "gatsby": "^5.0.1",
+    "gatsby": "^5.3.3",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.0.0",
     "gatsby-plugin-sass": "^6.0.0",
@@ -14,11 +14,23 @@
     "gatsby-transformer-sharp": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.56.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "sass-loader": "^13.2.0"
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.3.0",
+    "css-loader": "^6.7.3",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1"
   },
   "keywords": [
     "gatsby"
@@ -29,7 +41,9 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",

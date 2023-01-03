@@ -183,7 +183,7 @@
   @media (min-width: $stork) {
     grid-row: 2;
     grid-column: 5;
-    align-self: end;
+    // align-self: end;
     // margin-bottom: 1rem*2; // match the base of the image
   }
 }
@@ -1298,4 +1298,65 @@
 .reading-width {
   width: var(--condor);
   margin: 0 auto;
+}
+
+/*------------------*/
+//  #HEADER__CONCEPT
+/*------------------*/
+
+.header__concept {
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  place-items: center;
+  color: var(--cherry);
+  font-weight: 700;
+
+  > * {
+    grid-row: 1;
+  }
+
+  .breadcrumbs {
+    grid-column: 1;
+    writing-mode: vertical-rl;
+  }
+
+  .riley {
+    grid-column: 2;
+    z-index: 11;
+    mix-blend-mode: multiply;
+  }
+
+  .bathurst {
+    grid-column: 2;
+    // color: #2c2c2c;
+    // font-weight: 100;
+    // font-style: oblique;
+    // filter: blur(0.125rem);
+    z-index: 10;
+  }
+
+  .spine {
+    grid-column: 3;
+    writing-mode: vertical-rl;
+  }
+
+  svg {
+    width: 33%;
+    height: 33%;
+    grid-column: 2;
+  }
+
+  .white {
+    fill: white;
+    filter: blur(0.125rem);
+  }
+
+  .cherry {
+    fill: transparent;
+    stroke: var(--cherry);
+    stroke-width: 0.125rem;
+    filter: blur(0.5rem);
+    padding-inline-start: 0.125rem;
+    padding-block-start: 0.125rem;
+  }
 }
