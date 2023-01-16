@@ -19,8 +19,8 @@ const Footer = ({ siteTitle }) => (
         <div className="footer_1">{/* stay gold */}</div>
 
         <div className="footer_copyright">
-          <p>&copy; <Link to="/" rel="home">{siteTitle}</Link> 2009<span id="InTheYear"> - date("Y")</span></p>
-          {/* Find how to deal with the current year in js im getting its an innerHTML */}
+          <p>&copy; <Link to="/" rel="home">{siteTitle}</Link> 2009<span id="InTheYear"> - {new Date().getFullYear()}</span></p>
+
         </div>{/* .footer_copyright */}
 
         <div className="footer_nav">
