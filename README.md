@@ -52,7 +52,6 @@ the front page, top of a category, contact page etc which have the fancy header
 
 anything singular with a full width image
 
-
 #### header_isolated 
 
 A 100vw width page for a specific image or video
@@ -60,3 +59,7 @@ A 100vw width page for a specific image or video
 #### Others
 Not needed yet but it might happen.
 I think featured can mean all three so stay away from that
+
+#### Test
+
+Check the branch update
