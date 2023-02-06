@@ -1,8 +1,6 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
-
-import PrimaryMenu from "./primarymenu"
+import { Link } from "gatsby"
+import PropTypes from "prop-types" // ?
 
 const Footer = ({ siteTitle }) => (
   <footer className="site-footer">

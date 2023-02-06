@@ -3,7 +3,8 @@ import { Link } from "gatsby";
 
 import showdown from "showdown";
 
-import Layout from "../components/layout";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 function Markdown(props) {
   var converter = new showdown.Converter(),
@@ -17,7 +18,8 @@ function Markdown(props) {
 
 const BlogView = ({ blog }) => {
   return (
-    <Layout>
+    <>
+      <Header />
       <div className="spine-border">{/* stay gold */}</div>
 
       {/* // TODO: the nesting here is a mess build it out as a storyboard */}
@@ -27,7 +29,8 @@ const BlogView = ({ blog }) => {
           <Markdown article={blog.article.data.article} />
         </div>
       </article>
-    </Layout>
+      <Footer />
+    </>
   );
 };
 

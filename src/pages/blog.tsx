@@ -2,11 +2,12 @@
 import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-// import SEO from "../components/seo"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const BlogPage = () => (
-  <Layout>
+  <>
+    <Header />
     <h1>Blog</h1>
     <main>
       <StaticQuery
@@ -24,7 +25,8 @@ const BlogPage = () => (
         )}
       />
     </main>
-  </Layout>
+    <Footer />
+  </>
 )
 
 export default BlogPage

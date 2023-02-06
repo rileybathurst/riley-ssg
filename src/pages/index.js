@@ -1,14 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-// import SEO from "../components/seo"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const IndexPage = () => (
-  <Layout>
-    {/* <SEO title="Home" /> */}
-    {/* <Image /> */}
+  <>
+    <Header />
     <div className="background-primary">
       <div className="front-page-titles">
         <div className="fp-box">{/* stay gold */}</div>
@@ -122,8 +120,9 @@ const IndexPage = () => (
         </article>
 
       </section>
-    </div> {/* .background-dirty */}
-  </Layout>
+    </div>
+    <Footer />
+  </>
 )
 
 export default IndexPage

@@ -1,13 +1,16 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-// import SEO from "../components/seo"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const IndexPage = () => (
-  <Layout>
+  <>
+    <Header />
     {/* <SEO title="Clients" /> */}
-    <p>I have worked with;</p> {/* check the punctuation at the end of this */}
+    <h1>Clients</h1>
+    <h2>I have worked with:</h2> {/* check the punctuation at the end of this */}
+    {/* // TODO make a supra */}
 
     <h3><Link to="/clicks">Clicks</Link></h3>
 
@@ -138,7 +141,8 @@ const IndexPage = () => (
 
       <li><strong><a href="http://chillout.co.nz">Chill Studios</a></strong></li>
       <li>Marketing studio and Multi mountain ski pass in New Zealand.</li></ul>
-  </Layout>
+    <Footer />
+  </>
 )
 
 export default IndexPage
