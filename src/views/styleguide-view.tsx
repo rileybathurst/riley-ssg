@@ -25,8 +25,8 @@ const StyleguideView = ({ styleguide }) => {
       {/* // TODO: the nesting here is a mess build it out as a storyboard */}
       <article>
         <div className="article-content">
-          <h1>{styleguide.title}</h1>
-          <Markdown article={styleguide.guide.data.guide} />
+          <h1>{styleguide.name}</h1>
+          <Markdown article={styleguide.guide.data} />
         </div>
       </article>
       <Footer />
