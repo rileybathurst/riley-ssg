@@ -7,7 +7,8 @@ const strapiConfig = {
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
     "blog",
-    "tag"
+    "tag",
+    'styleguides'
   ],
   singleTypes: [],
   remoteFileHeaders: {

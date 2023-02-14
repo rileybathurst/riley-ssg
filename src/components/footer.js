@@ -28,9 +28,11 @@ const Footer = ({ siteTitle }) => (
               ) ); ?> */}
           <nav id="bottom-menu" className="menu reading-width">{/* this might be able to be the top level now */}
             <ul>
+              {/* // TODO needs keys */}
               {/* <li><Link to='/search'>Search</Link></li> I need to learn a gatsby / ssg search function */}
               <li><Link to='/contact'>Contact</Link></li>
               <li><Link to='/blog'>Blog</Link></li>
+              <li><Link to='/styleguides'>Styleguides</Link></li>
               {/* I can do something more interesting with this as a show whats available maybe an accordian or work in with what I already have */}
               <li><Link to='/social'>Social</Link></li>
               <li><Link to='/now'>Now</Link></li>
