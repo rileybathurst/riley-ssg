@@ -1072,45 +1072,29 @@
 .footer_menu {
   display: grid;
   grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
-  grid-gap: 1rem;
+  grid-gap: 1rem; // TODO: columns and rows
   padding-top: 1rem;
-  // margin-left: 0;
   padding-left: 0;
   max-width: var(--albatross);
-
-  @media (min-width: $stork) {
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 3rem;
-  }
-
-  @media (min-width: $pelican) {
-    max-width: calc(77rem - 6rem);
-    margin: 0 auto;
-  }
 }
 
 .footer_info {
   display: grid;
-  grid-template-columns: 1fr; // start simple stack then go to direction. maybe this should be a flex
-  grid-gap: 1rem;
-  // max-width: var(--albatross);
-  max-width: var(--condor);
+  grid-template-columns: repeat(3, 1fr); // TODO: minmax stack for small
+  grid-gap: 1rem; // TODO: columns and rows
+  max-width: var(--albatross);
+  margin-inline: auto;
 
-  // margin: 1rem; // allows the grid gap to sit inside the colored background
-  margin: 1rem auto; // still working on this
-
-  @media (min-width: $stork) {
-    grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
-
-    margin: 1rem auto; // still working on this
+  address {
+    grid-column: 3;
   }
 }
 
 .footer_info div,
-.footer_info address {
+address {
   background: var(--kingly-cloud); // step back with the grid gap fill
   @media (prefers-color-scheme: dark) {
-    background: #2c2c2c; // this should be made a variable
+    background: #2c2c2c; // TODO: this should be made a variable
   }
 }
 
@@ -1138,13 +1122,6 @@
   @media (min-width: $stork) {
     grid-row: 1;
     z-index: 10;
-  }
-}
-
-.footer_copyright {
-  @media (min-width: $stork) {
-    // grid-row: 1;
-    grid-column: 2;
   }
 }
 

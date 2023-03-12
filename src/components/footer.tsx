@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types" // ?
 
-const Footer = ({ siteTitle }) => (
+const Footer = () => (
   <footer className="site-footer">
 
     <hr className="mega-hr-dirty reading-width" />
@@ -14,46 +14,41 @@ const Footer = ({ siteTitle }) => (
 
     <div className="background-dirty footer-background__step">
       <div className="footer_info">
-        <div className="footer_1">{/* stay gold */}</div>
 
         <div className="footer_copyright">
-          <p>&copy; <Link to="/" rel="home">{siteTitle}</Link> 2009<span id="InTheYear"> - {new Date().getFullYear()}</span></p>
-
+          <p><Link to="/" rel="home">Riley Bathurst</Link> 2009<span id="InTheYear"> - {new Date().getFullYear()}</span></p>
+          <Link to='/now'>Now</Link>
         </div>{/* .footer_copyright */}
 
-        <div className="footer_nav">
-          {/* <?php wp_nav_menu( array(
-                'theme_location' => 'secondary',
-                'menu_id'        => 'bottom-menu',
-              ) ); ?> */}
-          <nav id="bottom-menu" className="menu reading-width">{/* this might be able to be the top level now */}
-            <ul>
-              {/* // TODO needs keys */}
-              {/* <li><Link to='/search'>Search</Link></li> I need to learn a gatsby / ssg search function */}
-              <li><Link to='/contact'>Contact</Link></li>
-              <li><Link to='/blog'>Blog</Link></li>
-              <li><Link to='/styleguides'>Styleguides</Link></li>
-              {/* I can do something more interesting with this as a show whats available maybe an accordian or work in with what I already have */}
-              <li><Link to='/social'>Social</Link></li>
-              <li><Link to='/now'>Now</Link></li>
-            </ul>
-          </nav>
-        </div> {/* .footer_nav */}
+        <nav id="bottom-menu" className="">
+          <ul>
+            {/* // TODO need to build search */}
+            {/* <li key="search"><Link to='/search'>Search</Link></li> */}
+            <li key="projects"><Link to='/projects'>Projects</Link></li>
+            <li key="blog"><Link to='/blogs'>Blog</Link></li>
+            <li key="styleguides"><Link to='/styleguides'>Styleguides</Link></li>
+            {/* I can do something more interesting with this as a show whats available maybe an accordian or work in with what I already have */}
+          </ul>
+        </nav>
 
+        {/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address */}
         <address className="footer_contact">
           {/* add some more details to this ie subject */}
-          <a href="mailto:riley@rileybathurst.com">riley@rileybathurst.com</a>
-          <a href="tel:5303866296">(530) 386-6296</a>
+          <p>
+            <a href="mailto:riley@rileybathurst.com">riley@rileybathurst.com</a>
+          </p>
+          <p>
+            <a href="tel:5303866296">(530) 386-6296</a>
+          </p>
         </address>
-
-        <div className="footer_5">{/* stay gold */}</div>
-      </div>{/* footer_info */}
+      </div>
     </div>{/* .background-dirty footer-background__step */}
 
     <div className="background-primary background-primary__social-icons">
       {/* <div className="fp-box ccc-west"></div> I had this removed in wp? */}
 
       <div className="social-icons">
+        {/* TODO: move these to comopnents */}
         <div className="fp-box">
           <a href="https://www.instagram.com/rileybathurst/">
             <svg id="icon-instagram" viewBox="0 0 28 32">
@@ -76,23 +71,10 @@ const Footer = ({ siteTitle }) => (
           </a>
         </div> {/* .fp-box */}
       </div> {/* .social-icons */}
-
-      {/* <div className="fp-box ccc-east"></div> this had been removed in wp */}
-
     </div> {/* .background-primary background-primary__social-icons */}
 
     {/* I dont think I need to close the html and body tags as I dont open them */}
   </footer>
 )
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
-  // SiteDescription: PropTypes.string,
-}
-
-Footer.defaultProps = {
-  siteTitle: ``,
-  // SiteDescription: ``,
-}
 
 export default Footer
