@@ -1,8 +1,26 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-const Header = ({ siteTitle }) => (
-  <>
+const Header = ({ siteTitle }) => {
+
+  // keep an eye if this needs to come from a hook
+  const { strapiImageGrab } = useStaticQuery(graphql`
+      query headshotQuery {
+        strapiImageGrab(name: {eq: "headshot"}) {
+          name
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    `)
+
+  return (
     <header className='site-header'>
 
       <div className="site-branding-text">
@@ -26,7 +44,10 @@ const Header = ({ siteTitle }) => (
       <div className="header-color-blocking">{/* stay gold */}</div>
       <div className="custom-header-media overlaying-image">
         <div className="hero gp-top">
+          <GatsbyImage
+            image={strapiImageGrab.image.localFile.childImageSharp.gatsbyImageData}
 
+          />
         </div> {/* .hero .gp-top */}
       </div> {/* .custom-header-media overlaying image */}
 
@@ -38,7 +59,16 @@ const Header = ({ siteTitle }) => (
       <div className="spine">Pushing Pixels Since 2009</div>
 
     </header>
-  </>
-)
+  )
+}
 
 export default Header
+
+/* export const Head = () => {
+  return (
+    <SEO
+      title={`Demos | ${useSiteName()}`}
+      description="Enjoy the majesty of Lake Tahoe while kayaking in one of our high-end demo rentals."
+    />
+  )
+} */

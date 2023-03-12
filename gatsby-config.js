@@ -8,7 +8,8 @@ const strapiConfig = {
   collectionTypes: [
     "blog",
     "tag",
-    'styleguides'
+    'styleguides',
+    'image-grab'
   ],
   singleTypes: [],
   remoteFileHeaders: {
@@ -36,6 +37,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
