@@ -21,6 +21,7 @@
     "showdown": "^2.1.0"
   },
   "devDependencies": {
+    "@mdx-js/react": "^2.3.0",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
