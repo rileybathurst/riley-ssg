@@ -74,6 +74,7 @@
   --baseline: 1.5rem; // 24px
 
   /* 🏔 Mountain Names as Font Sizing Defaults */
+  // TODO: have a nicer rythym for these
   /* (Highest by Continent) */
   --everest: 3rem; /* 29,035ft Asia */
   --aconcagua: 2.5rem; /* 22,840ft South America */
@@ -90,6 +91,16 @@
   /*------------------*/
 
   --global-transition: 0.5s ease; // used for hover states I think I can remove this from being a "global"
+
+  /*------------------*/
+  //  #Z INDEX
+  // https://en.wikipedia.org/wiki/Forest
+  /*------------------*/
+
+  --floor: 1;
+  --understory: 2;
+  --canopy: 3;
+  --emergent: 4;
 }
 
 /*------------------*/

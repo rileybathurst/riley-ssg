@@ -4,6 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import SpineBorder from "../components/spine-border"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const IndexPage = () => {
 
@@ -11,7 +12,26 @@ const IndexPage = () => {
     query IndexQuery {
       allStrapiProject {
         nodes {
+          id
           title
+          excerpt
+          slug
+          start(formatString: "MM YYYY")
+          finish(formatString: "MM YYYY")
+
+          hero {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+
+          trades {
+            id
+            name
+          }
         }
       }
     }
@@ -118,88 +138,64 @@ const IndexPage = () => {
         </main> {/* .site-main */}
       </div > {/* .background-dirty */}
 
-      {/* <hr className="mega-hr-primary" /> */}
-
-      <div className="background-dirty">
-        <section className="site-main">
-          <h2 className="featured-header">Featured Projects</h2>
-          <article className="">
-            <figure className="article-thumbnail category-thumbnail category-overlaying-image">
-              <Link to="/snowledge">
-                {/* <img src="/images/4frnt_snowledge_app_30_liquify-5-360x240.jpg" alt="skier as part of a design piece" /> */}
-
-              </Link>
-            </figure>
-
-            <Link to="/snowledge" className="category-color-blocking">
-              <div>{/* stay gold */}</div>
-            </Link>
-
-            <div className="fp-header">
-              <hr className="mega-hr" />
-              <h2 className="page-title">
-                <Link to="/snowledge">
-                  Snowledge
+      <div className="">
+        <h2 className="passage" >Featured Projects</h2>
+        {list.map((project) => (
+          <div
+            key={project.id}
+            className="slab"
+          >
+            <article>
+              <h2>
+                <Link to={project.slug}>
+                  {project.title}
                 </Link>
               </h2>
-            </div>
 
-            <div className="article-category">
-              <hr className="mega-hr-primary hide-for-large" />
-              <div className="category-container">
-                <div className="subheading"><p>This Project contains</p>
-                  <ul>
-                    <li><Link to="/clicks">Clicks</Link></li>
-                    <li><Link to="/camera">Camera</Link></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+              <div className="color-blocking">{/* stay gold*/}</div>
 
-            <div className="article-speechbubble">
-              <p><span className="speechbubble">Nov 2016 – Continuing</span></p>{/* Im guessing this was a wordpress reason this needs a span I can probably get rid of */}
-            </div>
+              <GatsbyImage
+                image={project.hero.localFile.childImageSharp.gatsbyImageData}
+                alt={project.hero.alternativeText}
+                className="hero"
+              />
 
-            <div className="featured--excerpt">
-              <p>I’ve been working with Snowledge.co as the lead digital content creator. This is a relatively open position for creating media for advertising and social media. This ranges from disappearing stories on social media as a throw away up to full video projects that have taken weeks to months to complete.</p>
+              <p className="excerpt">
+                {project.excerpt}
+              </p>
 
-              <p>Being involved with a project in the startup phases I have also helped across the board with design on marketing and UI, with a social media base the app needs constant updates and a large amount of shots have flown through the app and out into other channels to promote the project.</p>
-            </div>
+              {/* // TODO: if then put in what its features but only above heights // probably if it has an image */}
+              <aside className="trades">
+                {project.trades.map((trade) => (
+                  <div key={trade.id}>
+                    <Link to={`/trades/${trade.slug}`}>
+                      {trade.name}
+                    </Link>
+                  </div>
+                ))}
+              </aside>
 
-            <div className="article-explore">
-              <hr className="mega-hr-primary" />
-              <Link to="/snowledge">Explore Snowledge</Link>
-            </div>
-          </article>
+              <aside className="dates">
+                {/* // TODO: date formating as words */}
+                {project.start} - {project.finish}
+              </aside>
 
-        </section>
-      </div>
-
-      <div className="deck">
-        {list.map((tour) => (
-          <div
-            // key={tour.id}
-            className="card"
-          >
-            {tour.title}
+              <h3 className="explore">
+                <Link to={project.slug}>Explore {project.title}</Link>
+              </h3>
+            </article>
           </div>
         ))}
       </div>
 
-      <div className="deck__more">
+      <div className="passage">
         {hasMore ? (
-          <button onClick={handleLoadMore} className=''>VIEW MORE TOURS &amp; LESSONS</button>
+          <button onClick={handleLoadMore} className=''>View more projects</button>
         ) : (
           <p>Thats all the projects</p>
         )}
         <hr />
       </div>
-
-
-
-
-
-
 
       <Footer />
     </>

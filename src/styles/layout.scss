@@ -35,6 +35,23 @@
   }
 }
 
+.passage {
+  max-width: var(--pelican);
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+}
+
+.progression {
+  display: flex;
+  column-gap: 0.75rem;
+  max-width: var(--pelican);
+  flex-flow: row wrap;
+
+  > * {
+    flex: 1 1 calc(var(--vulture) - 2rem);
+  }
+}
+
 /*--------------------------------------------------------------
 2.0 Header
 --------------------------------------------------------------*/
@@ -1300,6 +1317,7 @@
   margin: 0 auto;
 }
 
+// TODO: Name
 /*------------------*/
 //  #HEADER__CONCEPT
 /*------------------*/
@@ -1366,5 +1384,70 @@
     grid-column: 2;
     grid-row: 1;
     aspect-ratio: 16/9;
+  }
+}
+
+/*------------------*/
+//  #SLAB
+/*------------------*/
+
+.slab {
+  background: var(--kingly-cloud);
+
+  article {
+    max-width: var(--albatross);
+    margin-inline: auto;
+    display: grid;
+    column-gap: 0.75rem;
+    row-gap: var(--baseline);
+
+    padding-block-start: 2rem;
+
+    grid-template-columns: 2em 1fr 2em;
+
+    h2 {
+      grid-row: 1;
+      grid-column: 2;
+      z-index: var(--emergent);
+      align-self: end;
+
+      a {
+        color: white;
+      }
+    }
+
+    .hero {
+      grid-row: 1;
+      grid-column: 2;
+      filter: grayscale(100%);
+    }
+
+    .color-blocking {
+      grid-row: 1;
+      grid-column: 2;
+      z-index: var(--canopy);
+    }
+
+    .excerpt {
+      grid-row: 2;
+      grid-column: 2;
+    }
+
+    .explore {
+      grid-row: 3;
+      grid-column: 2;
+    }
+
+    .trades {
+      grid-row: 1/3;
+      grid-column: 1;
+      writing-mode: vertical-rl;
+    }
+
+    .dates {
+      grid-row: 1/3;
+      grid-column: 3;
+      writing-mode: vertical-rl;
+    }
   }
 }
