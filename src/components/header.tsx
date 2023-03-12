@@ -25,7 +25,7 @@ const Header = () => {
     <header className='header__concept'>
       <GatsbyImage
         image={strapiImageGrab.image.localFile.childImageSharp.gatsbyImageData}
-        alt={strapiImageGrab.alternativeText}
+        alt={strapiImageGrab.image.alternativeText}
         className="headshot"
       />
       <div className='breadcrumbs'>HOME</div>

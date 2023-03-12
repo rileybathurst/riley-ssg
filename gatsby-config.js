@@ -9,7 +9,9 @@ const strapiConfig = {
     "blog",
     "tag",
     'styleguides',
-    'image-grab'
+    'image-grab',
+    `project`,
+    `trade`,
   ],
   singleTypes: [],
   remoteFileHeaders: {
