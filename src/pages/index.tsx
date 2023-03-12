@@ -46,10 +46,14 @@ const IndexPage = () => (
 
           <div className="spine-border">{/* stay gold */}</div>
 
-          <div className="fp-header">
-            <h2 className="page-title">I&rsquo;m A <span id="changeText">Designer</span></h2>
+          <div className="fp-header titleSpinner">
+            <h2 className="page-title">I&rsquo;m A&nbsp;</h2>
+            <div id="changeText">
+              <h2 className="page-title">Designer</h2>
+              <h2 className="page-title">Developer</h2>
+              <h2 className="page-title">Photographer</h2>
+            </div>
           </div>
-
           <div className="article-content">
             <p>Welcome to Riley Bathurst Design this is my freelance design, photography, and video space.</p>
 

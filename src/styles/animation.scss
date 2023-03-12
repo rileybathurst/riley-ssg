@@ -1,0 +1,63 @@
+/*------------------*/
+//  #ANIMATION
+/*------------------*/
+
+.titleSpinner {
+  display: flex;
+  flex-direction: column;
+  padding-block-end: 0;
+  padding-inline-start: 0;
+
+  @media (min-width: $stork) {
+    flex-direction: row;
+  }
+
+  > * {
+    margin-block-end: 0;
+  }
+}
+
+#changeText {
+  height: 2.5rem;
+  line-height: 3rem;
+  overflow-y: hidden;
+
+  @media (min-width: $stork) {
+    height: 4rem; // same as the line height
+    margin-block-end: var(--global-margin);
+  }
+
+  h2 {
+    margin: 0; // this is now in the box above
+    /* @keyframes duration | delay | iteration-count | name */
+    animation: 5s 3s infinite slideUp;
+  }
+}
+
+/* 100% divided by double the number of lines to account for pauses */
+// 100% shows a tiny amount of drops which is super annoying
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  16% {
+    transform: translateY(-100%);
+  }
+
+  32% {
+    transform: translateY(-100%);
+  }
+
+  48% {
+    transform: translateY(-200%);
+  }
+
+  64% {
+    transform: translateY(-200%);
+  }
+
+  80% {
+    transform: translateY(0);
+  }
+}

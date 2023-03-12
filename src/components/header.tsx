@@ -2,7 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
 
   // keep an eye if this needs to come from a hook
   const { strapiImageGrab } = useStaticQuery(graphql`
@@ -37,12 +37,3 @@ const Header = ({ siteTitle }) => {
 }
 
 export default Header
-
-/* export const Head = () => {
-  return (
-    <SEO
-      title={`Demos | ${useSiteName()}`}
-      description="Enjoy the majesty of Lake Tahoe while kayaking in one of our high-end demo rentals."
-    />
-  )
-} */
