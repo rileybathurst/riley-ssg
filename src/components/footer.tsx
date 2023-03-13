@@ -1,16 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types" // ?
 
 const Footer = () => (
   <footer className="site-footer">
-
-    <hr className="mega-hr-dirty reading-width" />
-
-    <h3 className="site-footer--browse">Browse projects by category</h3>
-    {/*     <nav className="menu">
-      <PrimaryMenu />
-    </nav> */}
 
     <div className="background-dirty footer-background__step">
       <div className="footer_info">

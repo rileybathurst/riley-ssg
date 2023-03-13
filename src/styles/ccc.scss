@@ -1,63 +1,42 @@
-.ccc-west {
-  display: none;
-  @media (min-width: $stork) {
-    display: inline;
-    grid-column: 1;
-    grid-row: 1/4;
-    // 	margin-bottom: 1rem;
-  }
-}
+/*--------------------------------------------------------------
+CLICKS CODE CAMERA
+--------------------------------------------------------------*/
 
-.clicks,
-.code,
-.camera {
-  grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 0.5em; // TODO
-
-  @media (min-width: $stork) {
-    grid-gap: 1em;
-  }
-}
-
-.ccc-east {
-  display: none;
-  @media (min-width: $stork) {
-    display: initial;
-    grid-column: 3;
-    grid-row: 1/4;
-    // 	margin-bottom: 1rem;
-  }
-}
-
-.social-icons {
+.ghost-titles {
   max-width: var(--albatross);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
-}
+  margin-inline: auto;
 
-.social-icons > .fp-box > a {
-  display: inline-block;
-}
+  display: grid; // I am using this for the grid gap it could probably be done better
+  grid-template-columns: 2rem repeat(6, 1fr) 2rem;
+  gap: 0.5rem;
 
-.social-icons svg {
-  width: 2em;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-
-  @media (min-width: $stork) {
-    // red text on brackets isnt a good sign does it need a prefix
-    width: 3em;
+  background: var(--brilliance);
+  @media (prefers-color-scheme: dark) {
+    background: var(--black-metal);
   }
-}
 
-.social-icons svg {
-  fill: var(--brilliance);
-}
+  div {
+    background: var(--cherry);
+    color: white;
 
-.social-icons svg:hover {
-  fill: var(--kingly-cloud);
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover
+    @media (hover: hover) {
+      span {
+        transition: 20s ease;
+        opacity: 0.2;
+        display: grid;
+        place-items: center;
+        padding-block: 0.5rem;
+      }
+
+      span:hover {
+        transition: var(--global-transition);
+        opacity: 1;
+      }
+    }
+  }
+
+  .presence {
+    opacity: 1 !important; // why do I need important?
+  }
 }

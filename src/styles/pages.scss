@@ -24,29 +24,3 @@
 #commentform [type="submit"] {
   @extend button;
 }
-
-// front page
-.ghostly {
-  // TODO padding: 1rem/2 0;
-
-  // @media (min-width: $stork) {
-  padding: 1rem 0;
-  // }
-}
-
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
-@media (hover: hover) {
-  .ghostly {
-    transition: 20s ease;
-    opacity: 0.2;
-  }
-
-  .ghostly:hover {
-    transition: var(--global-transition);
-    opacity: 1;
-  }
-
-  .presence {
-    opacity: 1 !important; // why do I need important?
-  }
-}

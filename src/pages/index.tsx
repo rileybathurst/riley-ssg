@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-import Header from "../components/header"
+import Ghosts from "../components/ghosts"
 import Footer from "../components/footer"
 import SpineBorder from "../components/spine-border"
-import { GatsbyImage } from "gatsby-plugin-image"
+import Headshot from "../images/headshot"
 
 const IndexPage = () => {
 
@@ -74,37 +75,15 @@ const IndexPage = () => {
 
   return (
     <>
-      <Header />
-      <div className="background-primary">
-        <div className="front-page-titles">
-          <div className="fp-box">{/* stay gold */}</div>
-          <div className="fp-box clicks-a"><div className="ghostly presence">C</div></div>
-          <div className="fp-box clicks-b"><div className="ghostly presence">L</div></div>
-          <div className="fp-box clicks-c"><div className="ghostly presence">I</div></div>
-          <div className="fp-box clicks-d"><div className="ghostly presence">C</div></div>
-          <div className="fp-box clicks-e"><div className="ghostly presence">K</div></div>
-          <div className="fp-box clicks-f"><div className="ghostly presence">S</div></div>
-          <div className="fp-box">{/* stay gold */}</div>
+      <header className='header__concept'>
+        <Headshot />
+        <div className='breadcrumbs'>HOME</div>
+        <div className='spine'>PUSHING PIXELS</div>
+        <h1 className='riley'>RILEY</h1>
+        <h2 className='bathurst'>BATHURST</h2>
+      </header>
 
-          <div className="fp-box">{/* stay gold */}</div>
-          <div className="fp-box code-a"><div className="ghostly presence">C</div></div>
-          <div className="fp-box code-b"><div className="ghostly presence">O</div></div>
-          <div className="fp-box code-c"><div className="ghostly presence">D</div></div>
-          <div className="fp-box code-d"><div className="ghostly presence">E</div></div>
-          <div className="fp-box code-e">&nbsp;</div>
-          <div className="fp-box code-f" data-text="&amp;"><div className="ghostly presence">&amp;</div></div>
-          <div className="fp-box">{/* stay gold */}</div>
-
-          <div className="fp-box">{/* stay gold */}</div>
-          <div className="fp-box camera-a"><div className="ghostly presence">C</div></div>
-          <div className="fp-box camera-b"><div className="ghostly presence">A</div></div>
-          <div className="fp-box camera-c"><div className="ghostly presence">M</div></div>
-          <div className="fp-box camera-d"><div className="ghostly presence">E</div></div>
-          <div className="fp-box camera-e"><div className="ghostly presence">R</div></div>
-          <div className="fp-box camera-f"><div className="ghostly presence">A</div></div>
-          <div className="fp-box">{/* stay gold */}</div>
-        </div>
-      </div>
+      <Ghosts />
 
       {/* I wonder if I can drop a few levels of tags here */}
       <div className="background-dirty" >
@@ -188,6 +167,8 @@ const IndexPage = () => {
         ))}
       </div>
 
+      {/* 
+      // TODO: release this once I have added more projects
       <div className="passage">
         {hasMore ? (
           <button onClick={handleLoadMore} className=''>View more projects</button>
@@ -195,7 +176,7 @@ const IndexPage = () => {
           <p>Thats all the projects</p>
         )}
         <hr />
-      </div>
+      </div> */}
 
       <Footer />
     </>

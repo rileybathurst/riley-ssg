@@ -321,38 +321,6 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-13.2 Front Page
---------------------------------------------------------------*/
-
-.front-page-titles {
-  width: 100%;
-  // max-width: 71rem;
-  max-width: var(--condor);
-  margin: 0 auto;
-  display: grid; // I am using this for the grid gap it could probably be done better
-  grid-template-columns: repeat(6, 1fr);
-  // TODO grid-gap: 1rem/2; // double the grid (6 columns) half the gap
-  background: var(--brilliance);
-  @media (prefers-color-scheme: dark) {
-    background: var(--black-metal);
-  }
-
-  // this needs a couple of media queries to match the header grid
-  @media (min-width: $stork) {
-    grid-gap: 1rem;
-    // width: calc(100% - 4rem); // the 2rem margins on each side to keep the background white
-    width: 100%;
-    // grid-template-columns: 2em 1fr 1fr 1fr 2em; // test as 3
-    grid-template-columns: 2em 1fr 1fr 1fr 1fr 1fr 1fr 2em; // just play by the normal grid its way easier
-  }
-  /*         padding-left: 1rem;
-            padding-right: 1rem; */
-
-  @media (min-width: 77rem) {
-  }
-}
-
-/*--------------------------------------------------------------
 3.1 Category
 --------------------------------------------------------------*/
 
@@ -1427,4 +1395,35 @@ address {
       writing-mode: vertical-rl;
     }
   }
+}
+
+.social-icons {
+  max-width: var(--albatross);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+
+.social-icons > .fp-box > a {
+  display: inline-block;
+}
+
+.social-icons svg {
+  width: 2em;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  @media (min-width: $stork) {
+    // red text on brackets isnt a good sign does it need a prefix
+    width: 3em;
+  }
+}
+
+.social-icons svg {
+  fill: var(--brilliance);
+}
+
+.social-icons svg:hover {
+  fill: var(--kingly-cloud);
 }

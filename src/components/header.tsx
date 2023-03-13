@@ -23,11 +23,11 @@ const Header = () => {
 
   return (
     <header className='header__concept'>
-      <GatsbyImage
+      {/*       <GatsbyImage
         image={strapiImageGrab.image.localFile.childImageSharp.gatsbyImageData}
         alt={strapiImageGrab.image.alternativeText}
         className="headshot"
-      />
+      /> */}
       <div className='breadcrumbs'>HOME</div>
       <div className='spine'>PUSHING PIXELS</div>
       <h1 className='riley'>RILEY</h1>
