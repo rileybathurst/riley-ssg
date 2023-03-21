@@ -1,0 +1,10 @@
+/*------------------*/
+//  #BLOG
+/*------------------*/
+
+// this might be able to be less specific
+.allblogs {
+  li:not(:last-child) {
+    border-block-end: 1px solid black; // TODO dark and style this
+  }
+}
