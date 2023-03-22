@@ -63,3 +63,26 @@ I think featured can mean all three so stay away from that
 #### Test
 
 Check the branch update
+
+## Tools
+
+I think tools in the CMS should be both frameworks and libraries but also concepts and ideas that I use in the portfolio sites.
+- [Gatsby](https://www.gatsbyjs.org/)
+- [React](https://reactjs.org/)
+- [Sass](https://sass-lang.com/)
+- [BEM](http://getbem.com/)
+- [Atomic Design](https://atomicdesign.bradfrost.com/)
+- [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+- [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+- [Pagination](https://en.wikipedia.org/wiki/Pagination) this is more evergreen as it can move frameworks and libraries as those come and go but also can be shown again others
+
+The enum for this is hard to title?
+- library
+- framework
+- concept
+- idea
+
+Are these different to tags?
+yes would be these are more specific you can point to things
+no would be less things to manage

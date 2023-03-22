@@ -39,7 +39,8 @@
     "style-loader": "^3.3.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "pagination"
   ],
   "license": "MIT",
   "scripts": {
