@@ -90,6 +90,8 @@ module.exports = {
                   custom_elements: [
                     {
                       "content:encoded": blog.node.article.data.article
+
+                        // https://javascript.plainenglish.io/simple-markdown-parser-with-javascript-and-regular-expressions-f0c8d53449a4
                         .replace(/^### (.*$)/gim, '<h3>$1</h3>')
                         .replace(/^## (.*$)/gim, '<h2>$1</h2>')
                         .replace(/^# (.*$)/gim, '<h1>$1</h1>')
