@@ -62,13 +62,6 @@ module.exports = {
       options: strapiConfig,
     },
     `gatsby-plugin-sass`,
-
-
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-    // TODO: this is the next thing to figure out
     // TODO: this has the testing URL
     {
       resolve: `gatsby-plugin-feed`,
@@ -87,24 +80,30 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allStrapiBlog } }) => {
-              return allStrapiBlog.nodes.map(blog => {
-                return Object.assign({}, blog, {
-                  title: blog.title,
-                  description: blog.excerpt,
-                  date: blog.createdAt,
-                  url: site.siteMetadata.testingUrl + '/blog/' + blog.slug,
-                  guid: site.siteMetadata.testingUrl + '/blog/' + blog.slug
+              return allStrapiBlog.edges.map(blog => {
+                return Object.assign({}, blog.node, {
+                  title: blog.node.title,
+                  description: blog.node.article.data.article,
+                  date: blog.node.createdAt,
+                  url: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug,
+                  guid: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug
                 })
               })
             },
             query: `
             {
               allStrapiBlog(sort: {publishedAt: DESC}) {
-                nodes {
-                  title
-                  excerpt
-                  slug
-                  createdAt
+                edges {
+                  node {
+                    title
+                    slug
+                    createdAt
+                    article {
+                      data {
+                        article
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -112,13 +111,8 @@ module.exports = {
             output: "/rss.xml",
             title: "Riley Bathurst's RSS Feed",
           },
-        ], // feeds
-      }, // options
-    }, // resolve
-
-
-
-
-
+        ],
+      },
+    },
   ],
 }
