@@ -88,7 +88,45 @@ module.exports = {
                   url: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug,
                   guid: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug,
                   custom_elements: [
-                    { 'content:encoded': blog.node.article.data.article },
+                    // { 'content:encoded': blog.node.article.data.article },
+
+                    // this works it just needs a bunch of regex to do all the markdown
+                    // normally a package would do this but weere in gatsby-config
+                    /*                     {
+                                          "content:encoded": blog.node.article.data.article.replace('Leaflet', '🦄')
+                                        }, */
+                    /* 
+                                        function parseMarkdown(markdownText) {
+                                          const htmlText = markdownText
+                                            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                                            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                                            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                                            .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
+                                            .replace(/\*\*(.*)\*\* // /gim, '<b>$1</b>')
+                                            .replace(/\*(.*)\* // /gim, '<i>$1</i>')
+                                            .replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />")
+                                            .replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>")
+                                            .replace(/\n$/gim, '<br />')
+                                        
+                                          return htmlText.trim()
+                                        } */
+
+                    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+
+                    // console.log(p.replace(regex, 'ferret'));
+
+                    chars = {
+                      'a': 'x',
+                      'b': 'y',
+                      'c': 'z'
+                    },
+
+
+                    regex = /Leaflet/i,
+                    {
+                      "content:encoded": blog.node.article.data.article.replace(regex, '🦖')
+                    },
+
                   ],
                 })
               })
