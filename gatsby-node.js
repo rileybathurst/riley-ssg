@@ -1,9 +1,8 @@
-/* 
 // TODO this is working on building the RSS feed
 // but I need to look at some markdown first
-// which requires pagination first
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+// https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#onCreateNode
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
@@ -14,10 +13,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-} */
+}
+
+
 
 const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
 
 // Create blog posts pages.
 exports.createPages = async ({ graphql, actions, reporter }) => {

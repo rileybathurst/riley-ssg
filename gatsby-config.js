@@ -30,6 +30,8 @@ module.exports = {
     title: `Riley Bathurst`,
     description: `Pushing pixels since 2009`,
     author: `@rileybathurst`,
+    siteUrl: `https://rileybathurst.com`,
+    testingUrl: `https://rileybathurst.netlify.app`,
   },
   plugins: [
     {
@@ -60,11 +62,15 @@ module.exports = {
       options: strapiConfig,
     },
     `gatsby-plugin-sass`,
+
+
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     // TODO: this is the next thing to figure out
-    /* {
+    // TODO: this has the testing URL
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
@@ -73,47 +79,46 @@ module.exports = {
               siteMetadata {
                 title
                 description
-                siteUrl
-                site_url: siteUrl
+                testingUrl
               }
             }
           }
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+            serialize: ({ query: { site, allStrapiBlog } }) => {
+              return allStrapiBlog.nodes.map(blog => {
+                return Object.assign({}, blog, {
+                  title: blog.title,
+                  description: blog.excerpt,
+                  date: blog.createdAt,
+                  url: site.siteMetadata.testingUrl + '/blog/' + blog.slug,
+                  guid: site.siteMetadata.testingUrl + '/blog/' + blog.slug
                 })
               })
             },
             query: `
-              {
-                allMarkdownRemark(sort: { frontmatter: { date: DESC }}) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
-                      }
-                    }
-                  }
+            {
+              allStrapiBlog(sort: {publishedAt: DESC}) {
+                nodes {
+                  title
+                  excerpt
+                  slug
+                  createdAt
                 }
               }
-            `,
+            }
+          `,
             output: "/rss.xml",
             title: "Riley Bathurst's RSS Feed",
           },
-        ],
-      },
-    }, */
+        ], // feeds
+      }, // options
+    }, // resolve
+
+
+
+
+
   ],
 }

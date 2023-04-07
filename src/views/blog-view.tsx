@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Link } from "gatsby";
 
+// ? why did I use showdown instead of what I normally use. Check the style guide
 import showdown from "showdown";
 
 import Header from "../components/header";
