@@ -83,10 +83,13 @@ module.exports = {
               return allStrapiBlog.edges.map(blog => {
                 return Object.assign({}, blog.node, {
                   title: blog.node.title,
-                  description: blog.node.article.data.article,
+                  // description: blog.node.article.data.article,
                   date: blog.node.createdAt,
                   url: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug,
-                  guid: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug
+                  guid: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug,
+                  custom_elements: [
+                    { 'content:encoded': blog.node.article.data.article },
+                  ],
                 })
               })
             },

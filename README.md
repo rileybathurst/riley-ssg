@@ -11,7 +11,7 @@ Im slowly working on porting a wordpress site to a static site so this is how it
 ## Build
 
 - Gatsby
-- // ? Strapi? I dont think this currently has this?
+- Strapi
 
 ## Issues
 
