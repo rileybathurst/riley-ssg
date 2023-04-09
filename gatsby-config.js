@@ -41,6 +41,9 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "@sentry/gatsby",
+    },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -83,27 +86,21 @@ module.exports = {
               return allStrapiBlog.edges.map(blog => {
                 return Object.assign({}, blog.node, {
                   title: blog.node.title,
-                  // description: blog.node.article.data.article,
+                  description: blog.node.article.data.article
+                    // https://javascript.plainenglish.io/simple-markdown-parser-with-javascript-and-regular-expressions-f0c8d53449a4
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                    .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
+                    .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
+                    .replace(/\*(.*)\*/gim, '<i>$1</i>')
+                    .replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />")
+                    .replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>")
+                    .replace(/\n$/gim, '<br />')
+                  ,
                   date: blog.node.createdAt,
                   url: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug,
                   guid: site.siteMetadata.testingUrl + '/blog/' + blog.node.slug,
-                  custom_elements: [
-                    {
-                      "content:encoded": blog.node.article.data.article
-
-                        // https://javascript.plainenglish.io/simple-markdown-parser-with-javascript-and-regular-expressions-f0c8d53449a4
-                        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-                        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-                        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-                        .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
-                        .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
-                        .replace(/\*(.*)\*/gim, '<i>$1</i>')
-                        .replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />")
-                        .replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>")
-                        .replace(/\n$/gim, '<br />')
-                    },
-
-                  ],
                 })
               })
             },

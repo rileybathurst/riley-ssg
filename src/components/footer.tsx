@@ -65,6 +65,8 @@ const Footer = () => (
       </div> {/* .social-icons */}
     </div> {/* .background-primary background-primary__social-icons */}
 
+    {/* // TODO: add a link to /rss.xml */}
+
     {/* I dont think I need to close the html and body tags as I dont open them */}
   </footer>
 )
