@@ -3,55 +3,42 @@
 
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 // https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#trade-offs-of-querying-for-all-fields-in-the-context-object-of-gatsby-nodejs
 const BlogTemplate = ({ data, pageContext }) => {
 
-  // console.log(this); // undefined
-  // console.log(this.props); // fails
-  // console.log(data);
-  // console.log(pageContext);
-
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
-  // this has to do some stuff to make page 2 link back to page nothing
   const prevPage = currentPage - 1 === 1 ? '' : (currentPage - 1).toString()
   const nextPage = (currentPage + 1).toString()
-  // console.log(currentPage); // test
 
   return (
     <>
+      <Header />
       <h1>Blog</h1>
-      {/* <p>{pageContext.currentPage}</p> */}
       <hr />
-      <ol>{/* kinda interesting to do ol but it needs to skip numbers with the math */}
+      <ol>
         {
-          data.allStrapiBlog.edges.map(blog => (
+          data.allStrapiBlog.nodes.map(blog => (
             <li
-              key={blog.node.id}
-            // className=""
+              key={blog.id}
             >
-              {/* <Link to={`/blog/${blog.node.slug}`}> */}
-              <h2>
-                {blog.node.title}
-              </h2>
-              {/* <When published={blog.node.publishedAt} updated={blog.node.updatedAt} /> */}
-              {/* </Link> */}
+              <Link to={`/blog/${blog.slug}`}>
+                <h2>
+                  {blog.title}
+                </h2>
+                {/* <When published={blog.node.publishedAt} updated={blog.node.updatedAt} /> */}
+              </Link>
             </li>
           ))
         }
       </ol>
 
+      <hr />
 
-
-
-
-
-
-
-
-      {/* {prevPage}{nextPage} */}
       <h3>pagination starts here</h3>
       <ul>
         {!isFirst && (
@@ -79,15 +66,7 @@ const BlogTemplate = ({ data, pageContext }) => {
         )}
       </ul>
 
-
-
-
-
-
-
-
-
-
+      <Footer />
     </>
   );
 };
@@ -104,11 +83,12 @@ export const query = graphql`
       limit: $limit,
       skip: $skip
     ) {
-      edges{
-        node {
-          id
-          title
-        }
+      nodes {
+        id
+        title
+        slug
+        publishedAt
+        updatedAt
       }
     }
   }

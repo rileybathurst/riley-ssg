@@ -1,4 +1,4 @@
-// Gatsby supports TypeScript natively!
+// ! im getting rid of this so its gatsby node to have pagination
 import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 

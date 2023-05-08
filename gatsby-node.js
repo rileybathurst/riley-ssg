@@ -1,5 +1,3 @@
-// TODO this is working on building the RSS feed
-// but I need to look at some markdown first
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#onCreateNode
@@ -15,30 +13,25 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-
-
 const path = require("path")
 
-// Create blog posts pages.
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const result = await graphql(
-    `
-      {
-        allStrapiBlog(
-          sort: {updatedAt: DESC}
-          limit: 1000
-        ) {
-          edges {
-            node {
-              slug
-            }
+  const result = await graphql(`
+    {
+      allStrapiBlog(
+        sort: {updatedAt: DESC}
+        limit: 1000
+      ) {
+        edges {
+          node {
+            slug
           }
         }
       }
-    `
-  )
+    }
+  `)
 
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
@@ -48,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create blog-list pages with pagination
   // https://github.com/NickyMeuleman/gatsby-paginated-blog/blob/master/gatsby-node.js
   const posts = result.data.allStrapiBlog.edges
-  const postsPerPage = 6
+  const postsPerPage = 10
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -62,16 +55,73 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
-}
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `strapiBlog`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
+  const blogView = path.resolve(`src/templates/blog-view.tsx`)
+  const blogResult = await graphql(`
+    query {
+      allStrapiBlog {
+        edges {
+          node {
+            slug
+          }
+          next {
+            slug
+          }
+          previous {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  // console.log(blogResult.data.allStrapiBlog.edges);
+
+  // I dont know how to run optionals here so I'll skip that with queries
+  blogResult.data.allStrapiBlog.edges.forEach(({ node, next, previous }) => {
+
+    if (next && previous) {
+      createPage({
+        path: `/blog/${node.slug}`,
+        component: blogView,
+        context: {
+          slug: node.slug,
+          next: next.slug,
+          previous: previous.slug,
+        },
+      })
+    } else if (next) {
+      createPage({
+        path: `/blog/${node.slug}`,
+        component: blogView,
+        context: {
+          slug: node.slug,
+          previous: null,
+          next: next.slug,
+        },
+      })
+    } else if (previous) {
+
+      createPage({
+        path: `/blog/${node.slug}`,
+        component: blogView,
+        context: {
+          slug: node.slug,
+          previous: previous.slug,
+          next: null,
+        },
+      })
+    } else {
+      createPage({
+        path: `/blog/${node.slug}`,
+        component: blogView,
+        context: {
+          slug: node.slug,
+          previous: null,
+          next: null,
+        },
+      })
+    }
+  })
+
 }
